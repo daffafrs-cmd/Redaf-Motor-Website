@@ -24,7 +24,7 @@
         }
     </script>
     <style>
-        /* Efek Grid Cyber / Sporty Racing Line */
+        /* Efek Grid Cyber Sporty */
         .cyber-grid {
             background-image: 
                 linear-gradient(to right, rgba(230, 0, 18, 0.05) 1px, transparent 1px),
@@ -114,8 +114,58 @@
         </div>
     </nav>
 
+    <!-- SECTION SLIDER 4 FOTO (FULL SCREEN / HERO SLIDER) -->
+    <div class="relative w-full h-[65vh] md:h-[85vh] overflow-hidden bg-black group">
+        <!-- Container Slider -->
+        <div id="carousel-track" class="flex transition-transform duration-700 ease-in-out h-full w-[400%]">
+            
+            <!-- Slide 1 -->
+            <div class="w-1/4 h-full relative flex-shrink-0">
+                <img src="Photo/banner1.jpg" alt="Banner Promo 1" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-transparent to-black/40"></div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="w-1/4 h-full relative flex-shrink-0">
+                <img src="Photo/banner2.jpg" alt="Banner Promo 2" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-transparent to-black/40"></div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="w-1/4 h-full relative flex-shrink-0">
+                <img src="Photo/banner3.jpg" alt="Banner Promo 3" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-transparent to-black/40"></div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="w-1/4 h-full relative flex-shrink-0">
+                <img src="Photo/banner4.jpg" alt="Banner Promo 4" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-transparent to-black/40"></div>
+            </div>
+
+        </div>
+
+        <!-- Tombol Panah Navigasi Kiri -->
+        <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-yamahaRed text-white p-3 rounded-full backdrop-blur-sm border border-white/20 transition opacity-80 hover:opacity-100 z-20">
+            <i class="fa-solid fa-chevron-left text-lg"></i>
+        </button>
+
+        <!-- Tombol Panah Navigasi Kanan -->
+        <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-yamahaRed text-white p-3 rounded-full backdrop-blur-sm border border-white/20 transition opacity-80 hover:opacity-100 z-20">
+            <i class="fa-solid fa-chevron-right text-lg"></i>
+        </button>
+
+        <!-- Indikator Bulat (Dots) -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+            <button class="dot-btn w-3 h-3 rounded-full bg-yamahaRed transition-all duration-300" onclick="goToSlide(0)"></button>
+            <button class="dot-btn w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="goToSlide(1)"></button>
+            <button class="dot-btn w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="goToSlide(2)"></button>
+            <button class="dot-btn w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="goToSlide(3)"></button>
+        </div>
+    </div>
+
     <!-- Hero Section dengan Sporty Deep Space Effect -->
-    <section class="relative bg-redafBlack text-white py-16 lg:py-28 flex-grow overflow-hidden">
+    <section class="relative bg-redafBlack text-white py-16 lg:py-24 flex-grow overflow-hidden border-t border-gray-900">
         
         <!-- Layer Background 1: Nebula Glows -->
         <div class="absolute -top-32 -left-32 w-96 h-96 bg-yamahaRed/25 rounded-full blur-3xl pointer-events-none"></div>
@@ -206,8 +256,9 @@
         &copy; 2026 REDAF MOTOR GROUP. All Rights Reserved.
     </footer>
 
-    <!-- Script Hamburger Menu -->
+    <!-- Script Hamburger Menu & Auto Slider 10 Detik -->
     <script>
+        // Menu HP Script
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -222,6 +273,68 @@
                 menuIcon.classList.add('fa-xmark');
             }
         });
+
+        // Carousel / Slider Script (Auto-Slide 10 Detik)
+        const track = document.getElementById('carousel-track');
+        const dots = document.querySelectorAll('.dot-btn');
+        const totalSlides = 4;
+        let currentSlide = 0;
+        let slideInterval;
+
+        function updateSlider() {
+            // Geser slide sejajar per frame (25% per foto karena total lebar container adalah 400%)
+            track.style.transform = `translateX(-${currentSlide * 25}%)`;
+            
+            // Perbarui warna indikator titik
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-yamahaRed', 'scale-125');
+                } else {
+                    dot.classList.remove('bg-yamahaRed', 'scale-125');
+                    dot.classList.add('bg-white/50');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetInterval();
+        }
+
+        function startInterval() {
+            // 10000 ms = 10 detik
+            slideInterval = setInterval(nextSlide, 10000);
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+
+        document.getElementById('next-slide').addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+
+        document.getElementById('prev-slide').addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+
+        // Jalankan timer saat halaman dimuat
+        startInterval();
     </script>
 </body>
 </html>
