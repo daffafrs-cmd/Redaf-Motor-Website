@@ -43,12 +43,12 @@
         }
         /* Style Transisi Slide */
         .slide-item {
-            transition: opacity 0.8s ease-in-out, transform 1.2s ease-out;
+            transition: opacity 0.8s ease-in-out, transform 1s ease-out;
             opacity: 0;
             pointer-events: none;
             position: absolute;
             inset: 0;
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
         .slide-item.active {
             opacity: 1;
@@ -128,66 +128,63 @@
         </div>
     </nav>
 
-    <!-- FULL SCREEN HERO SLIDER (100% Layar Penuh) -->
-    <div class="relative w-full h-screen bg-black overflow-hidden select-none">
+    <!-- HERO SLIDER: Responsif Penuh (HP: Proporsional Utuh, Laptop: Full-Screen 100vh) -->
+    <div class="relative w-full h-[52vh] sm:h-[65vh] md:h-screen bg-[#0d0e12] overflow-hidden select-none">
         
         <!-- Slide 1 -->
-        <div class="slide-item active">
-            <img src="Photo/1.png" alt="Banner Sparepart" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-black/20 to-black/40"></div>
+        <div class="slide-item active flex items-center justify-center bg-[#0d0e12]">
+            <img src="Photo/1.png" alt="Banner Sparepart" class="w-full h-full object-contain md:object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 2 -->
-        <div class="slide-item">
-            <img src="Photo/2.png" alt="Banner Alat Lengkap" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-black/20 to-black/40"></div>
+        <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
+            <img src="Photo/2.png" alt="Banner Alat Lengkap" class="w-full h-full object-contain md:object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 3 -->
-        <div class="slide-item">
-            <img src="Photo/3.png" alt="Banner KSG" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-black/20 to-black/40"></div>
+        <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
+            <img src="Photo/3.png" alt="Banner KSG" class="w-full h-full object-contain md:object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 4 -->
-        <div class="slide-item">
-            <img src="Photo/4.png" alt="Banner Yamalube" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-black/20 to-black/40"></div>
+        <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
+            <img src="Photo/4.png" alt="Banner Yamalube" class="w-full h-full object-contain md:object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 5 -->
-        <div class="slide-item">
-            <img src="Photo/5.png" alt="Banner Yamalube" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-black/20 to-black/40"></div>
+        <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
+            <img src="Photo/5.png" alt="Banner Promo 5" class="w-full h-full object-contain md:object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 6 -->
-        <div class="slide-item">
-            <img src="Photo/6.jpg" alt="Banner Yamalube" class="w-full h-full object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-black/20 to-black/40"></div>
+        <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
+            <img src="Photo/6.jpg" alt="Banner Promo 6" class="w-full h-full object-contain md:object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
-
-
         <!-- Tombol Panah Kiri -->
-        <button id="prev-btn" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-yamahaRed text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl">
-            <i class="fa-solid fa-chevron-left text-xl"></i>
+        <button id="prev-btn" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-yamahaRed text-white w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl">
+            <i class="fa-solid fa-chevron-left text-sm sm:text-base md:text-xl"></i>
         </button>
 
         <!-- Tombol Panah Kanan -->
-        <button id="next-btn" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-yamahaRed text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl">
-            <i class="fa-solid fa-chevron-right text-xl"></i>
+        <button id="next-btn" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-yamahaRed text-white w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl">
+            <i class="fa-solid fa-chevron-right text-sm sm:text-base md:text-xl"></i>
         </button>
 
         <!-- Titik Indikator (Dots) -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center space-x-3 bg-black/40 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/15">
-            <button class="dot w-3 h-3 rounded-full bg-yamahaRed scale-125 transition-all duration-300" onclick="manualGoToSlide(0)"></button>
-            <button class="dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(1)"></button>
-            <button class="dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(2)"></button>
-            <button class="dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(3)"></button>
-            <button class="dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(4)"></button>
-            <button class="dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(5)"></button>
-            
+        <div class="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center space-x-2 sm:space-x-3 bg-black/50 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full backdrop-blur-md border border-white/15">
+            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yamahaRed scale-125 transition-all duration-300" onclick="manualGoToSlide(0)"></button>
+            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(1)"></button>
+            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(2)"></button>
+            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(3)"></button>
+            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(4)"></button>
+            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(5)"></button>
         </div>
     </div>
 
