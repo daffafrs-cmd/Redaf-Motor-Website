@@ -6,7 +6,7 @@
     <title>Beranda - Redaf Motor Group</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -14,7 +14,8 @@
                     colors: {
                         yamahaRed: '#E60012',
                         yamahaDarkRed: '#B3000E',
-                        redafBlack: '#1A1A1A',
+                        redafBlack: '#0B0B0E',
+                        redafDark: '#12131A',
                         redafGray: '#F4F4F5',
                     },
                     fontFamily: { sans: ['Poppins', 'sans-serif'] }
@@ -22,10 +23,29 @@
             }
         }
     </script>
+    <style>
+        /* Efek Grid Cyber / Sporty Racing Line */
+        .cyber-grid {
+            background-image: 
+                linear-gradient(to right, rgba(230, 0, 18, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 45px 45px;
+        }
+        /* Efek Partikel Bintang / Spark */
+        .space-stars {
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 100px 150px, #ff4d5a, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 200px 80px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 300px 250px, #ff6b78, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 450px 120px, #ffffff, rgba(0,0,0,0));
+            background-size: 550px 550px;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
 
-    <!-- Top Bar Jam Operasional (Responsif di HP) -->
+    <!-- Top Bar Jam Operasional -->
     <div class="bg-redafBlack text-white text-xs py-2 px-4 border-b border-gray-800">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-0">
             <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2 text-center sm:text-left">
@@ -51,7 +71,7 @@
                     <img src="Photo/LOGO REDAF.png" alt="Logo Redaf Motor Group" class="h-12 sm:h-16 w-auto object-contain">
                 </a>
 
-                <!-- Desktop Menu (Tampil di Laptop/Tablet) -->
+                <!-- Desktop Menu -->
                 <div class="hidden lg:flex space-x-8 font-medium text-sm text-gray-700">
                     <a href="index.html" class="text-yamahaRed font-bold">Beranda</a>
                     <a href="tentang.html" class="hover:text-yamahaRed transition">Tentang Kami</a>
@@ -63,13 +83,13 @@
 
                 <!-- Tombol CTA WhatsApp Desktop -->
                 <div class="hidden lg:flex items-center">
-                    <a href="https://wa.me/6285117771369?text=Halo%20Redaf%20Motor,%20saya%20ingin%20booking%20service" target="_blank" class="bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-5 py-2.5 rounded-full shadow-lg transition flex items-center gap-2 text-sm">
+                    <a href="https://wa.me/6285117771369?text=Halo%20Redaf%20Motor,%20saya%20ingin%20booking%20service" target="_blank" class="bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-red-600/30 transition flex items-center gap-2 text-sm">
                         <i class="fa-brands fa-whatsapp text-lg"></i>
                         <span>Booking Service</span>
                     </a>
                 </div>
 
-                <!-- Tombol Hamburger Menu (Tampil Khusus di HP) -->
+                <!-- Tombol Hamburger Menu (HP) -->
                 <div class="lg:hidden flex items-center">
                     <button id="menu-btn" class="text-gray-800 hover:text-yamahaRed focus:outline-none p-2 rounded-lg border border-gray-200">
                         <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
@@ -78,7 +98,7 @@
             </div>
         </div>
 
-        <!-- Drop-down Menu untuk HP (Awalnya tersembunyi) -->
+        <!-- Drop-down Menu HP -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 shadow-xl transition-all duration-300">
             <a href="index.html" class="block py-2 text-yamahaRed font-bold border-b border-gray-100"><i class="fa-solid fa-house mr-2"></i> Beranda</a>
             <a href="tentang.html" class="block py-2 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-circle-info mr-2"></i> Tentang Kami</a>
@@ -94,38 +114,99 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-redafBlack via-gray-900 to-redafBlack text-white py-12 lg:py-20 flex-grow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left grid md:grid-cols-2 gap-8 items-center">
+    <!-- Hero Section dengan Sporty Deep Space Effect -->
+    <section class="relative bg-redafBlack text-white py-16 lg:py-28 flex-grow overflow-hidden">
+        
+        <!-- Layer Background 1: Nebula Glows -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-yamahaRed/25 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -right-20 w-[30rem] h-[30rem] bg-yamahaRed/20 rounded-full blur-[110px] pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[20rem] bg-indigo-950/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Layer Background 2: Space Stars & Cyber Speed Grid -->
+        <div class="absolute inset-0 space-stars opacity-40 pointer-events-none"></div>
+        <div class="absolute inset-0 cyber-grid opacity-30 pointer-events-none"></div>
+
+        <!-- Layer Background 3: Sporty Laser & Geometric Trajectory -->
+        <svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="100%" x2="100%" y2="0" stroke="url(#sporty-grad)" stroke-width="1.5" stroke-dasharray="8 12" />
+            <circle cx="85%" cy="30%" r="180" stroke="rgba(230,0,18,0.3)" stroke-width="1" fill="none" stroke-dasharray="5 5" />
+            <circle cx="85%" cy="30%" r="240" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none" />
+            <defs>
+                <linearGradient id="sporty-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#E60012" stop-opacity="0" />
+                    <stop offset="50%" stop-color="#E60012" stop-opacity="0.8" />
+                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- Main Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left grid md:grid-cols-2 gap-10 items-center">
             <div>
-                <span class="bg-yamahaRed/20 text-yamahaRed border border-yamahaRed/40 text-xs font-bold px-3 py-1 rounded-full uppercase">Bengkel Resmi Yamaha</span>
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black my-4 leading-tight">HANDAL TEKNISINYA,<br><span class="text-yamahaRed">ASLI SPAREPARTNYA</span></h1>
-                <p class="text-gray-300 mb-8 text-sm sm:text-lg">Jaringan bengkel sepeda motor Yamaha terdepan di Bekasi dengan 6 cabang resmi untuk melayani sepeda motor Anda.</p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                    <a href="layanan.html" class="bg-yamahaRed hover:bg-yamahaDarkRed text-white font-bold px-6 py-3 rounded-xl text-center shadow-lg">Lihat Semua Layanan</a>
-                    <a href="jaringan.html" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-6 py-3 rounded-xl text-center">Cari Cabang Terdekat</a>
+                <div class="inline-flex items-center gap-2 bg-yamahaRed/10 border border-yamahaRed/40 text-yamahaRed text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 backdrop-blur-sm shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-yamahaRed animate-ping"></span>
+                    Bengkel Resmi Yamaha
+                </div>
+                
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black my-4 leading-tight tracking-tight drop-shadow-md">
+                    HANDAL TEKNISINYA,<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yamahaRed to-orange-400">
+                        ASLI SPAREPARTNYA
+                    </span>
+                </h1>
+                
+                <p class="text-gray-300 mb-8 text-sm sm:text-lg leading-relaxed max-w-xl">
+                    Jaringan bengkel sepeda motor Yamaha terdepan di Bekasi dengan 6 cabang resmi untuk melayani sepeda motor Anda dengan standar teknologi presisi.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start font-semibold">
+                    <a href="layanan.html" class="bg-gradient-to-r from-yamahaRed to-yamahaDarkRed hover:brightness-110 text-white px-7 py-3.5 rounded-xl text-center shadow-lg shadow-red-600/40 transition-transform active:scale-95 flex items-center justify-center gap-2">
+                        <span>Lihat Semua Layanan</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="jaringan.html" class="bg-white/5 hover:bg-white/15 border border-white/20 hover:border-white/40 backdrop-blur-md text-white px-7 py-3.5 rounded-xl text-center transition duration-200">
+                        Cari Cabang Terdekat
+                    </a>
                 </div>
             </div>
-            <div class="bg-gray-800 p-6 sm:p-8 rounded-2xl border border-gray-700 text-left mt-4 md:mt-0">
-                <h3 class="text-lg sm:text-xl font-bold mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-star text-yamahaRed"></i> Mengapa Redaf Motor Group?
+
+            <!-- Glassmorphism Highlight Card -->
+            <div class="relative bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl p-6 sm:p-8 rounded-2xl border border-white/15 shadow-2xl text-left mt-4 md:mt-0">
+                <div class="absolute -top-3 -right-3 bg-yamahaRed text-white text-[10px] uppercase font-extrabold px-3 py-1 rounded-full tracking-wider shadow">
+                    Garansi Resmi
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold mb-5 flex items-center gap-2.5 text-white">
+                    <i class="fa-solid fa-shield-halved text-yamahaRed text-xl"></i> 
+                    Mengapa Redaf Motor Group?
                 </h3>
-                <ul class="space-y-3 text-xs sm:text-sm text-gray-300">
-                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-yamahaRed mt-1"></i> <span>Fast Pit Service 10-15 Menit Tanpa Antri</span></li>
-                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-yamahaRed mt-1"></i> <span>Service Kunjung Yamaha (SKY) ke Rumah / Jalan</span></li>
-                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-yamahaRed mt-1"></i> <span>100% Yamalube & Yamaha Genuine Parts</span></li>
-                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-yamahaRed mt-1"></i> <span>Fasilitas Ruang Tunggu Nyaman & Snack Gratis</span></li>
+                <ul class="space-y-3.5 text-xs sm:text-sm text-gray-200">
+                    <li class="flex items-start gap-3">
+                        <span class="bg-yamahaRed/20 p-1 rounded text-yamahaRed mt-0.5"><i class="fa-solid fa-bolt text-xs"></i></span>
+                        <span><strong>Fast Pit Service</strong> 10-15 Menit Tanpa Antri</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="bg-yamahaRed/20 p-1 rounded text-yamahaRed mt-0.5"><i class="fa-solid fa-motorcycle text-xs"></i></span>
+                        <span><strong>Service Kunjung Yamaha (SKY)</strong> ke Rumah / Jalan</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="bg-yamahaRed/20 p-1 rounded text-yamahaRed mt-0.5"><i class="fa-solid fa-certificate text-xs"></i></span>
+                        <span><strong>100% Yamalube</strong> & Yamaha Genuine Parts</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="bg-yamahaRed/20 p-1 rounded text-yamahaRed mt-0.5"><i class="fa-solid fa-couch text-xs"></i></span>
+                        <span>Ruang Tunggu Nyaman AC & Snack Gratis</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-redafBlack text-white py-8 border-t-4 border-yamahaRed text-center text-xs text-gray-500">
+    <footer class="bg-redafBlack text-white py-8 border-t-4 border-yamahaRed text-center text-xs text-gray-400">
         &copy; 2026 REDAF MOTOR GROUP. All Rights Reserved.
     </footer>
 
-    <!-- Script JavaScript untuk Buka/Tutup Menu Drop-down HP -->
+    <!-- Script Hamburger Menu -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -133,8 +214,6 @@
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            
-            // Ubah ikon dari tiga garis (bars) ke silang (X) saat diklik
             if (mobileMenu.classList.contains('hidden')) {
                 menuIcon.classList.remove('fa-xmark');
                 menuIcon.classList.add('fa-bars');
