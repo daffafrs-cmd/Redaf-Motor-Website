@@ -41,6 +41,11 @@
                 radial-gradient(2px 2px at 450px 120px, #ffffff, rgba(0,0,0,0));
             background-size: 550px 550px;
         }
+        /* Tinggi Slider Pas 1 Layar Penuh */
+        .slider-fullscreen {
+            height: calc(100vh - 112px);
+            min-height: 520px;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
@@ -114,50 +119,50 @@
         </div>
     </nav>
 
-    <!-- SECTION SLIDER 4 FOTO (FULL SCREEN / HERO SLIDER) -->
-    <div class="relative w-full h-[65vh] md:h-[85vh] overflow-hidden bg-black group">
-        <!-- Container Slider -->
+    <!-- SECTION SLIDER 4 FOTO FULL SCREEN -->
+    <div class="relative w-full slider-fullscreen overflow-hidden bg-redafBlack group">
+        <!-- Container Track Slider -->
         <div id="carousel-track" class="flex transition-transform duration-700 ease-in-out h-full w-[400%]">
             
             <!-- Slide 1 -->
-            <div class="w-1/4 h-full relative flex-shrink-0">
-                <img src="Photo/sparepart.jpeg" alt="Banner Promo 1" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-transparent to-black/40"></div>
+            <div class="w-1/4 h-full relative flex items-center justify-center bg-black flex-shrink-0">
+                <img src="Photo/sparepart.jpeg" alt="Banner Sparepart" class="w-full h-full object-cover object-center">
+                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20"></div>
             </div>
 
             <!-- Slide 2 -->
-            <div class="w-1/4 h-full relative flex-shrink-0">
-                <img src="Photo/alatlengkap.png" alt="Banner Promo 2" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-transparent to-black/40"></div>
+            <div class="w-1/4 h-full relative flex items-center justify-center bg-black flex-shrink-0">
+                <img src="Photo/alatlengkap.png" alt="Banner Alat Lengkap" class="w-full h-full object-cover object-center">
+                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20"></div>
             </div>
 
             <!-- Slide 3 -->
-            <div class="w-1/4 h-full relative flex-shrink-0">
-                <img src="Photo/KSG BAGUS.png" alt="Banner Promo 3" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-transparent to-black/40"></div>
+            <div class="w-1/4 h-full relative flex items-center justify-center bg-black flex-shrink-0">
+                <img src="Photo/KSG BAGUS.png" alt="Banner KSG" class="w-full h-full object-cover object-center">
+                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20"></div>
             </div>
 
             <!-- Slide 4 -->
-            <div class="w-1/4 h-full relative flex-shrink-0">
-                <img src="Photo/YAMALUBE.jpg" alt="Banner Promo 4" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-transparent to-black/40"></div>
+            <div class="w-1/4 h-full relative flex items-center justify-center bg-black flex-shrink-0">
+                <img src="Photo/YAMALUBE.jpg" alt="Banner Yamalube" class="w-full h-full object-cover object-center">
+                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20"></div>
             </div>
 
         </div>
 
-        <!-- Tombol Panah Navigasi Kiri -->
-        <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-yamahaRed text-white p-3 rounded-full backdrop-blur-sm border border-white/20 transition opacity-80 hover:opacity-100 z-20">
+        <!-- Tombol Navigasi Kiri -->
+        <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-yamahaRed text-white w-12 h-12 rounded-full backdrop-blur-md border border-white/20 transition flex items-center justify-center shadow-lg z-20">
             <i class="fa-solid fa-chevron-left text-lg"></i>
         </button>
 
-        <!-- Tombol Panah Navigasi Kanan -->
-        <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-yamahaRed text-white p-3 rounded-full backdrop-blur-sm border border-white/20 transition opacity-80 hover:opacity-100 z-20">
+        <!-- Tombol Navigasi Kanan -->
+        <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-yamahaRed text-white w-12 h-12 rounded-full backdrop-blur-md border border-white/20 transition flex items-center justify-center shadow-lg z-20">
             <i class="fa-solid fa-chevron-right text-lg"></i>
         </button>
 
         <!-- Indikator Bulat (Dots) -->
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
-            <button class="dot-btn w-3 h-3 rounded-full bg-yamahaRed transition-all duration-300" onclick="goToSlide(0)"></button>
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center space-x-3 z-20 bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+            <button class="dot-btn w-3 h-3 rounded-full bg-yamahaRed scale-125 transition-all duration-300" onclick="goToSlide(0)"></button>
             <button class="dot-btn w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="goToSlide(1)"></button>
             <button class="dot-btn w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="goToSlide(2)"></button>
             <button class="dot-btn w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="goToSlide(3)"></button>
@@ -274,7 +279,7 @@
             }
         });
 
-        // Carousel / Slider Script (Auto-Slide 10 Detik)
+        // Carousel / Slider Script
         const track = document.getElementById('carousel-track');
         const dots = document.querySelectorAll('.dot-btn');
         const totalSlides = 4;
@@ -282,10 +287,8 @@
         let slideInterval;
 
         function updateSlider() {
-            // Geser slide sejajar per frame (25% per foto karena total lebar container adalah 400%)
             track.style.transform = `translateX(-${currentSlide * 25}%)`;
             
-            // Perbarui warna indikator titik
             dots.forEach((dot, index) => {
                 if (index === currentSlide) {
                     dot.classList.remove('bg-white/50');
@@ -314,7 +317,6 @@
         }
 
         function startInterval() {
-            // 10000 ms = 10 detik
             slideInterval = setInterval(nextSlide, 10000);
         }
 
@@ -333,7 +335,6 @@
             resetInterval();
         });
 
-        // Jalankan timer saat halaman dimuat
         startInterval();
     </script>
 </body>
