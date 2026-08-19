@@ -23,6 +23,29 @@
             }
         }
     </script>
+    <style>
+        /* Membatasi teks agar rapi maksimal 3 baris di kartu depan */
+        .text-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        /* Animasi Pop-Up */
+        .modal-animate-in {
+            animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
 
@@ -43,7 +66,7 @@
     </div>
 
     <!-- Navigation Bar -->
-    <nav class="bg-white sticky top-0 z-50 shadow-md">
+    <nav class="bg-white sticky top-0 z-40 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 
@@ -114,7 +137,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Layanan 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+                <div onclick="openModal(0)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/KSG BAGUS.png" alt="Servis Berkala & KSG" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -122,14 +145,18 @@
                         <h3 class="text-xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-2.5 flex items-center gap-2">
                             <i class="fa-solid fa-wrench text-yamahaRed"></i> Servis Berkala & KSG
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed flex-grow">
-                            Menerima Kupon Servis Gratis (KSG 1-4) dan perawatan berkala terstandar Yamaha dengan diagnostic tool presisi.pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
+                        <p class="text-sm text-gray-600 leading-relaxed flex-grow text-clamp-3">
+                            Menerima Kupon Servis Gratis (KSG 1-4) dan perawatan berkala terstandar Yamaha dengan diagnostic tool presisi untuk menjaga garansi mesin motor Anda tetap aktif.
                         </p>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-yamahaRed text-xs font-semibold">
+                            <span>Klik untuk detail lengkap</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Layanan 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+                <div onclick="openModal(1)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/sparepart.jpeg" alt="Yamalube & Sparepart Asli" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -137,14 +164,18 @@
                         <h3 class="text-xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-2.5 flex items-center gap-2">
                             <i class="fa-solid fa-oil-can text-yamahaRed"></i> Yamalube & Sparepart Asli
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed flex-grow">
-                            100% jaminan keaslian oli Yamalube dan Yamaha Genuine Parts resmi pabrikan untuk menjaga performa mesin tetap prima.
+                        <p class="text-sm text-gray-600 leading-relaxed flex-grow text-clamp-3">
+                            100% jaminan keaslian oli Yamalube dan Yamaha Genuine Parts resmi pabrikan untuk menjaga performa mesin tetap prima, tahan lama, dan terlindungi.
                         </p>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-yamahaRed text-xs font-semibold">
+                            <span>Klik untuk detail lengkap</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Layanan 3 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+                <div onclick="openModal(2)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/alatlengkap.png" alt="Fast Pit Service" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -152,29 +183,37 @@
                         <h3 class="text-xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-2.5 flex items-center gap-2">
                             <i class="fa-solid fa-bolt text-yamahaRed"></i> Fast Pit Service
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed flex-grow">
-                            Layanan servis kilat 10-15 menit bebas antri untuk ganti oli, ban, busi, aki, kampas rem, dan komponen habis pakai lainnya.
+                        <p class="text-sm text-gray-600 leading-relaxed flex-grow text-clamp-3">
+                            Layanan servis kilat 10-15 menit bebas antri untuk ganti oli, ban, busi, aki, kampas rem, dan komponen fast moving lainnya.
                         </p>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-yamahaRed text-xs font-semibold">
+                            <span>Klik untuk detail lengkap</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Layanan 4 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+                <div onclick="openModal(3)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
-                        <img src="Photo/1.png" alt="Service Kunjung Yamaha" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="Photo/1.png" alt="SKY (Service Kunjung Yamaha)" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-2.5 flex items-center gap-2">
                             <i class="fa-solid fa-motorcycle text-yamahaRed"></i> SKY (Service Kunjung)
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed flex-grow">
-                            Teknisi profesional siap datang langsung ke rumah, kantor, atau lokasi mogok motor Anda dengan peralatan lengkap.
+                        <p class="text-sm text-gray-600 leading-relaxed flex-grow text-clamp-3">
+                            Teknisi profesional siap datang langsung ke rumah, kantor, atau lokasi mogok motor Anda dengan peralatan lengkap dan sparepart original.
                         </p>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-yamahaRed text-xs font-semibold">
+                            <span>Klik untuk detail lengkap</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Layanan 5 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+                <div onclick="openModal(4)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/2.png" alt="Overhaul & Engine Repair" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -182,24 +221,32 @@
                         <h3 class="text-xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-2.5 flex items-center gap-2">
                             <i class="fa-solid fa-gears text-yamahaRed"></i> Overhaul & Turun Mesin
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed flex-grow">
-                            Penanganan restorasi mesin total dan rekondisi performa mesin berat bergaransi resmi dari teknisi handal bersertifikat.
+                        <p class="text-sm text-gray-600 leading-relaxed flex-grow text-clamp-3">
+                            Penanganan restorasi mesin total dan rekondisi performa mesin berat bergaransi resmi dari teknisi handal bersertifikat Yamaha.
                         </p>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-yamahaRed text-xs font-semibold">
+                            <span>Klik untuk detail lengkap</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Layanan 6 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+                <div onclick="openModal(5)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
-                        <img src="Photo/3.png" alt="Kelistrikan & YDT Diagnostic" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="Photo/3.png" alt="YDT Diagnostic & Injeksi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-2.5 flex items-center gap-2">
                             <i class="fa-solid fa-microchip text-yamahaRed"></i> YDT Diagnostic & Injeksi
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed flex-grow">
-                            Pengecekan sistem sensor injeksi, ECU, dan kelistrikan motor secara akurat menggunakan komputer Yamaha Diagnostic Tools.
+                        <p class="text-sm text-gray-600 leading-relaxed flex-grow text-clamp-3">
+                            Pengecekan sistem sensor injeksi, ECU, dan kelistrikan motor secara akurat menggunakan komputer canggih Yamaha Diagnostic Tools.
                         </p>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-yamahaRed text-xs font-semibold">
+                            <span>Klik untuk detail lengkap</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
                     </div>
                 </div>
 
@@ -330,13 +377,59 @@
 
     </main>
 
+    <!-- ================= MODAL POP-UP DETAIL LAYANAN ================= -->
+    <div id="service-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm overflow-y-auto">
+        <div id="modal-content" class="bg-white rounded-3xl shadow-2xl border border-gray-100 max-w-2xl w-full overflow-hidden relative modal-animate-in my-auto">
+            
+            <!-- Tombol Close (X) -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-20 bg-black/50 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-lg">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Foto Banner Pop-up -->
+            <div class="h-64 sm:h-72 w-full bg-black relative">
+                <img id="modal-img" src="" alt="Detail Layanan" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+                <div class="absolute bottom-4 left-6 right-6">
+                    <span class="bg-yamahaRed text-white text-[10px] sm:text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider shadow">
+                        Bengkel Resmi Yamaha
+                    </span>
+                    <h3 id="modal-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2 leading-tight drop-shadow-md">
+                        <!-- Judul Layanan -->
+                    </h3>
+                </div>
+            </div>
+
+            <!-- Isi Deskripsi Pop-up -->
+            <div class="p-6 sm:p-8">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Deskripsi & Penjelasan Lengkap</h4>
+                <p id="modal-desc" class="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+                    <!-- Deskripsi Lengkap -->
+                </p>
+
+                <!-- Tombol Aksi di Modal -->
+                <div class="flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t border-gray-100">
+                    <button onclick="closeModal()" class="w-full sm:w-auto px-6 py-2.5 rounded-xl border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold text-sm transition">
+                        Tutup
+                    </button>
+                    <a id="modal-wa-btn" href="https://wa.me/6285117771369" target="_blank" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-red-600/30">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Tanya / Booking Layanan Ini</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-redafBlack text-white py-8 border-t-4 border-yamahaRed text-center text-xs text-gray-400">
         &copy; 2026 REDAF MOTOR GROUP. All Rights Reserved.
     </footer>
 
-    <!-- Script Hamburger Menu Mobile -->
+    <!-- Script Hamburger Menu & Logika Pop-Up Modal -->
     <script>
+        // Hamburger Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -349,6 +442,78 @@
             } else {
                 menuIcon.classList.remove('fa-bars');
                 menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Data Layanan untuk Pop-Up Modal
+        const servicesData = [
+            {
+                title: "Servis Berkala & KSG (Kupon Servis Gratis)",
+                img: "Photo/KSG BAGUS.png",
+                desc: "Pastikan sepeda motor Yamaha kesayangan Anda selalu dalam performa terbaik dengan melakukan servis berkala tepat waktu.\n\nKami melayani Kupon Servis Gratis (KSG 1 s/d KSG 4) untuk pembelian motor baru sesuai buku pedoman resmi Yamaha. Layanan meliputi pengecekan 12-24 titik penting: ganti oli mesin, cek filter udara, setelan klep, busi, kelistrikan, sistem pengereman, transmisi CVT, hingga diagnosa injeksi terkomputerisasi."
+            },
+            {
+                title: "Yamalube & Yamaha Genuine Parts Asli 100%",
+                img: "Photo/sparepart.jpeg",
+                desc: "Jaminan 100% Produk Original dari Yamaha Motor Indonesia.\n\nPenggunaan oli resmi Yamalube (Silver, Gold, Matic, Super Matic, RS4GP) diformulasikan khusus dengan teknologi terkini untuk melumasi dan melindungi mesin Yamaha secara maksimal. Kami juga menyediakan stok lengkap sparepart asli (Yamaha Genuine Parts) bergaransi, mulai dari v-belt, kampas rem, ban, aki kering, hingga komponen bodi."
+            },
+            {
+                title: "Fast Pit Service (Servis Cepat 10-15 Menit)",
+                img: "Photo/alatlengkap.png",
+                desc: "Punya mobilitas tinggi dan tidak punya banyak waktu luang?\n\nLayanan Fast Pit Service di Redaf Motor Group hadir untuk perawatan cepat dan penggantian part habis pakai (fast moving) dalam waktu 10-15 menit TANPA ANTRI. Meliputi penggantian oli mesin & gardan, busi, aki, bohlam lampu, saringan udara, kampas rem, dan pergantian ban."
+            },
+            {
+                title: "SKY (Service Kunjung Yamaha)",
+                img: "Photo/1.png",
+                desc: "Motor bermasalah di jalan atau Anda tidak sempat datang ke bengkel?\n\nManfaatkan layanan Service Kunjung Yamaha (SKY)! Teknisi handal kami siap meluncur langsung ke rumah, kantor, atau lokasi mogok Anda dengan armada khusus yang dilengkapi peralatan modern dan suku cadang asli. Cukup hubungi CS WhatsApp kami untuk penjadwalan."
+            },
+            {
+                title: "Overhaul & Penanganan Turun Mesin",
+                img: "Photo/2.png",
+                desc: "Layanan spesialis perbaikan mesin berat untuk motor yang mengalami kendala suara kasar, hilang kompresi, ngebul putih, atau overhaul berkala.\n\nDitangani langsung oleh mekanik senior bersertifikasi Yamaha dengan standar presisi tinggi, alat ukur mikrometer terkalibrasi, serta penggunaan suku cadang asli bergaransi."
+            },
+            {
+                title: "YDT Diagnostic & Pembersihan Sensor Injeksi",
+                img: "Photo/3.png",
+                desc: "Pengecekan kesehatan sistem injeksi modern sepeda motor Yamaha menggunakan komputer khusus Yamaha Diagnostic Tools (YDT).\n\nAlat ini membaca seluruh kode kerusakan sensor, memeriksa data realtime ECU, mengukur emisi gas buang, serta memastikan throttle body & sistem injector bekerja secara optimal dan hemat bahan bakar."
+            }
+        ];
+
+        const modal = document.getElementById('service-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalWaBtn = document.getElementById('modal-wa-btn');
+
+        // Buka Modal Pop-up
+        function openModal(index) {
+            const service = servicesData[index];
+            modalImg.src = service.img;
+            modalTitle.innerText = service.title;
+            modalDesc.innerText = service.desc;
+            modalWaBtn.href = `https://wa.me/6285117771369?text=Halo%20Redaf%20Motor,%20saya%20ingin%20tanya%20info%20lebih%20lanjut%20mengenai%20${encodeURIComponent(service.title)}`;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Kunci scroll layar utama
+        }
+
+        // Tutup Modal Pop-up
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Tutup modal jika klik di luar box modal
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Tutup modal jika menekan tombol Escape di keyboard
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
             }
         });
     </script>
