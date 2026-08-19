@@ -136,7 +136,7 @@
             <!-- Grid 3 x 2 -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Layanan 1 -->
+                <!-- Layanan 1 (Index 0) -->
                 <div onclick="openModal(0)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/KSG BAGUS.png" alt="KSG, KSB & Fast Pit" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -155,7 +155,7 @@
                     </div>
                 </div>
 
-                <!-- Layanan 2 -->
+                <!-- Layanan 2 (Index 1) -->
                 <div onclick="openModal(1)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/sparepart.jpeg" alt="Yamalube & Sparepart Asli" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -174,7 +174,7 @@
                     </div>
                 </div>
 
-                <!-- Layanan 3 -->
+                <!-- Layanan 3 (Index 2) -->
                 <div onclick="openModal(2)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/alatlengkap.png" alt="Fast Pit Service" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -193,7 +193,7 @@
                     </div>
                 </div>
 
-                <!-- Layanan 4 -->
+                <!-- Layanan 4 (Index 3) -->
                 <div onclick="openModal(3)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/1.png" alt="SKY (Service Kunjung Yamaha)" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -212,7 +212,7 @@
                     </div>
                 </div>
 
-                <!-- Layanan 5 -->
+                <!-- Layanan 5 (Index 4) -->
                 <div onclick="openModal(4)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/2.png" alt="Overhaul & Engine Repair" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -231,7 +231,7 @@
                     </div>
                 </div>
 
-                <!-- Layanan 6 -->
+                <!-- Layanan 6 (Index 5) -->
                 <div onclick="openModal(5)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/3.png" alt="YDT Diagnostic & Injeksi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -403,9 +403,9 @@
             <!-- Isi Deskripsi Pop-up -->
             <div class="p-6 sm:p-8">
                 <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Deskripsi & Penjelasan Lengkap</h4>
-                <p id="modal-desc" class="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+                <div id="modal-desc" class="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
                     <!-- Deskripsi Lengkap -->
-                </p>
+                </div>
 
                 <!-- Tombol Aksi di Modal -->
                 <div class="flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t border-gray-100">
@@ -450,36 +450,54 @@
             {
                 title: "KSG (Kupon Servis Gratis), KSB (Kupon Servis Berkala) & Fast Pit",
                 img: "Photo/KSG BAGUS.png",
-                desc: "Pastikan sepeda motor Yamaha kesayangan Anda selalu dalam performa terbaik dengan melakukan servis berkala tepat waktu.\n\nKami melayani Kupon Servis Gratis (KSG 1 s/d KSG 4) Maupun E-KSG (Berbasis My Yamaha Apps). Dan kami juga melayani Kupon Service Gratis Project (KSG Project) untuk pembelian motor baru sesuai buku ketentuan dan pedoman resmi Yamaha. \n\nUntuk Layanan Kupon Service Berkala meliputi Service Ringan / Tune Up, Service CVT, Overhoul Mesin ataupun Overhoul CVT, Service Injeksi, dan Komstir pengecekan 12-24 titik penting: ganti oli mesin & Oli Gardan, cek filter udara, setelan klep, busi, kelistrikan, sistem pengereman, transmisi CVT, Ban, Kelengkapan Body dan Baut-Baut, Shockbreaker, Gerak bebas Kemudi, hingga diagnosa injeksi terkomputerisasi/YDT. . \n\nUntuk Fast Pit Hanya Pergantian Part yang hanya memakan waktu 10-15 Menit saja dan akan menjadi Prioritas Antrian setelah Booking service. Contoh Fast Pit : Hanya Ganti Oli, Ganti kampas Rem, Dll"
+                desc: `Pastikan sepeda motor Yamaha kesayangan Anda selalu dalam performa terbaik dengan melakukan servis berkala tepat waktu.
+
+Kami melayani Kupon Servis Gratis (KSG 1 s/d KSG 4) maupun E-KSG (berbasis aplikasi My Yamaha Motor). Kami juga melayani Kupon Servis Gratis Project (KSG Project) untuk pembelian motor baru sesuai buku ketentuan dan pedoman resmi Yamaha.
+
+<strong class="text-gray-900 font-bold block mt-3">Layanan Servis Berkala:</strong>
+Meliputi Service Ringan / Tune Up, Service CVT, Overhaul Mesin, Overhaul CVT, Service Injeksi, dan Komstir dengan pengecekan 12-24 titik penting: ganti oli mesin & oli gardan, cek filter udara, setelan klep, busi, kelistrikan, sistem pengereman, transmisi CVT, ban, kelengkapan bodi dan baut-baut, shockbreaker, gerak bebas kemudi, hingga diagnosa injeksi terkomputerisasi/YDT.
+
+<strong class="text-gray-900 font-bold block mt-3">Fast Pit Service:</strong>
+Penggantian part fast moving hanya memakan waktu 10-15 menit saja dan menjadi prioritas antrian setelah booking service (Contoh: hanya ganti oli mesin/gardan, kampas rem, bohlam lampu, aki, atau busi).`
             },
             {
-                
-            },
-            {
-                title: "Fast Pit Service (Servis Cepat 10-15 Menit)",
-                img: "Photo/alatlengkap.png",
-                desc: "Punya mobilitas tinggi dan tidak punya banyak waktu luang?\n\nLayanan Fast Pit Service di Redaf Motor Group hadir untuk perawatan cepat dan penggantian part habis pakai (fast moving) dalam waktu 10-15 menit TANPA ANTRI. Meliputi penggantian oli mesin & gardan, busi, aki, bohlam lampu, saringan udara, kampas rem, dan pergantian ban."
-            },
-            {
-    title: "Yamalube & Yamaha Genuine Parts Asli 100%",
-    img: "Photo/sparepart.jpeg",
-    desc: `Jaminan 100% Produk Original dari Yamaha Motor Indonesia.
+                title: "Yamalube & Yamaha Genuine Parts Asli 100%",
+                img: "Photo/sparepart.jpeg",
+                desc: `Jaminan 100% Produk Original dari Yamaha Motor Indonesia.
 
 <strong class="text-gray-900 font-bold block mt-3">Yamaha Genuine Parts (YGP)</strong>
 Yamaha Genuine Parts adalah komponen suku cadang fisik resmi yang diproduksi dengan standar presisi tinggi dari pabrikan Yamaha. Komponen ini dirancang untuk menggantikan suku cadang yang aus tanpa perlu modifikasi sehingga performa dan keselamatan motor tetap terjaga. Keasliannya dapat dipastikan melalui stiker hologram 3D resmi dan nomor komponen yang tertera jelas pada kemasan bersegel.
 
 <strong class="text-gray-900 font-bold block mt-3">Yamalube</strong>
 Yamalube adalah lini pelumas dan cairan kimia resmi yang diformulasikan khusus oleh teknisi Yamaha sesuai karakteristik mesinnya. Cairan ini bekerja optimal dalam meredam panas, melumasi komponen internal secara maksimal, serta mencegah keausan dini pada mesin. Setiap produk aslinya dilengkapi segel botol khusus serta kode QR verifikasi yang dapat dipindai langsung menggunakan ponsel.`
-}
+            },
+            {
+                title: "Fast Pit Service (Servis Cepat 10-15 Menit)",
+                img: "Photo/alatlengkap.png",
+                desc: `Punya mobilitas tinggi dan tidak punya banyak waktu luang?
+
+Layanan Fast Pit Service di Redaf Motor Group hadir untuk perawatan cepat dan penggantian part habis pakai (fast moving) dalam waktu 10-15 menit TANPA ANTRI. Meliputi penggantian oli mesin & gardan, busi, aki, bohlam lampu, saringan udara, kampas rem, dan pergantian ban.`
+            },
+            {
+                title: "SKY (Service Kunjung Yamaha)",
+                img: "Photo/1.png",
+                desc: `Motor bermasalah di jalan atau Anda tidak sempat datang ke bengkel?
+
+Manfaatkan layanan Service Kunjung Yamaha (SKY)! Teknisi handal kami siap meluncur langsung ke rumah, kantor, atau lokasi mogok Anda dengan armada khusus yang dilengkapi peralatan modern dan suku cadang asli. Cukup hubungi CS WhatsApp kami untuk penjadwalan.`
+            },
             {
                 title: "Overhaul & Penanganan Turun Mesin",
                 img: "Photo/2.png",
-                desc: "Layanan spesialis perbaikan mesin berat untuk motor yang mengalami kendala suara kasar, hilang kompresi, ngebul putih, atau overhaul berkala.\n\nDitangani langsung oleh mekanik senior bersertifikasi Yamaha dengan standar presisi tinggi, alat ukur mikrometer terkalibrasi, serta penggunaan suku cadang asli bergaransi."
+                desc: `Layanan spesialis perbaikan mesin berat untuk motor yang mengalami kendala suara kasar, hilang kompresi, ngebul putih, atau overhaul berkala.
+
+Ditangani langsung oleh mekanik senior bersertifikasi Yamaha dengan standar presisi tinggi, alat ukur mikrometer terkalibrasi, serta penggunaan suku cadang asli bergaransi.`
             },
             {
                 title: "YDT Diagnostic & Pembersihan Sensor Injeksi",
                 img: "Photo/3.png",
-                desc: "Pengecekan kesehatan sistem injeksi modern sepeda motor Yamaha menggunakan komputer khusus Yamaha Diagnostic Tools (YDT).\n\nAlat ini membaca seluruh kode kerusakan sensor, memeriksa data realtime ECU, mengukur emisi gas buang, serta memastikan throttle body & sistem injector bekerja secara optimal dan hemat bahan bakar."
+                desc: `Pengecekan kesehatan sistem injeksi modern sepeda motor Yamaha menggunakan komputer khusus Yamaha Diagnostic Tools (YDT).
+
+Alat ini membaca seluruh kode kerusakan sensor, memeriksa data realtime ECU, mengukur emisi gas buang, serta memastikan throttle body & sistem injector bekerja secara optimal dan hemat bahan bakar.`
             }
         ];
 
@@ -492,13 +510,15 @@ Yamalube adalah lini pelumas dan cairan kimia resmi yang diformulasikan khusus o
         // Buka Modal Pop-up
         function openModal(index) {
             const service = servicesData[index];
+            if (!service) return;
+
             modalImg.src = service.img;
             modalTitle.innerText = service.title;
-            modalDesc.innerText = service.desc;
+            modalDesc.innerHTML = service.desc;
             modalWaBtn.href = `https://wa.me/6285117771369?text=Halo%20Redaf%20Motor,%20saya%20ingin%20tanya%20info%20lebih%20lanjut%20mengenai%20${encodeURIComponent(service.title)}`;
             
             modal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden'); // Kunci scroll layar utama
+            document.body.classList.add('overflow-hidden');
         }
 
         // Tutup Modal Pop-up
