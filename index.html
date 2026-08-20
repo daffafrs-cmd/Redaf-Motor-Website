@@ -167,7 +167,7 @@
         </div>
     </nav>
 
-    <!-- HERO SLIDER: Responsif Penuh (Mobile: 48vh, Laptop: Full Viewport) -->
+    <!-- HERO SLIDER: Responsif Penuh (Mobile: 46vh, Laptop: Full Viewport) -->
     <div class="relative w-full h-[46vh] sm:h-[60vh] md:h-[80vh] lg:h-screen bg-[#0d0e12] overflow-hidden select-none">
         
         <!-- Slide 1 -->
@@ -214,7 +214,7 @@
         </button>
     </div>
 
-    <!-- Hero Section dengan Efek Bintang Jatuh & Tampilan Serasi Mobile-Laptop -->
+    <!-- Hero Section dengan Efek Bintang Jatuh & Responsive Ordering -->
     <section class="relative bg-redafBlack text-white -mt-8 sm:-mt-14 pt-12 sm:pt-16 pb-16 lg:pb-24 overflow-hidden z-20">
         
         <!-- Layer Background: Ambient Glows -->
@@ -230,8 +230,8 @@
         <!-- Main Content Grid -->
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             
-            <!-- Kolom Kiri: Headline & Intro -->
-            <div class="text-center md:text-left flex flex-col items-center md:items-start">
+            <!-- Headline Section (Di HP urutan ke-2, di Laptop tetap di Kiri) -->
+            <div class="order-2 md:order-1 text-center md:text-left flex flex-col items-center md:items-start">
                 <div class="inline-flex items-center gap-2 bg-yamahaRed/10 border border-yamahaRed/40 text-yamahaRed text-[11px] sm:text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 backdrop-blur-sm shadow-inner">
                     <span class="w-2 h-2 rounded-full bg-yamahaRed animate-ping"></span>
                     <span>Bengkel Resmi Yamaha</span>
@@ -259,8 +259,8 @@
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Official Identity Showcase Card -->
-            <div class="w-full flex justify-center">
+            <!-- Official Identity Showcase Card (Di HP urutan ke-1 muncul DULUAN, di Laptop tetap di Kanan) -->
+            <div class="order-1 md:order-2 w-full flex justify-center">
                 <div class="w-full max-w-lg relative bg-gradient-to-br from-white/12 via-white/5 to-transparent backdrop-blur-2xl p-6 sm:p-10 rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center justify-center text-center group hover:border-yamahaRed/40 transition-all duration-300">
                     
                     <!-- Decorative Radial Glow Behind Logo -->
