@@ -29,7 +29,7 @@
             background-image: 
                 linear-gradient(to right, rgba(230, 0, 18, 0.05) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 45px 45px;
+            background-size: 40px 40px;
         }
 
         /* Container Animasi Bintang */
@@ -41,12 +41,12 @@
             z-index: 1;
         }
 
-        /* Bintang Jatuh (Falling Star) */
+        /* Bintang Jatuh */
         .star-fall {
             position: absolute;
             top: -30px;
             width: 2px;
-            height: 50px;
+            height: 45px;
             background: linear-gradient(to bottom, rgba(255,255,255,0), #E60012, #ffffff);
             opacity: 0.75;
             animation: fallAnimation linear infinite;
@@ -61,7 +61,7 @@
                 opacity: 0.9;
             }
             100% {
-                transform: translateY(120vh) translateX(-150px) rotate(28deg);
+                transform: translateY(120vh) translateX(-140px) rotate(28deg);
                 opacity: 0;
             }
         }
@@ -76,7 +76,7 @@
 
         @keyframes twinkleAnimation {
             0% { opacity: 0.15; transform: scale(0.6); }
-            100% { opacity: 0.95; transform: scale(1.3); box-shadow: 0 0 8px rgba(230,0,18,0.8); }
+            100% { opacity: 0.95; transform: scale(1.2); box-shadow: 0 0 8px rgba(230,0,18,0.8); }
         }
 
         /* Style Transisi Slide */
@@ -86,7 +86,7 @@
             pointer-events: none;
             position: absolute;
             inset: 0;
-            transform: scale(1.02);
+            transform: scale(1.01);
         }
         .slide-item.active {
             opacity: 1;
@@ -98,16 +98,17 @@
 <body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
 
     <!-- Top Bar Jam Operasional -->
-    <div class="bg-redafBlack text-white text-xs py-2 px-4 border-b border-gray-800 relative z-50">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-0">
-            <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2 text-center sm:text-left">
-                <span><i class="fa-solid fa-clock text-yamahaRed mr-1"></i> <strong>Senin - Jumat:</strong> 07.00 - 18.00 WIB </span>
-                <span class="hidden md:inline">|</span>
-                <span><i class="fa-solid fa-clock text-yamahaRed mr-1"></i> <strong>Sabtu - Minggu:</strong> 07.00 - 16.00 WIB </span>
+    <div class="bg-redafBlack text-white text-[11px] sm:text-xs py-2 px-4 border-b border-gray-800 relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-0 text-center sm:text-left">
+            <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2">
+                <span><i class="fa-solid fa-clock text-yamahaRed mr-1"></i> <strong>Senin - Jumat:</strong> 07.00 - 18.00 WIB</span>
+                <span class="hidden md:inline text-gray-600">|</span>
+                <span><i class="fa-solid fa-clock text-yamahaRed mr-1"></i> <strong>Sabtu - Minggu:</strong> 07.00 - 16.00 WIB</span>
             </div>
             <div>
-                <a href="https://wa.me/6285353105448" target="_blank" class="hover:text-yamahaRed flex items-center gap-1">
-                    <i class="fa-brands fa-whatsapp text-green-400"></i> CS WhatsApp
+                <a href="https://wa.me/6285353105448" target="_blank" class="hover:text-yamahaRed transition flex items-center justify-center gap-1.5 font-medium">
+                    <i class="fa-brands fa-whatsapp text-green-400 text-sm"></i>
+                    <span>CS WhatsApp</span>
                 </a>
             </div>
         </div>
@@ -120,7 +121,7 @@
                 
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center">
-                    <img src="Photo/LOGO REDAF.png" alt="Logo Redaf Motor Group" class="h-12 sm:h-16 w-auto object-contain">
+                    <img src="Photo/LOGO REDAF.png" alt="Logo Redaf Motor Group" class="h-11 sm:h-16 w-auto object-contain">
                 </a>
 
                 <!-- Desktop Menu -->
@@ -135,7 +136,7 @@
 
                 <!-- Tombol CTA WhatsApp Desktop -->
                 <div class="hidden lg:flex items-center">
-                    <a href="https://wa.me/6285353105448?text=Halo%20Redaf%20Motor,%20saya%20ingin%20booking%20service" target="_blank" class="bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-red-600/30 transition flex items-center gap-2 text-sm">
+                    <a href="https://wa.me/6285353105448?text=Halo%20Redaf%20Motor,%20saya%20ingin%20booking%20service" target="_blank" class="bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-red-600/30 transition flex items-center gap-2 text-sm active:scale-95">
                         <i class="fa-brands fa-whatsapp text-lg"></i>
                         <span>Booking Service</span>
                     </a>
@@ -143,160 +144,146 @@
 
                 <!-- Tombol Hamburger Menu (HP) -->
                 <div class="lg:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-800 hover:text-yamahaRed focus:outline-none p-2 rounded-lg border border-gray-200">
-                        <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+                    <button id="menu-btn" class="text-gray-800 hover:text-yamahaRed focus:outline-none p-2 rounded-xl border border-gray-200 active:scale-95 transition">
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Drop-down Menu HP -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 shadow-xl transition-all duration-300">
-            <a href="index.html" class="block py-2 text-yamahaRed font-bold border-b border-gray-100"><i class="fa-solid fa-house mr-2"></i> Beranda</a>
-            <a href="tentang.html" class="block py-2 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-circle-info mr-2"></i> Tentang Kami</a>
-            <a href="layanan.html" class="block py-2 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-wrench mr-2"></i> Layanan</a>
-            <a href="jaringan.html" class="block py-2 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-map-location-dot mr-2"></i> Jaringan Kami</a>
-            <a href="promotion.html" class="block py-2 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-tags mr-2"></i> Promotion</a>
-            <a href="ulasan.html" class="block py-2 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-star mr-2"></i> Ulasan</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-5 pt-2 pb-6 space-y-3 shadow-2xl transition-all duration-300">
+            <a href="index.html" class="block py-2.5 text-yamahaRed font-bold border-b border-gray-100"><i class="fa-solid fa-house mr-2.5"></i> Beranda</a>
+            <a href="tentang.html" class="block py-2.5 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-circle-info mr-2.5"></i> Tentang Kami</a>
+            <a href="layanan.html" class="block py-2.5 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-wrench mr-2.5"></i> Layanan</a>
+            <a href="jaringan.html" class="block py-2.5 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-map-location-dot mr-2.5"></i> Jaringan Kami</a>
+            <a href="promotion.html" class="block py-2.5 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-tags mr-2.5"></i> Promotion</a>
+            <a href="ulasan.html" class="block py-2.5 text-gray-700 hover:text-yamahaRed border-b border-gray-100"><i class="fa-solid fa-star mr-2.5"></i> Ulasan</a>
             
-            <a href="https://wa.me/6285353105448?text=Halo%20Redaf%20Motor,%20saya%20ingin%20booking%20service" target="_blank" class="flex items-center justify-center gap-2 w-full bg-yamahaRed text-white py-3 rounded-xl font-semibold mt-4 shadow-md">
+            <a href="https://wa.me/6285353105448?text=Halo%20Redaf%20Motor,%20saya%20ingin%20booking%20service" target="_blank" class="flex items-center justify-center gap-2 w-full bg-yamahaRed text-white py-3 rounded-xl font-semibold mt-4 shadow-md shadow-red-600/30 active:scale-95 transition">
                 <i class="fa-brands fa-whatsapp text-lg"></i>
                 <span>Booking via WhatsApp</span>
             </a>
         </div>
     </nav>
 
-    <!-- HERO SLIDER: Responsif Penuh (Clean Tanpa Dots) -->
-    <div class="relative w-full h-[52vh] sm:h-[65vh] md:h-screen bg-[#0d0e12] overflow-hidden select-none">
+    <!-- HERO SLIDER: Responsif Penuh (Mobile: 48vh, Laptop: Full Viewport) -->
+    <div class="relative w-full h-[46vh] sm:h-[60vh] md:h-[80vh] lg:h-screen bg-[#0d0e12] overflow-hidden select-none">
         
         <!-- Slide 1 -->
         <div class="slide-item active flex items-center justify-center bg-[#0d0e12]">
-            <img src="Photo/1.png" alt="Banner Sparepart" class="w-full h-full object-contain md:object-cover object-center">
+            <img src="Photo/1.png" alt="Banner Sparepart" class="w-full h-full object-cover object-center">
         </div>
 
         <!-- Slide 2 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
-            <img src="Photo/2.png" alt="Banner Alat Lengkap" class="w-full h-full object-contain md:object-cover object-center">
+            <img src="Photo/2.png" alt="Banner Alat Lengkap" class="w-full h-full object-cover object-center">
         </div>
 
         <!-- Slide 3 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
-            <img src="Photo/3.png" alt="Banner KSG" class="w-full h-full object-contain md:object-cover object-center">
+            <img src="Photo/3.png" alt="Banner KSG" class="w-full h-full object-cover object-center">
         </div>
 
         <!-- Slide 4 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
-            <img src="Photo/4.png" alt="Banner Yamalube" class="w-full h-full object-contain md:object-cover object-center">
+            <img src="Photo/4.png" alt="Banner Yamalube" class="w-full h-full object-cover object-center">
         </div>
 
         <!-- Slide 5 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
-            <img src="Photo/5.png" alt="Banner Promo 5" class="w-full h-full object-contain md:object-cover object-center">
+            <img src="Photo/5.png" alt="Banner Promo 5" class="w-full h-full object-cover object-center">
         </div>
 
         <!-- Slide 6 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
-            <img src="Photo/6.jpg" alt="Banner Promo 6" class="w-full h-full object-contain md:object-cover object-center">
+            <img src="Photo/6.jpg" alt="Banner Promo 6" class="w-full h-full object-cover object-center">
         </div>
 
         <!-- Seamless Blend Overlay Menuju Section Bawah -->
         <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-redafBlack/40 to-transparent pointer-events-none z-20"></div>
 
         <!-- Tombol Panah Kiri -->
-        <button id="prev-btn" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-yamahaRed text-white w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl">
-            <i class="fa-solid fa-chevron-left text-sm sm:text-base md:text-xl"></i>
+        <button id="prev-btn" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-yamahaRed text-white w-9 h-9 sm:w-12 sm:h-12 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl active:scale-90">
+            <i class="fa-solid fa-chevron-left text-sm sm:text-base"></i>
         </button>
 
         <!-- Tombol Panah Kanan -->
-        <button id="next-btn" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-yamahaRed text-white w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl">
-            <i class="fa-solid fa-chevron-right text-sm sm:text-base md:text-xl"></i>
+        <button id="next-btn" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-yamahaRed text-white w-9 h-9 sm:w-12 sm:h-12 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl active:scale-90">
+            <i class="fa-solid fa-chevron-right text-sm sm:text-base"></i>
         </button>
     </div>
 
-    <!-- Hero Section dengan Efek Bintang Jatuh & Clean Brand Card -->
-    <section class="relative bg-redafBlack text-white -mt-10 sm:-mt-16 pt-16 sm:pt-20 pb-16 lg:pb-24 overflow-hidden z-20">
+    <!-- Hero Section dengan Efek Bintang Jatuh & Tampilan Serasi Mobile-Laptop -->
+    <section class="relative bg-redafBlack text-white -mt-8 sm:-mt-14 pt-12 sm:pt-16 pb-16 lg:pb-24 overflow-hidden z-20">
         
-        <!-- Layer Background: Luxury Ambient Glows -->
+        <!-- Layer Background: Ambient Glows -->
         <div class="absolute -top-40 left-1/4 w-[40rem] h-40 bg-gradient-to-b from-transparent via-yamahaRed/20 to-transparent blur-3xl pointer-events-none"></div>
-        <div class="absolute -top-32 -left-32 w-96 h-96 bg-yamahaRed/25 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-40 -right-20 w-[30rem] h-[30rem] bg-yamahaRed/20 rounded-full blur-[110px] pointer-events-none"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[20rem] bg-indigo-950/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -top-32 -left-32 w-80 sm:w-96 h-80 sm:h-96 bg-yamahaRed/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -right-20 w-80 sm:w-[30rem] h-80 sm:h-[30rem] bg-yamahaRed/20 rounded-full blur-[110px] pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[40rem] h-[20rem] bg-indigo-950/30 rounded-full blur-3xl pointer-events-none"></div>
 
         <!-- Layer Background: Space Stars & Cyber Speed Grid -->
-        <div class="absolute inset-0 cyber-grid opacity-30 pointer-events-none"></div>
+        <div class="absolute inset-0 cyber-grid opacity-25 pointer-events-none"></div>
         <div id="hero-stars-layer" class="stars-container"></div>
 
-        <!-- Layer Background: Sporty Laser & Geometric Trajectory -->
-        <svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="100%" x2="100%" y2="0" stroke="url(#sporty-grad)" stroke-width="1.5" stroke-dasharray="8 12" />
-            <circle cx="85%" cy="30%" r="180" stroke="rgba(230,0,18,0.3)" stroke-width="1" fill="none" stroke-dasharray="5 5" />
-            <circle cx="85%" cy="30%" r="240" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none" />
-            <defs>
-                <linearGradient id="sporty-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#E60012" stop-opacity="0" />
-                    <stop offset="50%" stop-color="#E60012" stop-opacity="0.8" />
-                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
-                </linearGradient>
-            </defs>
-        </svg>
-
-        <!-- Main Content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left grid md:grid-cols-2 gap-10 items-center">
+        <!-- Main Content Grid -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             
-            <!-- Kolom Kiri: Headline -->
-            <div>
-                <div class="inline-flex items-center gap-2 bg-yamahaRed/10 border border-yamahaRed/40 text-yamahaRed text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 backdrop-blur-sm shadow-inner">
+            <!-- Kolom Kiri: Headline & Intro -->
+            <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                <div class="inline-flex items-center gap-2 bg-yamahaRed/10 border border-yamahaRed/40 text-yamahaRed text-[11px] sm:text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 backdrop-blur-sm shadow-inner">
                     <span class="w-2 h-2 rounded-full bg-yamahaRed animate-ping"></span>
-                    Bengkel Resmi Yamaha
+                    <span>Bengkel Resmi Yamaha</span>
                 </div>
                 
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black my-4 leading-tight tracking-tight drop-shadow-md">
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black my-2 sm:my-3 leading-tight tracking-tight drop-shadow-md">
                     HANDAL TEKNISINYA<br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yamahaRed to-orange-400">
                         ASLI SPAREPARTNYA
                     </span>
                 </h1>
                 
-                <p class="text-gray-300 mb-8 text-sm sm:text-lg leading-relaxed max-w-xl">
+                <p class="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl">
                     Jaringan bengkel sepeda motor Yamaha terdepan di Bekasi dengan 6 cabang resmi untuk melayani sepeda motor Anda dengan standar teknologi presisi.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start font-semibold">
-                    <a href="layanan.html" class="bg-gradient-to-r from-yamahaRed to-yamahaDarkRed hover:brightness-110 text-white px-7 py-3.5 rounded-xl text-center shadow-lg shadow-red-600/40 transition-transform active:scale-95 flex items-center justify-center gap-2">
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto font-semibold">
+                    <a href="layanan.html" class="bg-gradient-to-r from-yamahaRed to-yamahaDarkRed hover:brightness-110 text-white px-7 py-3.5 rounded-xl text-center shadow-lg shadow-red-600/40 transition active:scale-95 flex items-center justify-center gap-2 text-sm">
                         <span>Lihat Semua Layanan</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
-                    <a href="jaringan.html" class="bg-white/5 hover:bg-white/15 border border-white/20 hover:border-white/40 backdrop-blur-md text-white px-7 py-3.5 rounded-xl text-center transition duration-200">
+                    <a href="jaringan.html" class="bg-white/5 hover:bg-white/15 border border-white/20 hover:border-white/40 backdrop-blur-md text-white px-7 py-3.5 rounded-xl text-center transition duration-200 text-sm">
                         Cari Cabang Terdekat
                     </a>
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Official Showcase Card (Logo Yamaha + Teks Besar + Garansi Dealer 14 Hari) -->
-            <div class="w-full">
-                <div class="relative bg-gradient-to-br from-white/12 via-white/5 to-transparent backdrop-blur-2xl p-8 sm:p-12 rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center justify-center text-center group hover:border-yamahaRed/50 transition-all duration-500">
+            <!-- Kolom Kanan: Official Identity Showcase Card -->
+            <div class="w-full flex justify-center">
+                <div class="w-full max-w-lg relative bg-gradient-to-br from-white/12 via-white/5 to-transparent backdrop-blur-2xl p-6 sm:p-10 rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center justify-center text-center group hover:border-yamahaRed/40 transition-all duration-300">
                     
                     <!-- Decorative Radial Glow Behind Logo -->
-                    <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-48 bg-yamahaRed/25 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-40 h-40 bg-yamahaRed/25 rounded-full blur-3xl pointer-events-none"></div>
 
-                    <!-- 1. LOGO YAMAHA (Besar, Bersih, Kontras Tinggi dengan Crystal Glow Container) -->
-                    <div class="relative w-28 h-20 sm:w-36 sm:h-24 bg-white/15 backdrop-blur-md rounded-2xl p-3 flex items-center justify-center shadow-2xl border border-white/30 mb-6 group-hover:scale-105 transition-transform duration-300">
-                        <img src="Photo/logoyamaha.png" alt="Yamaha Official Logo" class="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]">
+                    <!-- 1. LOGO YAMAHA (Responsif, Bersih, Kontras Tinggi) -->
+                    <div class="relative w-24 h-16 sm:w-32 sm:h-20 bg-white/15 backdrop-blur-md rounded-2xl p-2.5 flex items-center justify-center shadow-2xl border border-white/30 mb-4 sm:mb-5 group-hover:scale-105 transition-transform duration-300">
+                        <img src="Photo/logoyamaha.png" alt="Yamaha Official Logo" class="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.85)]">
                     </div>
 
                     <!-- 2. TULISAN YAMAHA REDAF MOTOR GROUP -->
-                    <div class="inline-flex items-center gap-2 text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-yamahaRed mb-2">
-                        <span class="w-2 h-2 rounded-full bg-yamahaRed animate-ping"></span>
+                    <div class="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-yamahaRed mb-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-yamahaRed animate-ping"></span>
                         <span>Official Yamaha Workshop & 2S Dealer</span>
                     </div>
 
-                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-200 tracking-tight uppercase leading-tight drop-shadow-md">
+                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-200 tracking-tight uppercase leading-tight drop-shadow-md">
                         YAMAHA REDAF MOTOR GROUP
                     </h2>
 
-                    <!-- 3. BADGE GARANSI DEALER 14 HARI (Menyala & Eye-Catching) -->
-                    <div class="mt-7 inline-flex items-center gap-2.5 bg-gradient-to-r from-yamahaRed via-red-600 to-yamahaDarkRed text-white text-xs sm:text-sm font-black px-6 py-2.5 rounded-full uppercase tracking-wider shadow-xl shadow-red-600/40 border border-white/30 hover:scale-105 transition duration-300 animate-pulse">
-                        <i class="fa-solid fa-shield-halved text-base"></i>
+                    <!-- 3. BADGE GARANSI DEALER 14 HARI -->
+                    <div class="mt-6 inline-flex items-center gap-2 bg-gradient-to-r from-yamahaRed via-red-600 to-yamahaDarkRed text-white text-xs sm:text-sm font-black px-5 sm:px-6 py-2.5 rounded-full uppercase tracking-wider shadow-xl shadow-red-600/40 border border-white/30 active:scale-95 transition animate-pulse">
+                        <i class="fa-solid fa-shield-halved text-sm"></i>
                         <span>Garansi Dealer 14 Hari</span>
                     </div>
 
@@ -307,28 +294,28 @@
     </section>
 
     <!-- ================= FLOATING SOCIAL MEDIA BAR (INSTAGRAM, TIKTOK, SHOPEE) ================= -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 group">
+    <div class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2.5 sm:gap-3 group">
         
         <!-- Instagram Button -->
-        <a href="https://instagram.com/redafmotorgroup" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-3 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full shadow-xl hover:scale-110 hover:shadow-pink-500/50 transition-all duration-300 relative group/btn">
-            <i class="fa-brands fa-instagram text-xl w-6 h-6 flex items-center justify-center"></i>
-            <span class="absolute right-14 bg-gray-900/90 text-white text-[11px] font-semibold px-2.5 py-1 rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow">
+        <a href="https://instagram.com/redafmotorgroup" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2.5 sm:p-3 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full shadow-xl hover:scale-110 hover:shadow-pink-500/50 transition-all duration-300 relative group/btn">
+            <i class="fa-brands fa-instagram text-lg sm:text-xl w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center"></i>
+            <span class="absolute right-14 bg-gray-900/90 text-white text-[11px] font-semibold px-2.5 py-1 rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow hidden sm:inline-block">
                 Instagram
             </span>
         </a>
 
         <!-- TikTok Button -->
-        <a href="https://tiktok.com/@redafmotorgroup" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-3 bg-[#010101] text-white border border-gray-700 rounded-full shadow-xl hover:scale-110 hover:shadow-cyan-500/40 transition-all duration-300 relative group/btn">
-            <i class="fa-brands fa-tiktok text-xl w-6 h-6 flex items-center justify-center text-[#25F4EE]"></i>
-            <span class="absolute right-14 bg-gray-900/90 text-white text-[11px] font-semibold px-2.5 py-1 rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow">
+        <a href="https://tiktok.com/@redafmotorgroup" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2.5 sm:p-3 bg-[#010101] text-white border border-gray-700 rounded-full shadow-xl hover:scale-110 hover:shadow-cyan-500/40 transition-all duration-300 relative group/btn">
+            <i class="fa-brands fa-tiktok text-lg sm:text-xl w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-[#25F4EE]"></i>
+            <span class="absolute right-14 bg-gray-900/90 text-white text-[11px] font-semibold px-2.5 py-1 rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow hidden sm:inline-block">
                 TikTok
             </span>
         </a>
 
         <!-- Shopee Button -->
-        <a href="https://shopee.co.id/redafmotor" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-3 bg-[#EE4D2D] text-white rounded-full shadow-xl hover:scale-110 hover:shadow-orange-500/50 transition-all duration-300 relative group/btn">
-            <i class="fa-solid fa-bag-shopping text-xl w-6 h-6 flex items-center justify-center"></i>
-            <span class="absolute right-14 bg-gray-900/90 text-white text-[11px] font-semibold px-2.5 py-1 rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow">
+        <a href="https://shopee.co.id/redafmotor" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2.5 sm:p-3 bg-[#EE4D2D] text-white rounded-full shadow-xl hover:scale-110 hover:shadow-orange-500/50 transition-all duration-300 relative group/btn">
+            <i class="fa-solid fa-bag-shopping text-lg sm:text-xl w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center"></i>
+            <span class="absolute right-14 bg-gray-900/90 text-white text-[11px] font-semibold px-2.5 py-1 rounded-md opacity-0 group-hover/btn:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow hidden sm:inline-block">
                 Shopee Official
             </span>
         </a>
@@ -358,7 +345,7 @@
             }
         });
 
-        // Carousel Logic (10 Detik Auto-Slide Tanpa Dots)
+        // Carousel Logic (10 Detik Auto-Slide)
         const slides = document.querySelectorAll('.slide-item');
         let currentIdx = 0;
         let timer;
@@ -407,13 +394,13 @@
 
         // Generator Partikel Efek Bintang Jatuh & Berkelap-Kelip di Section Gelap
         const starsLayer = document.getElementById('hero-stars-layer');
-        const totalTwinkleStars = 35;
-        const totalFallingStars = 6;
+        const totalTwinkleStars = 30;
+        const totalFallingStars = 5;
 
         for (let i = 0; i < totalTwinkleStars; i++) {
             const star = document.createElement('div');
             star.className = 'twinkle-star';
-            const size = Math.random() * 2.5 + 1;
+            const size = Math.random() * 2 + 1;
             star.style.width = `${size}px`;
             star.style.height = `${size}px`;
             star.style.top = `${Math.random() * 100}%`;
