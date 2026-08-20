@@ -23,11 +23,65 @@
             }
         }
     </script>
+    <style>
+        /* Container Efek Bintang Bertaburan */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Bintang Jatuh Kecil */
+        .star-fall {
+            position: absolute;
+            top: -20px;
+            width: 2px;
+            height: 45px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), #E60012, #ffffff);
+            opacity: 0.7;
+            animation: fallAnimation linear infinite;
+        }
+
+        @keyframes fallAnimation {
+            0% {
+                transform: translateY(-20px) translateX(0) rotate(25deg);
+                opacity: 0;
+            }
+            30% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(110vh) translateX(-120px) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        /* Bintang Berkelap-Kelip */
+        .twinkle-star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkleAnimation infinite alternate ease-in-out;
+        }
+
+        @keyframes twinkleAnimation {
+            0% { opacity: 0.15; transform: scale(0.6); }
+            100% { opacity: 0.95; transform: scale(1.3); box-shadow: 0 0 10px rgba(230,0,18,0.8); }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen relative overflow-x-hidden">
+
+    <!-- Layer Partikel Bintang Bertaburan & Berjatuhan -->
+    <div id="stars-layer" class="stars-container"></div>
 
     <!-- Top Bar Jam Operasional -->
-    <div class="bg-redafBlack text-white text-xs py-2 px-4 border-b border-gray-800">
+    <div class="bg-redafBlack text-white text-xs py-2 px-4 border-b border-gray-800 relative z-40">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-0">
             <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2 text-center sm:text-left">
                 <span><i class="fa-solid fa-clock text-yamahaRed mr-1"></i> <strong>Senin - Jumat:</strong> 07.00 - 18.00 WIB </span>
@@ -96,7 +150,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 flex-grow">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 flex-grow relative z-10">
         
         <!-- Header Judul Halaman -->
         <div class="text-center mb-10">
@@ -129,7 +183,7 @@
         </div>
 
         <!-- ================= SEJARAH REDAF MOTOR GROUP ================= -->
-        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-gray-100 mb-10 max-w-4xl mx-auto leading-relaxed text-gray-700">
+        <div class="bg-white/95 backdrop-blur-sm p-6 sm:p-10 rounded-3xl shadow-md border border-gray-100 mb-10 max-w-4xl mx-auto leading-relaxed text-gray-700">
             <div class="flex items-center gap-3 mb-4">
                 <div class="w-10 h-10 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-lg">
                     <i class="fa-solid fa-clock-rotate-left"></i>
@@ -149,7 +203,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             
             <!-- Kartu Visi -->
-            <div class="bg-white p-8 rounded-3xl border-t-4 border-yamahaRed shadow-md border-x border-b border-gray-100 flex flex-col justify-between hover:shadow-lg transition">
+            <div class="bg-white/95 backdrop-blur-sm p-8 rounded-3xl border-t-4 border-yamahaRed shadow-md border-x border-b border-gray-100 flex flex-col justify-between hover:shadow-lg transition">
                 <div>
                     <div class="w-12 h-12 rounded-2xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-5">
                         <i class="fa-solid fa-bullseye"></i>
@@ -162,7 +216,7 @@
             </div>
 
             <!-- Kartu Komitmen -->
-            <div class="bg-white p-8 rounded-3xl border-t-4 border-redafBlack shadow-md border-x border-b border-gray-100 flex flex-col justify-between hover:shadow-lg transition">
+            <div class="bg-white/95 backdrop-blur-sm p-8 rounded-3xl border-t-4 border-redafBlack shadow-md border-x border-b border-gray-100 flex flex-col justify-between hover:shadow-lg transition">
                 <div>
                     <div class="w-12 h-12 rounded-2xl bg-gray-100 text-redafBlack flex items-center justify-center text-xl mb-5">
                         <i class="fa-solid fa-handshake"></i>
@@ -208,12 +262,13 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-redafBlack text-white py-8 border-t-4 border-yamahaRed text-center text-xs text-gray-400">
+    <footer class="bg-redafBlack text-white py-8 border-t-4 border-yamahaRed text-center text-xs text-gray-400 relative z-10">
         &copy; 2026 REDAF MOTOR GROUP. All Rights Reserved.
     </footer>
 
-    <!-- Script Hamburger Menu Mobile -->
+    <!-- Script Hamburger Menu & Efek Bintang Jatuh & Berkelap-Kelip -->
     <script>
+        // Hamburger Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -228,6 +283,35 @@
                 menuIcon.classList.add('fa-xmark');
             }
         });
+
+        // Generator Efek Bintang Jatuh Kecil & Berkelap-Kelip
+        const starsLayer = document.getElementById('stars-layer');
+        const totalTwinkleStars = 45;
+        const totalFallingStars = 8;
+
+        // Bintang Berkelap-Kelip
+        for (let i = 0; i < totalTwinkleStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'twinkle-star';
+            const size = Math.random() * 3 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            starsLayer.appendChild(star);
+        }
+
+        // Bintang Jatuh Kecil
+        for (let i = 0; i < totalFallingStars; i++) {
+            const fall = document.createElement('div');
+            fall.className = 'star-fall';
+            fall.style.left = `${Math.random() * 100}vw`;
+            fall.style.animationDuration = `${Math.random() * 4 + 4}s`;
+            fall.style.animationDelay = `${Math.random() * 6}s`;
+            starsLayer.appendChild(fall);
+        }
     </script>
 </body>
 </html>
