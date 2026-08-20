@@ -33,17 +33,21 @@
         }
         /* Animasi Pop-Up */
         .modal-animate-in {
-            animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
-                transform: scale(0.95) translateY(10px);
+                transform: scale(0.96) translateY(8px);
             }
             to {
                 opacity: 1;
                 transform: scale(1) translateY(0);
             }
+        }
+        /* Smooth scrolling di browser HP */
+        .modal-scroll {
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
@@ -137,7 +141,7 @@
             <div class="flex flex-wrap justify-center gap-8">
                 
                 <!-- Layanan 1 (Index 0) -->
-                <div onclick="openModal(0)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm">
+                <div onclick="openModal(0)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/KSG BAGUS.png" alt="KSG, KSB & Fast Pit" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -156,7 +160,7 @@
                 </div>
 
                 <!-- Layanan 2 (Index 1) -->
-                <div onclick="openModal(1)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm">
+                <div onclick="openModal(1)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/sparepart.jpeg" alt="YLB & YGP" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -175,7 +179,7 @@
                 </div>
 
                 <!-- Layanan 3 (Index 2) -->
-                <div onclick="openModal(2)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm">
+                <div onclick="openModal(2)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/claim-garansi.png" alt="Claim Garansi & ACS STAR" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -194,7 +198,7 @@
                 </div>
 
                 <!-- Layanan 4 (Index 3) -->
-                <div onclick="openModal(3)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm">
+                <div onclick="openModal(3)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/SKY.png" alt="SKY (Service Kunjung Yamaha)" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -213,7 +217,7 @@
                 </div>
 
                 <!-- Layanan 5 (Index 4) -->
-                <div onclick="openModal(4)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm">
+                <div onclick="openModal(4)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/YDT.png" alt="YDT (YAMAHA DIAGNOSTIC TOOLS)" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -384,43 +388,43 @@
 
     </main>
 
-    <!-- ================= MODAL POP-UP DETAIL LAYANAN ================= -->
-    <div id="service-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm overflow-y-auto">
-        <div id="modal-content" class="bg-white rounded-3xl shadow-2xl border border-gray-100 max-w-2xl w-full overflow-hidden relative modal-animate-in my-auto max-h-[90vh] flex flex-col">
+    <!-- ================= MODAL POP-UP DETAIL LAYANAN (DIPERBAIKI UNTUK MOBILE & DESKTOP) ================= -->
+    <div id="service-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-sm overflow-y-auto modal-scroll">
+        <div id="modal-content" class="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 max-w-2xl w-full overflow-hidden relative modal-animate-in my-auto max-h-[85vh] flex flex-col">
             
             <!-- Tombol Close (X) -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 z-20 bg-black/50 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-lg">
-                <i class="fa-solid fa-xmark text-lg"></i>
+            <button onclick="closeModal()" class="absolute top-3 right-3 z-30 bg-black/60 hover:bg-yamahaRed text-white w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition shadow-lg">
+                <i class="fa-solid fa-xmark text-base sm:text-lg"></i>
             </button>
 
             <!-- Foto Banner Pop-up -->
-            <div class="h-56 sm:h-64 w-full bg-black relative flex-shrink-0">
+            <div class="h-48 sm:h-64 w-full bg-black relative flex-shrink-0">
                 <img id="modal-img" src="" alt="Detail Layanan" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
-                <div class="absolute bottom-4 left-6 right-6">
-                    <span class="bg-yamahaRed text-white text-[10px] sm:text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider shadow">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-3 left-4 right-4 sm:bottom-4 sm:left-6 sm:right-6">
+                    <span class="bg-yamahaRed text-white text-[10px] sm:text-xs font-bold uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full tracking-wider shadow">
                         Bengkel Resmi Yamaha
                     </span>
-                    <h3 id="modal-title" class="text-xl sm:text-2xl font-extrabold text-white mt-1 leading-tight drop-shadow-md">
+                    <h3 id="modal-title" class="text-lg sm:text-2xl font-extrabold text-white mt-1 leading-tight drop-shadow-md">
                         <!-- Judul Layanan -->
                     </h3>
                 </div>
             </div>
 
-            <!-- Isi Deskripsi Pop-up (Bisa di-scroll jika panjang) -->
-            <div class="p-6 sm:p-8 overflow-y-auto flex-grow">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Deskripsi & Penjelasan Lengkap</h4>
-                <div id="modal-desc" class="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+            <!-- Isi Deskripsi Pop-up -->
+            <div class="p-4 sm:p-8 overflow-y-auto modal-scroll flex-grow">
+                <h4 class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Deskripsi & Penjelasan Lengkap</h4>
+                <div id="modal-desc" class="text-xs sm:text-sm text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
                     <!-- Deskripsi Lengkap -->
                 </div>
 
                 <!-- Tombol Aksi di Modal -->
-                <div class="flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t border-gray-100">
-                    <button onclick="closeModal()" class="w-full sm:w-auto px-6 py-2.5 rounded-xl border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold text-sm transition">
+                <div class="flex flex-col sm:flex-row items-center justify-end gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-gray-100">
+                    <button onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold text-xs sm:text-sm transition">
                         Tutup
                     </button>
-                    <a id="modal-wa-btn" href="https://wa.me/6285353105448" target="_blank" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-red-600/30">
-                        <i class="fa-brands fa-whatsapp text-base"></i>
+                    <a id="modal-wa-btn" href="https://wa.me/6285353105448" target="_blank" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-red-600/30">
+                        <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
                         <span>Tanya / Booking Layanan Ini</span>
                     </a>
                 </div>
@@ -463,7 +467,8 @@
 Kami melayani Kupon Servis Gratis (KSG 1 s/d KSG 4) maupun E-KSG (berbasis aplikasi My Yamaha Motor). Kami juga melayani Kupon Servis Gratis Project (KSG Project) untuk pembelian motor baru sesuai buku ketentuan dan pedoman resmi Yamaha.
 
 <div class="my-3 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
-    <img src="Photo/ketentuan-garansi.png" alt="Detail Tabel Garansi Yamaha 5 Tahun" class="w-full h-auto object-cover">
+    <img src="Photo/ketentuan-garansi.png" alt="Ketentuan Garansi Yamaha" class="w-full h-auto object-cover">
+</div>
 
 <strong class="text-gray-900 font-bold block mt-3">Layanan Service Berkala:</strong>
 Meliputi Service Ringan / Tune Up, Service CVT, Overhaul Mesin, Overhaul CVT, Service Injeksi, dan Komstir dengan pengecekan 12-24 titik penting: ganti oli mesin & oli gardan, cek filter udara, setelan klep, busi, kelistrikan, sistem pengereman, transmisi CVT, ban, kelengkapan bodi dan baut-baut, shockbreaker, gerak bebas kemudi, hingga diagnosa injeksi terkomputerisasi/YDT.
@@ -530,13 +535,13 @@ Alat ini membaca seluruh kode kerusakan sensor, memeriksa data realtime ECU, men
             modalWaBtn.href = `https://wa.me/6285353105448?text=Halo%20Redaf%20Motor,%20saya%20ingin%20tanya%20info%20lebih%20lanjut%20mengenai%20${encodeURIComponent(service.title)}`;
             
             modal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
+            document.body.style.overflow = 'hidden';
         }
 
         // Tutup Modal Pop-up
         function closeModal() {
             modal.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
+            document.body.style.overflow = '';
         }
 
         // Tutup modal jika klik di luar box modal
