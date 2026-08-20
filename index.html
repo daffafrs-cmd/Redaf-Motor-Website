@@ -166,44 +166,41 @@
         </div>
     </nav>
 
-    <!-- HERO SLIDER: Responsif Penuh -->
+    <!-- HERO SLIDER: Responsif Penuh (Dots Dihilangkan) -->
     <div class="relative w-full h-[52vh] sm:h-[65vh] md:h-screen bg-[#0d0e12] overflow-hidden select-none">
         
         <!-- Slide 1 -->
         <div class="slide-item active flex items-center justify-center bg-[#0d0e12]">
             <img src="Photo/1.png" alt="Banner Sparepart" class="w-full h-full object-contain md:object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 2 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
             <img src="Photo/2.png" alt="Banner Alat Lengkap" class="w-full h-full object-contain md:object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 3 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
             <img src="Photo/3.png" alt="Banner KSG" class="w-full h-full object-contain md:object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 4 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
             <img src="Photo/4.png" alt="Banner Yamalube" class="w-full h-full object-contain md:object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 5 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
             <img src="Photo/5.png" alt="Banner Promo 5" class="w-full h-full object-contain md:object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
 
         <!-- Slide 6 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
             <img src="Photo/6.jpg" alt="Banner Promo 6" class="w-full h-full object-contain md:object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20 pointer-events-none"></div>
         </div>
+
+        <!-- Seamless Blend Overlay Menuju Section Bawah -->
+        <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-redafBlack/40 to-transparent pointer-events-none z-20"></div>
 
         <!-- Tombol Panah Kiri -->
         <button id="prev-btn" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-yamahaRed text-white w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl">
@@ -214,22 +211,13 @@
         <button id="next-btn" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-yamahaRed text-white w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center transition shadow-2xl">
             <i class="fa-solid fa-chevron-right text-sm sm:text-base md:text-xl"></i>
         </button>
-
-        <!-- Titik Indikator (Dots) -->
-        <div class="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center space-x-2 sm:space-x-3 bg-black/50 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full backdrop-blur-md border border-white/15">
-            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yamahaRed scale-125 transition-all duration-300" onclick="manualGoToSlide(0)"></button>
-            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(1)"></button>
-            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(2)"></button>
-            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(3)"></button>
-            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(4)"></button>
-            <button class="dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300" onclick="manualGoToSlide(5)"></button>
-        </div>
     </div>
 
-    <!-- Hero Section dengan Efek Bintang Jatuh & Highlight Megah Yamaha -->
-    <section class="relative bg-redafBlack text-white py-16 lg:py-24 overflow-hidden border-t border-gray-900">
+    <!-- Hero Section dengan Efek Bintang Jatuh & Luxury Blend -->
+    <section class="relative bg-redafBlack text-white -mt-10 sm:-mt-16 pt-16 sm:pt-20 pb-16 lg:pb-24 overflow-hidden z-20">
         
-        <!-- Layer Background: Nebula Glows -->
+        <!-- Layer Background: Luxury Ambient Glows -->
+        <div class="absolute -top-40 left-1/4 w-[40rem] h-40 bg-gradient-to-b from-transparent via-yamahaRed/20 to-transparent blur-3xl pointer-events-none"></div>
         <div class="absolute -top-32 -left-32 w-96 h-96 bg-yamahaRed/25 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-40 -right-20 w-[30rem] h-[30rem] bg-yamahaRed/20 rounded-full blur-[110px] pointer-events-none"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[20rem] bg-indigo-950/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -313,7 +301,7 @@
                 <!-- Glassmorphism Highlight Card: Spesifikasi Detail Keunggulan -->
                 <div class="relative bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/15 shadow-2xl text-left">
                     
-                    <!-- ================= BADGE GARANSI DEALER 14 HARI (BARU & MENARIK) ================= -->
+                    <!-- ================= BADGE GARANSI DEALER 14 HARI ================= -->
                     <div class="absolute -top-3.5 right-4 bg-gradient-to-r from-yamahaRed via-red-600 to-yamahaDarkRed text-white text-[10px] sm:text-xs font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg shadow-red-600/50 border border-white/30 flex items-center gap-1.5 animate-pulse">
                         <i class="fa-solid fa-shield-halved text-xs"></i>
                         <span>Garansi Dealer 14 Hari</span>
@@ -413,9 +401,8 @@
             }
         });
 
-        // Carousel Logic (10 Detik Fade Auto-Slide)
+        // Carousel Logic (10 Detik Auto-Slide Tanpa Dots)
         const slides = document.querySelectorAll('.slide-item');
-        const dots = document.querySelectorAll('.dot');
         let currentIdx = 0;
         let timer;
 
@@ -425,16 +412,6 @@
                     slide.classList.add('active');
                 } else {
                     slide.classList.remove('active');
-                }
-            });
-
-            dots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.remove('bg-white/50');
-                    dot.classList.add('bg-yamahaRed', 'scale-125');
-                } else {
-                    dot.classList.remove('bg-yamahaRed', 'scale-125');
-                    dot.classList.add('bg-white/50');
                 }
             });
             currentIdx = index;
@@ -448,11 +425,6 @@
         function prevSlide() {
             let prev = (currentIdx - 1 + slides.length) % slides.length;
             showSlide(prev);
-        }
-
-        function manualGoToSlide(idx) {
-            showSlide(idx);
-            resetAutoSlide();
         }
 
         function startAutoSlide() {
