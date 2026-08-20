@@ -73,6 +73,21 @@
             0% { opacity: 0.15; transform: scale(0.6); }
             100% { opacity: 0.95; transform: scale(1.3); box-shadow: 0 0 10px rgba(230,0,18,0.8); }
         }
+
+        /* Transisi Fade Otomatis untuk 6 Foto Cabang */
+        .branch-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out, transform 10s linear;
+            transform: scale(1);
+            pointer-events: none;
+        }
+        .branch-slide.active {
+            opacity: 1;
+            transform: scale(1.05);
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen relative overflow-x-hidden">
@@ -163,17 +178,48 @@
             <div class="w-16 h-1 bg-yamahaRed mx-auto mt-3 rounded-full"></div>
         </div>
 
-        <!-- ================= FOTO BESAR DI ATAS SEJARAH ================= -->
+        <!-- ================= FOTO BESAR 6 CABANG (AUTO-CHANGE TIAP 10 DETIK) ================= -->
         <div class="max-w-4xl mx-auto mb-8">
-            <div class="relative w-full h-64 sm:h-80 md:h-[400px] rounded-3xl overflow-hidden shadow-xl border border-gray-200 bg-black group">
-                <img src="Photo/rdf1vintage.png" alt="Bengkel Redaf Motor Group" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/80 via-transparent to-black/20"></div>
-                <div class="absolute bottom-6 left-6 right-6 text-white">
-                    <span class="bg-yamahaRed text-white text-[10px] sm:text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider shadow">
-                        Official Yamaha Workshop
+            <div class="relative w-full h-64 sm:h-80 md:h-[420px] rounded-3xl overflow-hidden shadow-2xl border border-gray-200 bg-black">
+                
+                <!-- Foto 1: Redaf 01 (Cibitung) -->
+                <div class="branch-slide active">
+                    <img src="Photo/redaf1.jpg" alt="REDAF MOTOR 01 Cibitung" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Foto 2: Redaf 02 (Setu) -->
+                <div class="branch-slide">
+                    <img src="Photo/redaf2.jpg" alt="REDAF MOTOR 02 Setu" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Foto 3: Redaf 03 (Cijengkol) -->
+                <div class="branch-slide">
+                    <img src="Photo/redaf3.jpg" alt="REDAF MOTOR 03 Cijengkol" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Foto 4: Redaf 04 (Wanajaya) -->
+                <div class="branch-slide">
+                    <img src="Photo/redaf4.jpg" alt="REDAF MOTOR 04 Wanajaya" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Foto 5: Redaf 05 (Babelan) -->
+                <div class="branch-slide">
+                    <img src="Photo/redaf5.jpg" alt="REDAF MOTOR 05 Babelan" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Foto 6: Redaf Tambun -->
+                <div class="branch-slide">
+                    <img src="Photo/redaftbn.jpg" alt="REDAF TAMBUN" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Gradient Overlay & Caption Info -->
+                <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/90 via-black/25 to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white pointer-events-none">
+                    <span id="badge-branch-text" class="bg-yamahaRed text-white text-[10px] sm:text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider shadow">
+                        Cabang Cibitung
                     </span>
-                    <h2 class="text-xl sm:text-3xl font-black mt-2 leading-tight drop-shadow-md">
-                        YAMAHA REDAF MOTOR GROUP
+                    <h2 id="title-branch-text" class="text-xl sm:text-3xl font-black mt-2 leading-tight drop-shadow-md">
+                        REDAF MOTOR 01
                     </h2>
                     <p class="text-xs sm:text-sm text-gray-300 mt-1 max-w-xl hidden sm:block">
                         Solusi terpercaya perawatan dan suku cadang resmi sepeda motor Yamaha sejak 2010.
@@ -266,7 +312,7 @@
         &copy; 2026 REDAF MOTOR GROUP. All Rights Reserved.
     </footer>
 
-    <!-- Script Hamburger Menu & Efek Bintang Jatuh & Berkelap-Kelip -->
+    <!-- Script Hamburger Menu, Efek Bintang Jatuh, & Auto Crossfade 6 Foto 10 Detik -->
     <script>
         // Hamburger Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
@@ -284,12 +330,11 @@
             }
         });
 
-        // Generator Efek Bintang Jatuh Kecil & Berkelap-Kelip
+        // 1. Generator Efek Bintang Jatuh Kecil & Berkelap-Kelip
         const starsLayer = document.getElementById('stars-layer');
         const totalTwinkleStars = 45;
         const totalFallingStars = 8;
 
-        // Bintang Berkelap-Kelip
         for (let i = 0; i < totalTwinkleStars; i++) {
             const star = document.createElement('div');
             star.className = 'twinkle-star';
@@ -303,7 +348,6 @@
             starsLayer.appendChild(star);
         }
 
-        // Bintang Jatuh Kecil
         for (let i = 0; i < totalFallingStars; i++) {
             const fall = document.createElement('div');
             fall.className = 'star-fall';
@@ -312,6 +356,34 @@
             fall.style.animationDelay = `${Math.random() * 6}s`;
             starsLayer.appendChild(fall);
         }
+
+        // 2. Logika Auto Fade 6 Foto Cabang Berganti Tiap 10 Detik
+        const branchInfo = [
+            { badge: "Cabang Cibitung", title: "REDAF MOTOR 01" },
+            { badge: "Cabang Lubangbuaya", title: "REDAF MOTOR 02" },
+            { badge: "Cabang Cijengkol", title: "REDAF MOTOR 03" },
+            { badge: "Cabang Selang Jati", title: "REDAF MOTOR 04" },
+            { badge: "Cabang Babelan", title: "REDAF MOTOR 05" },
+            { badge: "Cabang Tambun Selatan", title: "REDAF TAMBUN" }
+        ];
+
+        const slides = document.querySelectorAll('.branch-slide');
+        const badgeElem = document.getElementById('badge-branch-text');
+        const titleElem = document.getElementById('title-branch-text');
+        let currentSlideIdx = 0;
+
+        function nextBranchSlide() {
+            slides[currentSlideIdx].classList.remove('active');
+            currentSlideIdx = (currentSlideIdx + 1) % slides.length;
+            slides[currentSlideIdx].classList.add('active');
+
+            // Update info teks cabang
+            badgeElem.innerText = branchInfo[currentSlideIdx].badge;
+            titleElem.innerText = branchInfo[currentSlideIdx].title;
+        }
+
+        // Jalankan pergantian foto otomatis setiap 10.000 milidetik (10 detik)
+        setInterval(nextBranchSlide, 10000);
     </script>
 </body>
 </html>
