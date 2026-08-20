@@ -386,7 +386,7 @@
 
     <!-- ================= MODAL POP-UP DETAIL LAYANAN ================= -->
     <div id="service-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm overflow-y-auto">
-        <div id="modal-content" class="bg-white rounded-3xl shadow-2xl border border-gray-100 max-w-2xl w-full overflow-hidden relative modal-animate-in my-auto">
+        <div id="modal-content" class="bg-white rounded-3xl shadow-2xl border border-gray-100 max-w-2xl w-full overflow-hidden relative modal-animate-in my-auto max-h-[90vh] flex flex-col">
             
             <!-- Tombol Close (X) -->
             <button onclick="closeModal()" class="absolute top-4 right-4 z-20 bg-black/50 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-lg">
@@ -394,21 +394,21 @@
             </button>
 
             <!-- Foto Banner Pop-up -->
-            <div class="h-64 sm:h-72 w-full bg-black relative">
+            <div class="h-56 sm:h-64 w-full bg-black relative flex-shrink-0">
                 <img id="modal-img" src="" alt="Detail Layanan" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
                 <div class="absolute bottom-4 left-6 right-6">
                     <span class="bg-yamahaRed text-white text-[10px] sm:text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider shadow">
                         Bengkel Resmi Yamaha
                     </span>
-                    <h3 id="modal-title" class="text-2xl sm:text-3xl font-extrabold text-white mt-2 leading-tight drop-shadow-md">
+                    <h3 id="modal-title" class="text-xl sm:text-2xl font-extrabold text-white mt-1 leading-tight drop-shadow-md">
                         <!-- Judul Layanan -->
                     </h3>
                 </div>
             </div>
 
-            <!-- Isi Deskripsi Pop-up -->
-            <div class="p-6 sm:p-8">
+            <!-- Isi Deskripsi Pop-up (Bisa di-scroll jika panjang) -->
+            <div class="p-6 sm:p-8 overflow-y-auto flex-grow">
                 <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Deskripsi & Penjelasan Lengkap</h4>
                 <div id="modal-desc" class="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
                     <!-- Deskripsi Lengkap -->
@@ -484,14 +484,17 @@ Yamalube adalah lini pelumas dan cairan kimia resmi yang diformulasikan khusus o
                 img: "Photo/claim-garansi.png",
                 desc: `Claim Garansi Yamaha adalah perlindungan perbaikan atau penggantian suku cadang secara gratis atas kerusakan akibat cacat produksi/material, sedangkan ACS (Authorized Claim Shop) & ACS STAR adalah jaringan bengkel resmi yang memiliki wewenang khusus untuk memproses klaim tersebut.
 
-<strong class="text-gray-900 font-bold block mt-3">Claim Garansi Yamaha 5 Tahun</strong>
+<strong class="text-gray-900 font-bold block mt-4 mb-2">Claim Garansi Yamaha 5 Tahun</strong>
+<div class="my-3 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+    <img src="Photo/garansi-5tahun.jpg" alt="Detail Tabel Garansi Yamaha 5 Tahun" class="w-full h-auto object-cover">
+</div>
 Periode perlindungan dihitung berdasarkan waktu atau jarak tempuh (mana yang tercapai lebih dahulu):
 • 1 Tahun / 12.000 KM: Garansi umum komponen lainnya.
 • 2 Tahun / 24.000 KM: Komponen kelistrikan khusus dan sistem ABS.
 • 3 Tahun / 36.000 KM: Garansi mesin secara menyeluruh.
 • 5 Tahun / 50.000 KM: Rangka (frame tipe matik tertentu), komponen Fuel Injection (FI), serta DiASil Cylinder & Forged Piston.
 
-<strong class="text-gray-900 font-bold block mt-3">ACS STAR</strong>
+<strong class="text-gray-900 font-bold block mt-4 mb-1">ACS STAR</strong>
 ACS STAR (Authorized Claim Shop STAR) adalah jaringan bengkel resmi Yamaha dengan fasilitas dan wewenang tertinggi untuk menangani klaim garansi serta kerusakan mesin/kelistrikan yang kompleks. Bengkel ini berfungsi sebagai pusat rujukan utama yang ditangani langsung oleh mekanik bersertifikasi Master (YTA Level 3) dengan peralatan diagnosa paling lengkap.`
             },
             {
