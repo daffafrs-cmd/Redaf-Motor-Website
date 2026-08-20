@@ -24,50 +24,6 @@
         }
     </script>
     <style>
-        /* Container Efek Bunga Sakura */
-        .sakura-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        /* Kelopak Sakura */
-        .sakura-petal {
-            position: absolute;
-            background: linear-gradient(135deg, #ffb7c5 0%, #ff8da1 100%);
-            border-radius: 12px 1px 12px 1px;
-            opacity: 0.8;
-            box-shadow: 0 0 5px rgba(255, 141, 161, 0.4);
-            animation: sakuraFall linear infinite;
-        }
-
-        @keyframes sakuraFall {
-            0% {
-                top: -10%;
-                transform: translateX(0) rotate(0deg) scale(0.8);
-                opacity: 0;
-            }
-            15% {
-                opacity: 0.85;
-            }
-            50% {
-                transform: translateX(80px) rotate(180deg) scale(1);
-            }
-            85% {
-                opacity: 0.75;
-            }
-            100% {
-                top: 110%;
-                transform: translateX(-50px) rotate(360deg) scale(0.9);
-                opacity: 0;
-            }
-        }
-
         /* Membatasi teks agar rapi maksimal 3 baris di kartu depan */
         .text-clamp-3 {
             display: -webkit-box;
@@ -97,11 +53,8 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen relative overflow-x-hidden">
 
-    <!-- Layer Partikel Kelopak Sakura Berjatuhan -->
-    <div id="sakura-layer" class="sakura-container"></div>
-
     <!-- Top Bar Jam Operasional -->
-    <div class="bg-redafBlack text-white text-xs py-2 px-4 border-b border-gray-800 relative z-40">
+    <div class="bg-redafBlack text-white text-xs py-2 px-4 border-b border-gray-800">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-0">
             <div class="flex flex-wrap justify-center sm:justify-start items-center gap-2 text-center sm:text-left">
                 <span><i class="fa-solid fa-clock text-yamahaRed mr-1"></i> <strong>Senin - Jumat:</strong> 07.00 - 18.00 WIB </span>
@@ -170,12 +123,12 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 flex-grow relative z-10">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 flex-grow">
         
         <!-- ================= SECTION 1: LAYANAN BENGKEL KAMI (5 LAYANAN: 3 ATAS, 2 BAWAH TENGAH) ================= -->
         <section class="mb-20">
             <div class="text-center mb-12">
-                <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-yamahaRed bg-red-50/90 backdrop-blur-sm border border-red-200 px-3.5 py-1.5 rounded-full shadow-sm">
+                <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-yamahaRed bg-red-50 border border-red-200 px-3.5 py-1.5 rounded-full">
                     Standar Resmi Yamaha
                 </span>
                 <h1 class="text-3xl sm:text-4xl font-extrabold text-redafBlack mt-3 uppercase tracking-tight">
@@ -188,7 +141,7 @@
             <div class="flex flex-wrap justify-center gap-8">
                 
                 <!-- Layanan 1 (Index 0) -->
-                <div onclick="openModal(0)" class="cursor-pointer bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
+                <div onclick="openModal(0)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/KSG BAGUS.png" alt="KSG, KSB & Fast Pit" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -207,7 +160,7 @@
                 </div>
 
                 <!-- Layanan 2 (Index 1) -->
-                <div onclick="openModal(1)" class="cursor-pointer bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
+                <div onclick="openModal(1)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/sparepart.jpeg" alt="YLB & YGP" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -226,7 +179,7 @@
                 </div>
 
                 <!-- Layanan 3 (Index 2) -->
-                <div onclick="openModal(2)" class="cursor-pointer bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
+                <div onclick="openModal(2)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/claim-garansi.png" alt="Claim Garansi & ACS STAR" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -245,7 +198,7 @@
                 </div>
 
                 <!-- Layanan 4 (Index 3) -->
-                <div onclick="openModal(3)" class="cursor-pointer bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
+                <div onclick="openModal(3)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/SKY.png" alt="SKY (Service Kunjung Yamaha)" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -264,13 +217,13 @@
                 </div>
 
                 <!-- Layanan 5 (Index 4) -->
-                <div onclick="openModal(4)" class="cursor-pointer bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
+                <div onclick="openModal(4)" class="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] max-w-sm active:scale-[0.99]">
                     <div class="h-48 sm:h-52 bg-gray-100 overflow-hidden relative">
                         <img src="Photo/YDT.png" alt="YDT (YAMAHA DIAGNOSTIC TOOLS)" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-2.5 flex items-center gap-2">
-                            <i class="fa-solid fa-microchip text-yamahaRed"></i> YDT (Yamaha Diagnostic Tools)
+                            <i class="fa-solid fa-microchip text-yamahaRed"></i> YDT (Diagnostic Tools)
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed flex-grow text-clamp-3">
                             Pengecekan sistem sensor injeksi, ECU, dan kelistrikan motor secara akurat menggunakan komputer canggih Yamaha Diagnostic Tools.
@@ -288,7 +241,7 @@
         <!-- ================= SECTION 2: OUR FACILITIES (10 FASILITAS: 4 DI ATAS, 4 DI TENGAH, 2 DI BAWAH TENGAH) ================= -->
         <section class="mt-20 pt-10 border-t border-gray-200">
             <div class="text-center mb-12">
-                <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-yamahaRed bg-red-50/90 backdrop-blur-sm border border-red-200 px-3.5 py-1.5 rounded-full shadow-sm">
+                <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-yamahaRed bg-red-50 border border-red-200 px-3.5 py-1.5 rounded-full">
                     Kenyamanan Pelanggan
                 </span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-redafBlack mt-3 uppercase tracking-tight">
@@ -301,7 +254,7 @@
             <div class="flex flex-wrap justify-center gap-6">
                 
                 <!-- Fasilitas 1 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-couch"></i>
@@ -314,7 +267,7 @@
                 </div>
 
                 <!-- Fasilitas 2 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-wifi"></i>
@@ -327,7 +280,7 @@
                 </div>
 
                 <!-- Fasilitas 3 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-mug-hot"></i>
@@ -340,7 +293,7 @@
                 </div>
 
                 <!-- Fasilitas 4 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-tv"></i>
@@ -353,7 +306,7 @@
                 </div>
 
                 <!-- Fasilitas 5 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-eye"></i>
@@ -366,7 +319,7 @@
                 </div>
 
                 <!-- Fasilitas 6 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-mosque"></i>
@@ -379,7 +332,7 @@
                 </div>
 
                 <!-- Fasilitas 7 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-restroom"></i>
@@ -392,7 +345,7 @@
                 </div>
 
                 <!-- Fasilitas 8 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-square-parking"></i>
@@ -405,7 +358,7 @@
                 </div>
 
                 <!-- Fasilitas 9 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-soap"></i>
@@ -418,7 +371,7 @@
                 </div>
 
                 <!-- Fasilitas 10 -->
-                <div class="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 hover:border-yamahaRed/40 shadow-sm hover:shadow-md transition text-center sm:text-left flex flex-col justify-between w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.15rem)]">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-red-50 text-yamahaRed flex items-center justify-center text-xl mb-4 mx-auto sm:mx-0">
                             <i class="fa-solid fa-gauge-high"></i>
@@ -510,11 +463,11 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-redafBlack text-white py-8 border-t-4 border-yamahaRed text-center text-xs text-gray-400 relative z-10">
+    <footer class="bg-redafBlack text-white py-8 border-t-4 border-yamahaRed text-center text-xs text-gray-400">
         &copy; 2026 REDAF MOTOR GROUP. All Rights Reserved.
     </footer>
 
-    <!-- Script Hamburger Menu, Efek Bunga Sakura, & Logika Pop-Up Modal -->
+    <!-- Script Hamburger Menu & Logika Pop-Up Modal -->
     <script>
         // Hamburger Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
@@ -531,27 +484,6 @@
                 menuIcon.classList.add('fa-xmark');
             }
         });
-
-        // Generator Efek Bunga Sakura Berjatuhan
-        const sakuraLayer = document.getElementById('sakura-layer');
-        const totalPetals = 35;
-
-        for (let i = 0; i < totalPetals; i++) {
-            const petal = document.createElement('div');
-            petal.className = 'sakura-petal';
-            
-            const size = Math.random() * 8 + 8; // Ukuran bervariasi 8px - 16px
-            petal.style.width = `${size}px`;
-            petal.style.height = `${size * 1.3}px`;
-            petal.style.left = `${Math.random() * 100}vw`;
-            
-            const duration = Math.random() * 5 + 6; // Durasi jatuh 6s - 11s
-            const delay = Math.random() * 7; // Delay acak
-            petal.style.animationDuration = `${duration}s`;
-            petal.style.animationDelay = `${delay}s`;
-            
-            sakuraLayer.appendChild(petal);
-        }
 
         // Data 5 Layanan untuk Pop-Up Modal
         const servicesData = [
@@ -637,7 +569,7 @@ Alat ini membaca seluruh kode kerusakan sensor, memeriksa data realtime ECU, men
         // Tutup Modal Pop-up
         function closeModal() {
             modal.classList.add('hidden');
-            document.body.style.overflow = '';
+            document.body.style.overflow = ''
         }
 
         // Tutup modal jika klik di luar box modal
