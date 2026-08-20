@@ -184,7 +184,7 @@
                 
                 <!-- Foto 1: Redaf 01 (Cibitung) -->
                 <div class="branch-slide active">
-                    <img src="Photo/rdf1vintage.png" alt="REDAF MOTOR 01 Cibitung" class="w-full h-full object-cover">
+                    <img src="Photo/redaf1.jpg" alt="REDAF MOTOR 01 Cibitung" class="w-full h-full object-cover">
                 </div>
 
                 <!-- Foto 2: Redaf 02 (Setu) -->
@@ -212,14 +212,14 @@
                     <img src="Photo/redaftbn.jpg" alt="REDAF TAMBUN" class="w-full h-full object-cover">
                 </div>
 
-                <!-- Gradient Overlay & Caption Info -->
+                <!-- Gradient Overlay & Caption Info Statis -->
                 <div class="absolute inset-0 bg-gradient-to-t from-redafBlack/90 via-black/25 to-transparent pointer-events-none"></div>
                 <div class="absolute bottom-6 left-6 right-6 text-white pointer-events-none">
-                    <span id="badge-branch-text" class="bg-yamahaRed text-white text-[10px] sm:text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider shadow">
-                        Cabang Cibitung
+                    <span class="bg-yamahaRed text-white text-[10px] sm:text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider shadow">
+                        Official Yamaha Workshop
                     </span>
-                    <h2 id="title-branch-text" class="text-xl sm:text-3xl font-black mt-2 leading-tight drop-shadow-md">
-                        REDAF MOTOR 01
+                    <h2 class="text-xl sm:text-3xl font-black mt-2 leading-tight drop-shadow-md">
+                        YAMAHA REDAF MOTOR GROUP
                     </h2>
                     <p class="text-xs sm:text-sm text-gray-300 mt-1 max-w-xl hidden sm:block">
                         Solusi terpercaya perawatan dan suku cadang resmi sepeda motor Yamaha sejak 2010.
@@ -357,29 +357,14 @@
             starsLayer.appendChild(fall);
         }
 
-        // 2. Logika Auto Fade 6 Foto Cabang Berganti Tiap 10 Detik
-        const branchInfo = [
-            { badge: "Cabang Cibitung", title: "REDAF MOTOR 01" },
-            { badge: "Cabang Lubangbuaya", title: "REDAF MOTOR 02" },
-            { badge: "Cabang Cijengkol", title: "REDAF MOTOR 03" },
-            { badge: "Cabang Selang Jati", title: "REDAF MOTOR 04" },
-            { badge: "Cabang Babelan", title: "REDAF MOTOR 05" },
-            { badge: "Cabang Tambun Selatan", title: "REDAF TAMBUN" }
-        ];
-
+        // 2. Logika Auto Fade 6 Foto Cabang Berganti Tiap 10 Detik (Judul Tetap Statis)
         const slides = document.querySelectorAll('.branch-slide');
-        const badgeElem = document.getElementById('badge-branch-text');
-        const titleElem = document.getElementById('title-branch-text');
         let currentSlideIdx = 0;
 
         function nextBranchSlide() {
             slides[currentSlideIdx].classList.remove('active');
             currentSlideIdx = (currentSlideIdx + 1) % slides.length;
             slides[currentSlideIdx].classList.add('active');
-
-            // Update info teks cabang
-            badgeElem.innerText = branchInfo[currentSlideIdx].badge;
-            titleElem.innerText = branchInfo[currentSlideIdx].title;
         }
 
         // Jalankan pergantian foto otomatis setiap 10.000 milidetik (10 detik)
