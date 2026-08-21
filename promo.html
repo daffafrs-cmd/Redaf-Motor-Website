@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promo - Redaf Motor Group</title>
+    <title>Promotion - Redaf Motor Group</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -210,7 +210,7 @@
                 </div>
             </div>
 
-            <!-- Promo 3: GIVEAWAY DENGAN 4 FOTO SLIDER -->
+            <!-- Promo 3: GIVEAWAY DENGAN 4 FOTO SLIDER (EMAS) -->
             <div onclick="openPromoModal(2)" class="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group active:scale-[0.99]">
                 <div class="h-52 sm:h-60 bg-gray-100 overflow-hidden relative">
                     
@@ -260,12 +260,12 @@
                 </div>
             </div>
 
-            <!-- Promo 4 -->
+            <!-- Promo 4: E-KSG MY YAMAHA APP (WARNA BIRU) -->
             <div onclick="openPromoModal(3)" class="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group active:scale-[0.99]">
                 <div class="h-52 sm:h-60 bg-gray-100 overflow-hidden relative">
-                    <img src="Photo/promo4.jpg" alt="Promo Sparepart & Ban" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-4 left-4 bg-redafBlack text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                        Suku Cadang
+                    <img src="Photo/eksg200.jpg" alt="Claim Sekarang Juga Free 200 Point E-KSG My Yamaha App" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-4 left-4 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                        <i class="fa-solid fa-mobile-screen mr-1"></i> E-KSG My Yamaha
                     </span>
                     <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5">
                         <i class="fa-solid fa-expand text-xs"></i>
@@ -274,17 +274,17 @@
                 </div>
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
                     <div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-3">
-                            Gratis Pasang Ban & Aki Yamaha
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition mb-3">
+                            Claim Sekarang Juga Free 200 Point!!
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
-                            Setiap pembelian ban luar tubeless atau aki original Yamaha di seluruh cabang Redaf Motor Group, gratis ongkos pasang dan cek kelistrikan.
+                            Yuk klaim KSG motor baru Anda melalui E-KSG di aplikasi My Yamaha App dan dapatkan bonus langsung 200 Point di bengkel resmi Redaf Motor Group!
                         </p>
                     </div>
                     <div>
-                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
-                            <i class="fa-solid fa-circle-info text-sm"></i>
-                            <span>Buka Info & Klaim Promo</span>
+                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 hover:from-blue-700 hover:to-cyan-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg shadow-blue-600/30 transition text-sm">
+                            <i class="fa-solid fa-coins text-sm"></i>
+                            <span>Klaim 200 Point E-KSG</span>
                         </button>
                     </div>
                 </div>
@@ -349,10 +349,10 @@
                             <p id="promo-modal-desc" class="text-gray-700 leading-relaxed"></p>
                         </div>
 
-                        <div class="bg-amber-50/60 border border-amber-200 p-4 sm:p-6 rounded-2xl">
+                        <div id="promo-modal-terms-box" class="bg-amber-50/60 border border-amber-200 p-4 sm:p-6 rounded-2xl">
                             <h4 class="text-xs sm:text-sm font-bold text-redafBlack mb-3 flex items-center gap-2">
-                                <i class="fa-solid fa-list-ol text-yamahaRed text-sm"></i>
-                                <span>Mekanisme & Ketentuan Giveaway:</span>
+                                <i id="promo-modal-terms-icon" class="fa-solid fa-list-ol text-yamahaRed text-sm"></i>
+                                <span id="promo-modal-terms-title">Mekanisme & Ketentuan Promo:</span>
                             </h4>
                             <div id="promo-modal-terms" class="text-xs sm:text-sm text-gray-800 space-y-2.5 leading-relaxed">
                                 <!-- List Syarat Mekanisme -->
@@ -436,7 +436,7 @@
             }
         });
 
-        // 4 Foto Khusus Giveaway (Disesuaikan dengan file foto giveaway)
+        // 4 Foto Khusus Giveaway
         const giveawayImages = [
             "Photo/giveaway1.jpg",
             "Photo/giveaway2.jpg",
@@ -503,11 +503,15 @@
             updateModalSlide();
         }
 
-        // Database Detail 4 Promo (Ketentuan Giveaway Diperbarui Sesuai Mekanisme Resmi Fazzio)
+        // Database Detail 4 Promo
         const promoData = [
             {
                 category: "Promo Jasa",
                 title: "Potongan Jasa Servis Up To Rp 50.000",
+                badgeClass: "bg-yamahaRed",
+                boxClass: "bg-red-50/70 border-red-100",
+                iconClass: "fa-list-check text-yamahaRed",
+                btnClass: "bg-yamahaRed hover:bg-yamahaDarkRed shadow-red-600/30",
                 isSlider: false,
                 img: "Photo/promo1.jpg",
                 desc: "Dapatkan diskon potongan biaya jasa pengerjaan servis berkala di seluruh jaringan cabang Redaf Motor Group. Anda juga otomatis mendapatkan benefit fasilitas gratis cuci motor, pengisian angin nitrogen murni, serta kenyamanan ruang tunggu full AC berfasilitas snack dan kopi hangat gratis.",
@@ -522,6 +526,10 @@
             {
                 category: "Jalan-Jalan ke Mandalika",
                 title: "Sobek Labelnya, Menangkan Hadiahnya (Tour Lombok & Nonton MotoGP Mandalika)",
+                badgeClass: "bg-redafBlack",
+                boxClass: "bg-red-50/70 border-red-100",
+                iconClass: "fa-list-check text-yamahaRed",
+                btnClass: "bg-yamahaRed hover:bg-yamahaDarkRed shadow-red-600/30",
                 isSlider: false,
                 img: "Photo/promomandalika.jpg",
                 desc: "Beli dan ganti oli mesin Yamalube asli di seluruh bengkel resmi Redaf Motor Group! Sobek label botol oli Yamalube Anda, scan kode QR unik di balik labelnya, dan menangkan hadiah spektakuler paket tour gratis ke Lombok serta akses paddock eksklusif tim Yamaha saat gelaran MotoGP Mandalika.",
@@ -536,6 +544,10 @@
             {
                 category: "Giveaway",
                 title: "GIVEAWAY 1 MOTOR FAZZIO SUNSET BLUE!",
+                badgeClass: "bg-gradient-to-r from-amber-500 to-yellow-400 text-black",
+                boxClass: "bg-amber-50/60 border-amber-200",
+                iconClass: "fa-list-ol text-yamahaRed",
+                btnClass: "bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black shadow-yellow-500/20",
                 isSlider: true, // Multi-foto 4 slide
                 img: giveawayImages[0],
                 desc: "Ikuti keseruan program Giveaway resmi Yamaha! Upload foto OOTD skena terbaik lo yang cocok dengan vibe Yamaha Fazzio Special Edition Sunset Blue dan raih kesempatan memenangkan 1 unit motor Yamaha Fazzio gratis!",
@@ -552,18 +564,23 @@
                 waMsg: "Halo Redaf Motor, saya mau tanya info mengenai Giveaway 1 Motor Fazzio Sunset Blue"
             },
             {
-                category: "Suku Cadang",
-                title: "Gratis Ongkos Pasang Ban Luar & Aki Original Yamaha",
+                category: "E-KSG My Yamaha",
+                title: "Claim Sekarang Juga Free 200 Point E-KSG!!",
+                badgeClass: "bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 text-white",
+                boxClass: "bg-blue-50/70 border-blue-200",
+                iconClass: "fa-mobile-screen text-blue-600",
+                btnClass: "bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 hover:from-blue-700 hover:to-cyan-700 text-white shadow-blue-600/30",
                 isSlider: false,
-                img: "Photo/promo4.jpg",
-                desc: "Beli suku cadang fast-moving ban luar tubeless dan aki kering original Yamaha di Redaf Motor Group tanpa perlu memikirkan biaya pasang tambahan. Tim mekanik bersertifikasi kami akan memasang ban menggunakan peralatan khusus tyre changer agar velg motor Anda tidak lecet, serta melakukan cek tegangan kelistrikan gratis saat penggantian aki.",
+                img: "Photo/eksg200.jpg",
+                desc: "Kabar gembira untuk pemilik sepeda motor baru Yamaha! Nikmati kemudahan servis gratis melalui E-KSG (Electronic Kupon Servis Gratis) di aplikasi resmi My Yamaha Motor App. Dapatkan bonus instan sebesar 200 Point My Yamaha setiap kali Anda melakukan klaim kupon servis berkala di seluruh jaringan bengkel resmi Redaf Motor Group.",
                 terms: [
-                    "• Berlaku untuk pembelian ban luar original / tubeless dan aki Yamaha Genuine Parts.",
-                    "• Gratis jasa bongkar pasang di bengkel + gratis isi angin nitrogen ban baru.",
-                    "• Aki bergaransi resmi dari pabrikan Yamaha.",
-                    "• Berlaku selama persediaan stok suku cadang di cabang masih tersedia."
+                    "• Berlaku untuk seluruh pemilik motor baru Yamaha yang terdaftar di aplikasi My Yamaha App.",
+                    "• Klaim kupon E-KSG 1, KSG 2, KSG 3, maupun KSG 4 langsung di kasir/Service Advisor kami.",
+                    "• Bonus 200 Point akan otomatis bertambah ke akun My Yamaha Anda setelah servis selesai.",
+                    "• Poin My Yamaha dapat ditukarkan dengan berbagai voucher promo & reward menarik.",
+                    "• Pastikan membawa STNK dan smartphone Anda saat berkunjung ke bengkel resmi Redaf Motor."
                 ],
-                waMsg: "Halo Redaf Motor, saya mau tanya promo Gratis Pasang Ban dan Aki Yamaha"
+                waMsg: "Halo Redaf Motor, saya mau klaim Kupon E-KSG di aplikasi My Yamaha dan dapatkan Free 200 Point"
             }
         ];
 
@@ -572,6 +589,9 @@
         const promoModalCategory = document.getElementById('promo-modal-category');
         const promoModalTitle = document.getElementById('promo-modal-title');
         const promoModalDesc = document.getElementById('promo-modal-desc');
+        const promoModalTermsBox = document.getElementById('promo-modal-terms-box');
+        const promoModalTermsIcon = document.getElementById('promo-modal-terms-icon');
+        const promoModalTermsTitle = document.getElementById('promo-modal-terms-title');
         const promoModalTerms = document.getElementById('promo-modal-terms');
         const promoModalWaBtn = document.getElementById('promo-modal-wa-btn');
         const modalSliderControls = document.getElementById('modal-slider-controls');
@@ -581,10 +601,17 @@
             const promo = promoData[index];
             if (!promo) return;
 
+            // Update Header & Teks Kategori
+            promoModalCategory.className = `${promo.badgeClass} text-[11px] sm:text-xs font-bold uppercase px-3.5 py-1 rounded-full tracking-wider shadow-sm`;
             promoModalCategory.innerText = promo.category;
             promoModalTitle.innerText = promo.title;
             promoModalDesc.innerText = promo.desc;
             
+            // Konfigurasi Kotak Syarat / Tema
+            promoModalTermsBox.className = `${promo.boxClass} border p-4 sm:p-6 rounded-2xl`;
+            promoModalTermsIcon.className = `fa-solid ${promo.iconClass} text-sm`;
+            promoModalTermsTitle.innerText = promo.isSlider ? "Mekanisme & Ketentuan Giveaway:" : "Syarat & Ketentuan Promo:";
+
             // Konfigurasi jika promo adalah Giveaway (Multi Slider 4 Foto)
             if (promo.isSlider) {
                 currentModalSlide = 0;
@@ -597,9 +624,10 @@
             }
             
             // Render Syarat & Ketentuan (Mendukung tag HTML & link aktif)
-            promoModalTerms.innerHTML = promo.terms.map(t => `<p class="border-b border-amber-200/50 pb-1.5 last:border-0">${t}</p>`).join('');
+            promoModalTerms.innerHTML = promo.terms.map(t => `<p class="border-b border-black/5 pb-1.5 last:border-0">${t}</p>`).join('');
             
-            // Atur Link WhatsApp
+            // Atur Tombol Aksi WhatsApp Sesuai Warna Promo
+            promoModalWaBtn.className = `w-1/2 sm:w-auto px-6 py-3 rounded-xl ${promo.btnClass} font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg active:scale-95`;
             promoModalWaBtn.href = `https://wa.me/6285353105448?text=${encodeURIComponent(promo.waMsg)}`;
 
             promoModal.classList.remove('hidden');
