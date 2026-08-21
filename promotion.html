@@ -52,6 +52,11 @@
             background: #E60012;
             border-radius: 9999px;
         }
+
+        /* Slide Transition Effect */
+        .giveaway-card-slide, .giveaway-modal-slide {
+            transition: opacity 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen relative overflow-x-hidden">
@@ -205,31 +210,51 @@
                 </div>
             </div>
 
-            <!-- Promo 3 -->
+            <!-- Promo 3: GIVEAWAY DENGAN 4 FOTO SLIDER -->
             <div onclick="openPromoModal(2)" class="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group active:scale-[0.99]">
                 <div class="h-52 sm:h-60 bg-gray-100 overflow-hidden relative">
-                    <img src="Photo/promo3.jpg" alt="Paket Servis Hemat CVT & Injeksi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-4 left-4 bg-yamahaRed text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                        Paket Hemat
+                    
+                    <!-- Slider Container (4 Foto) -->
+                    <div id="card-slider-wrapper" class="relative w-full h-full">
+                        <img id="card-slider-img" src="Photo/promo3.jpg" alt="Giveaway Spesial Redaf" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+
+                    <!-- Indikator Slide Kecil -->
+                    <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">
+                        <span id="card-slide-indicator">1 / 4</span>
+                    </div>
+
+                    <!-- Tombol Navigasi Manual di Card -->
+                    <button type="button" onclick="event.stopPropagation(); prevCardSlide();" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-yamahaRed text-white w-7 h-7 rounded-full flex items-center justify-center text-xs transition z-10 shadow">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button type="button" onclick="event.stopPropagation(); nextCardSlide();" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-yamahaRed text-white w-7 h-7 rounded-full flex items-center justify-center text-xs transition z-10 shadow">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <span class="absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-yellow-400 text-black text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow z-10">
+                        <i class="fa-solid fa-gift mr-1"></i> Giveaway
                     </span>
-                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5">
+
+                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5 z-10">
                         <i class="fa-solid fa-expand text-xs"></i>
                         <span>Lihat Detail</span>
                     </div>
                 </div>
+
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
                     <div>
                         <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-3">
-                            Paket Servis CVT + Injeksi Hemat
+                            Giveaway Spesial Pelanggan Setia
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
-                            Perawatan ekstra motor matik Anda dengan paket bundling pembersihan CVT, injektor, dan ruang bakar dengan harga hemat khusus booking service.
+                            Ikuti keseruan program Giveaway resmi Redaf Motor Group! Dapatkan kesempatan memenangkan berbagai hadiah eksklusif mulai dari helm, jaket, voucher servis, hingga perlengkapan riding menarik.
                         </p>
                     </div>
                     <div>
-                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
-                            <i class="fa-solid fa-circle-info text-sm"></i>
-                            <span>Buka Info & Klaim Promo</span>
+                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black font-bold px-6 py-3 rounded-xl shadow-lg shadow-yellow-500/20 transition text-sm">
+                            <i class="fa-solid fa-gift text-sm"></i>
+                            <span>Ikuti & Cek Hadiah Giveaway</span>
                         </button>
                     </div>
                 </div>
@@ -268,7 +293,7 @@
         </div>
     </main>
 
-    <!-- ================= MODAL POP-UP DETAIL PROMO (FOTO BESAR/PENUH & KETERANGAN LENGKAP) ================= -->
+    <!-- ================= MODAL POP-UP DETAIL PROMO (DENGAN SLIDER MULTI-FOTO) ================= -->
     <div id="promo-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto modal-scroll">
         <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 max-w-4xl w-full overflow-hidden relative modal-animate-in my-auto max-h-[92vh] flex flex-col">
             
@@ -280,9 +305,24 @@
             <!-- Scrollable Content -->
             <div class="overflow-y-auto modal-scroll flex-grow">
                 
-                <!-- Area Foto Full Banner / Display Penuh -->
-                <div class="w-full bg-[#0a0a0f] relative flex items-center justify-center p-3 sm:p-5 border-b border-gray-100">
-                    <img id="promo-modal-img" src="" alt="Banner Promo Penuh" class="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain rounded-2xl shadow-lg">
+                <!-- Area Foto Full Banner / Multi-Photo Slider -->
+                <div class="w-full bg-[#0a0a0f] relative flex items-center justify-center p-3 sm:p-5 border-b border-gray-100 min-h-[260px] sm:min-h-[380px]">
+                    
+                    <img id="promo-modal-img" src="" alt="Banner Promo Penuh" class="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain rounded-2xl shadow-lg transition-opacity duration-300">
+                    
+                    <!-- Controls Khusus Giveaway (Slide Prev / Next di Modal) -->
+                    <div id="modal-slider-controls" class="hidden">
+                        <button type="button" onclick="prevModalSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-xl z-20">
+                            <i class="fa-solid fa-chevron-left text-sm sm:text-base"></i>
+                        </button>
+                        <button type="button" onclick="nextModalSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-xl z-20">
+                            <i class="fa-solid fa-chevron-right text-sm sm:text-base"></i>
+                        </button>
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full z-20">
+                            <span id="modal-slide-indicator">1 / 4</span>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Bagian Keterangan & Rincian Lengkap -->
@@ -332,7 +372,7 @@
                             </button>
                             <a id="promo-modal-wa-btn" href="" target="_blank" class="w-1/2 sm:w-auto px-6 py-3 rounded-xl bg-yamahaRed hover:bg-yamahaDarkRed text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-red-600/30">
                                 <i class="fa-brands fa-whatsapp text-base"></i>
-                                <span>Klaim via WhatsApp</span>
+                                <span>Info / Ikuti via WA</span>
                             </a>
                         </div>
                     </div>
@@ -378,7 +418,7 @@
         &copy; 2026 REDAF MOTOR GROUP. All Rights Reserved.
     </footer>
 
-    <!-- Script Hamburger Menu & Logika Pop-Up Modal Promo -->
+    <!-- Script Hamburger Menu, Multi-Slide Giveaway, & Logika Pop-Up Modal Promo -->
     <script>
         // Hamburger Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
@@ -396,11 +436,79 @@
             }
         });
 
+        // 4 Foto Khusus Giveaway (Bisa diatur sesuai file foto yang tersedia)
+        const giveawayImages = [
+            "Photo/promo3.jpg",
+            "Photo/promo1.jpg",
+            "Photo/promomandalika.jpg",
+            "Photo/promo4.jpg"
+        ];
+
+        let currentCardSlide = 0;
+        let currentModalSlide = 0;
+        let cardSlideTimer;
+
+        // Slide di Landing Page Card
+        function updateCardSlide() {
+            const img = document.getElementById('card-slider-img');
+            const indicator = document.getElementById('card-slide-indicator');
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = giveawayImages[currentCardSlide];
+                indicator.innerText = `${currentCardSlide + 1} / ${giveawayImages.length}`;
+                img.style.opacity = '1';
+            }, 200);
+        }
+
+        function nextCardSlide() {
+            currentCardSlide = (currentCardSlide + 1) % giveawayImages.length;
+            updateCardSlide();
+            resetCardAutoSlide();
+        }
+
+        function prevCardSlide() {
+            currentCardSlide = (currentCardSlide - 1 + giveawayImages.length) % giveawayImages.length;
+            updateCardSlide();
+            resetCardAutoSlide();
+        }
+
+        function resetCardAutoSlide() {
+            clearInterval(cardSlideTimer);
+            cardSlideTimer = setInterval(() => {
+                currentCardSlide = (currentCardSlide + 1) % giveawayImages.length;
+                updateCardSlide();
+            }, 5000);
+        }
+        resetCardAutoSlide();
+
+        // Slide di dalam Modal Pop-Up
+        function updateModalSlide() {
+            const img = document.getElementById('promo-modal-img');
+            const indicator = document.getElementById('modal-slide-indicator');
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = giveawayImages[currentModalSlide];
+                indicator.innerText = `${currentModalSlide + 1} / ${giveawayImages.length}`;
+                img.style.opacity = '1';
+            }, 200);
+        }
+
+        function nextModalSlide() {
+            currentModalSlide = (currentModalSlide + 1) % giveawayImages.length;
+            updateModalSlide();
+        }
+
+        function prevModalSlide() {
+            currentModalSlide = (currentModalSlide - 1 + giveawayImages.length) % giveawayImages.length;
+            updateModalSlide();
+        }
+
         // Database Detail 4 Promo
         const promoData = [
             {
                 category: "Promo Jasa",
                 title: "Potongan Jasa Servis Up To Rp 50.000",
+                isSlider: false,
                 img: "Photo/promo1.jpg",
                 desc: "Dapatkan diskon potongan biaya jasa pengerjaan servis berkala di seluruh jaringan cabang Redaf Motor Group. Anda juga otomatis mendapatkan benefit fasilitas gratis cuci motor, pengisian angin nitrogen murni, serta kenyamanan ruang tunggu full AC berfasilitas snack dan kopi hangat gratis.",
                 terms: [
@@ -414,6 +522,7 @@
             {
                 category: "Jalan-Jalan ke Mandalika",
                 title: "Sobek Labelnya, Menangkan Hadiahnya (Tour Lombok & Nonton MotoGP Mandalika)",
+                isSlider: false,
                 img: "Photo/promomandalika.jpg",
                 desc: "Beli dan ganti oli mesin Yamalube asli di seluruh bengkel resmi Redaf Motor Group! Sobek label botol oli Yamalube Anda, scan kode QR unik di balik labelnya, dan menangkan hadiah spektakuler paket tour gratis ke Lombok serta akses paddock eksklusif tim Yamaha saat gelaran MotoGP Mandalika.",
                 terms: [
@@ -425,21 +534,23 @@
                 waMsg: "Halo Redaf Motor, saya mau tanya info dan ikutan Promo Sobek Label Yamalube Mandalika"
             },
             {
-                category: "Paket Hemat",
-                title: "Paket Servis Bundling CVT + Injeksi Hemat",
-                img: "Photo/promo3.jpg",
-                desc: "Kembalikan performa tarikan motor matik Anda menjadi lebih responsif, bertenaga, dan hemat bahan bakar dengan paket perawatan bundling CVT & Injeksi. Meliputi pembersihan menyeluruh ruang CVT, pergantian grease kit resmi, injector cleaner, serta kalibrasi sensor menggunakan komputer Yamaha Diagnostic Tools (YDT).",
+                category: "Giveaway",
+                title: "Giveaway Spesial Pelanggan Setia Redaf Motor Group",
+                isSlider: true, // Multi-foto 4 slide
+                img: giveawayImages[0],
+                desc: "Ikuti keseruan program Giveaway resmi Redaf Motor Group! Sebagai bentuk apresiasi kepada pelanggan setia, kami membagikan berbagai hadiah menarik eksklusif mulai dari Helm SNI Yamaha, Jaket Riding Eksklusif, Voucher Servis & Oli Gratis, hingga Merchandise Official lainnya.",
                 terms: [
-                    "• Berlaku untuk seluruh tipe motor matik Yamaha (Mio, Fazzio, Grand Filano, Aerox, NMAX, XMAX, dll).",
-                    "• Harga paket sudah mencakup jasa pengerjaan dan chemical cleaner standar Yamaha.",
-                    "• Garansi pengerjaan dealer selama 14 hari.",
-                    "• Berlaku khusus pelanggan yang melakukan booking service via WhatsApp."
+                    "• Follow akun Instagram resmi kami @yamaharedafmotor & TikTok @redafmotorgroup.",
+                    "• Melakukan servis atau pembelian suku cadang di salah satu cabang Redaf Motor.",
+                    "• Tunjukkan bukti transaksi servis Anda atau tag foto motor Anda di Instagram story.",
+                    "• Pemenang akan diundi dan diumumkan secara berkala melalui akun media sosial resmi kami."
                 ],
-                waMsg: "Halo Redaf Motor, saya mau ambil Paket Servis Bundling CVT dan Injeksi Hemat"
+                waMsg: "Halo Redaf Motor, saya mau tanya info dan cara ikutan program Giveaway Spesial Redaf"
             },
             {
                 category: "Suku Cadang",
                 title: "Gratis Ongkos Pasang Ban Luar & Aki Original Yamaha",
+                isSlider: false,
                 img: "Photo/promo4.jpg",
                 desc: "Beli suku cadang fast-moving ban luar tubeless dan aki kering original Yamaha di Redaf Motor Group tanpa perlu memikirkan biaya pasang tambahan. Tim mekanik bersertifikasi kami akan memasang ban menggunakan peralatan khusus tyre changer agar velg motor Anda tidak lecet, serta melakukan cek tegangan kelistrikan gratis saat penggantian aki.",
                 terms: [
@@ -459,16 +570,27 @@
         const promoModalDesc = document.getElementById('promo-modal-desc');
         const promoModalTerms = document.getElementById('promo-modal-terms');
         const promoModalWaBtn = document.getElementById('promo-modal-wa-btn');
+        const modalSliderControls = document.getElementById('modal-slider-controls');
 
         // Buka Pop-Up Modal Promo
         function openPromoModal(index) {
             const promo = promoData[index];
             if (!promo) return;
 
-            promoModalImg.src = promo.img;
             promoModalCategory.innerText = promo.category;
             promoModalTitle.innerText = promo.title;
             promoModalDesc.innerText = promo.desc;
+            
+            // Konfigurasi jika promo adalah Giveaway (Multi Slider 4 Foto)
+            if (promo.isSlider) {
+                currentModalSlide = 0;
+                promoModalImg.src = giveawayImages[0];
+                modalSliderControls.classList.remove('hidden');
+                document.getElementById('modal-slide-indicator').innerText = `1 / ${giveawayImages.length}`;
+            } else {
+                promoModalImg.src = promo.img;
+                modalSliderControls.classList.add('hidden');
+            }
             
             // Render Syarat & Ketentuan
             promoModalTerms.innerHTML = promo.terms.map(t => `<p>${t}</p>`).join('');
@@ -481,10 +603,6 @@
         }
 
         // Tutup Pop-Up Modal Promo
-        function closeModalPromo() {
-            closePromoModal();
-        }
-
         function closePromoModal() {
             promoModal.classList.add('hidden');
             document.body.style.overflow = '';
