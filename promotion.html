@@ -216,7 +216,7 @@
                     
                     <!-- Slider Container (4 Foto) -->
                     <div id="card-slider-wrapper" class="relative w-full h-full">
-                        <img id="card-slider-img" src="Photo/promo3.jpg" alt="Giveaway Spesial Redaf" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img id="card-slider-img" src="Photo/giveaway1.jpg" alt="Giveaway Spesial Redaf" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
 
                     <!-- Indikator Slide Kecil -->
@@ -248,7 +248,7 @@
                             Giveaway Spesial Pelanggan Setia
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
-                            Ikuti keseruan program Giveaway resmi Redaf Motor Group! Dapatkan kesempatan memenangkan berbagai hadiah eksklusif mulai dari helm, jaket, voucher servis, hingga perlengkapan riding menarik.
+                            Ikuti keseruan program Giveaway resmi Redaf Motor Group! Dapatkan kesempatan memenangkan berbagai hadiah eksklusif mulai dari motor, helm, jaket, voucher servis, hingga perlengkapan riding menarik.
                         </p>
                     </div>
                     <div>
@@ -293,22 +293,22 @@
         </div>
     </main>
 
-    <!-- ================= MODAL POP-UP DETAIL PROMO (DENGAN SLIDER MULTI-FOTO) ================= -->
+    <!-- ================= MODAL POP-UP DETAIL PROMO (LATAR DISPLAY PUTIH BERSIH) ================= -->
     <div id="promo-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto modal-scroll">
-        <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 max-w-4xl w-full overflow-hidden relative modal-animate-in my-auto max-h-[92vh] flex flex-col">
+        <div class="bg-white rounded-3xl shadow-2xl border border-gray-200 max-w-4xl w-full overflow-hidden relative modal-animate-in my-auto max-h-[92vh] flex flex-col">
             
             <!-- Tombol Close (X) -->
-            <button onclick="closePromoModal()" class="absolute top-4 right-4 z-30 bg-black/70 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-xl active:scale-90">
+            <button onclick="closePromoModal()" class="absolute top-4 right-4 z-30 bg-gray-900/80 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-xl active:scale-90 border border-white/20">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
 
             <!-- Scrollable Content -->
             <div class="overflow-y-auto modal-scroll flex-grow">
                 
-                <!-- Area Foto Full Banner / Multi-Photo Slider -->
-                <div class="w-full bg-[#0a0a0f] relative flex items-center justify-center p-3 sm:p-5 border-b border-gray-100 min-h-[260px] sm:min-h-[380px]">
+                <!-- Area Foto Full Banner: Latar Putih Bersih (bg-white) -->
+                <div class="w-full bg-white relative flex items-center justify-center p-4 sm:p-6 border-b border-gray-100 min-h-[260px] sm:min-h-[380px]">
                     
-                    <img id="promo-modal-img" src="" alt="Banner Promo Penuh" class="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain rounded-2xl shadow-lg transition-opacity duration-300">
+                    <img id="promo-modal-img" src="" alt="Banner Promo Penuh" class="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain rounded-2xl shadow-md transition-opacity duration-300">
                     
                     <!-- Controls Khusus Giveaway (Slide Prev / Next di Modal) -->
                     <div id="modal-slider-controls" class="hidden">
@@ -318,7 +318,7 @@
                         <button type="button" onclick="nextModalSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-xl z-20">
                             <i class="fa-solid fa-chevron-right text-sm sm:text-base"></i>
                         </button>
-                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full z-20">
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-3.5 py-1.5 rounded-full z-20 shadow-md">
                             <span id="modal-slide-indicator">1 / 4</span>
                         </div>
                     </div>
@@ -326,7 +326,7 @@
                 </div>
 
                 <!-- Bagian Keterangan & Rincian Lengkap -->
-                <div class="p-6 sm:p-8">
+                <div class="p-6 sm:p-8 bg-white">
                     <div class="flex flex-wrap items-center gap-2 mb-2">
                         <span id="promo-modal-category" class="bg-yamahaRed text-white text-[11px] sm:text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider shadow-sm">
                             Kategori Promo
@@ -436,7 +436,7 @@
             }
         });
 
-        // 4 Foto Khusus Giveaway (Bisa diatur sesuai file foto yang tersedia)
+        // 4 Foto Khusus Giveaway (Disesuaikan dengan file foto giveaway)
         const giveawayImages = [
             "Photo/giveaway1.jpg",
             "Photo/giveaway2.jpg",
