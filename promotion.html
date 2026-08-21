@@ -23,6 +23,36 @@
             }
         }
     </script>
+    <style>
+        /* Animasi Pop-Up Modal */
+        .modal-animate-in {
+            animation: modalFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        /* Custom scrollbar untuk detail modal */
+        .modal-scroll {
+            -webkit-overflow-scrolling: touch;
+        }
+        .modal-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: #E60012;
+            border-radius: 9999px;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen relative overflow-x-hidden">
 
@@ -107,117 +137,212 @@
                 Promo Berjalan
             </h1>
             <div class="w-16 h-1 bg-yamahaRed mx-auto mt-3 rounded-full"></div>
+            <p class="text-xs sm:text-sm text-gray-500 mt-3 max-w-xl mx-auto">
+                Klik pada kartu promo untuk melihat banner penuh & syarat ketentuan lengkap.
+            </p>
         </div>
 
         <!-- Grid 4 Promo (2 Kolom x 2 Baris) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
             <!-- Promo 1 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+            <div onclick="openPromoModal(0)" class="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group active:scale-[0.99]">
                 <div class="h-52 sm:h-60 bg-gray-100 overflow-hidden relative">
                     <img src="Photo/promo1.jpg" alt="Promo Potongan Jasa Servis" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     <span class="absolute top-4 left-4 bg-yamahaRed text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
                         Promo Jasa
                     </span>
+                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                        <span>Lihat Detail</span>
+                    </div>
                 </div>
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
                     <div>
                         <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-3">
                             Potongan Jasa Up To Rp 50.000
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
                             Nikmati potongan biaya servis berkala dan nikmati fasilitas tambahan berupa gratis cuci motor, isi nitrogen, serta snack & kopi hangat di ruang tunggu.
                         </p>
                     </div>
                     <div>
-                        <a href="https://wa.me/6285353105448?text=Halo%20Redaf%20Motor,%20saya%20mau%20klaim%20Promo%20Potongan%20Jasa%20Servis" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
-                            <i class="fa-brands fa-whatsapp text-base"></i>
-                            <span>Klaim via WhatsApp</span>
-                        </a>
+                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
+                            <i class="fa-solid fa-circle-info text-sm"></i>
+                            <span>Buka Info & Klaim Promo</span>
+                        </button>
                     </div>
                 </div>
             </div>
 
             <!-- Promo 2 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+            <div onclick="openPromoModal(1)" class="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group active:scale-[0.99]">
                 <div class="h-52 sm:h-60 bg-gray-100 overflow-hidden relative">
                     <img src="Photo/promomandalika.jpg" alt="Thematic & Event Promo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     <span class="absolute top-4 left-4 bg-redafBlack text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                       Jalan-Jalan ke Mandalika
+                        Jalan-Jalan ke Mandalika
                     </span>
+                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                        <span>Lihat Detail</span>
+                    </div>
                 </div>
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
                     <div>
                         <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-3">
-                            Sobek Labelnya, Menagkan Hadiahnya
+                            Sobek Labelnya, Menangkan Hadiahnya
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
                             Sobek Labelnya Menangkan Hadiahnya Gratis Tour Ke Lombok dan Paddock Akses Tim Yamaha Nonton MotoGP.
                         </p>
                     </div>
                     <div>
-                        <a href="https://wa.me/6285353105448?text=Halo%20Redaf%20Motor,%20saya%20mau%20booking%20Promo%20Tematik%20Event" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
-                            <i class="fa-brands fa-whatsapp text-base"></i>
-                            <span>Booking Sekarang</span>
-                        </a>
+                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
+                            <i class="fa-solid fa-circle-info text-sm"></i>
+                            <span>Buka Info & Klaim Promo</span>
+                        </button>
                     </div>
                 </div>
             </div>
 
             <!-- Promo 3 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+            <div onclick="openPromoModal(2)" class="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group active:scale-[0.99]">
                 <div class="h-52 sm:h-60 bg-gray-100 overflow-hidden relative">
                     <img src="Photo/promo3.jpg" alt="Paket Servis Hemat CVT & Injeksi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     <span class="absolute top-4 left-4 bg-yamahaRed text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
                         Paket Hemat
                     </span>
+                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                        <span>Lihat Detail</span>
+                    </div>
                 </div>
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
                     <div>
                         <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-3">
                             Paket Servis CVT + Injeksi Hemat
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
                             Perawatan ekstra motor matik Anda dengan paket bundling pembersihan CVT, injektor, dan ruang bakar dengan harga hemat khusus booking service.
                         </p>
                     </div>
                     <div>
-                        <a href="https://wa.me/6285353105448?text=Halo%20Redaf%20Motor,%20saya%20mau%20ambil%20Paket%20Servis%20CVT%20dan%20Injeksi" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
-                            <i class="fa-brands fa-whatsapp text-base"></i>
-                            <span>Ambil Paket Hemat</span>
-                        </a>
+                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
+                            <i class="fa-solid fa-circle-info text-sm"></i>
+                            <span>Buka Info & Klaim Promo</span>
+                        </button>
                     </div>
                 </div>
             </div>
 
             <!-- Promo 4 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group">
+            <div onclick="openPromoModal(3)" class="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group active:scale-[0.99]">
                 <div class="h-52 sm:h-60 bg-gray-100 overflow-hidden relative">
                     <img src="Photo/promo4.jpg" alt="Promo Sparepart & Ban" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     <span class="absolute top-4 left-4 bg-redafBlack text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
                         Suku Cadang
                     </span>
+                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5">
+                        <i class="fa-solid fa-expand text-xs"></i>
+                        <span>Lihat Detail</span>
+                    </div>
                 </div>
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
                     <div>
                         <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-3">
                             Gratis Pasang Ban & Aki Yamaha
                         </h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
                             Setiap pembelian ban luar tubeless atau aki original Yamaha di seluruh cabang Redaf Motor Group, gratis ongkos pasang dan cek kelistrikan.
                         </p>
                     </div>
                     <div>
-                        <a href="https://wa.me/6285353105448?text=Halo%20Redaf%20Motor,%20saya%20mau%20tanya%20Promo%20Gratis%20Pasang%20Ban%20dan%20Aki" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
-                            <i class="fa-brands fa-whatsapp text-base"></i>
-                            <span>Tanya Promo Ini</span>
-                        </a>
+                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
+                            <i class="fa-solid fa-circle-info text-sm"></i>
+                            <span>Buka Info & Klaim Promo</span>
+                        </button>
                     </div>
                 </div>
             </div>
 
         </div>
     </main>
+
+    <!-- ================= MODAL POP-UP DETAIL PROMO (FOTO BESAR/PENUH & KETERANGAN LENGKAP) ================= -->
+    <div id="promo-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto modal-scroll">
+        <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 max-w-4xl w-full overflow-hidden relative modal-animate-in my-auto max-h-[92vh] flex flex-col">
+            
+            <!-- Tombol Close (X) -->
+            <button onclick="closePromoModal()" class="absolute top-4 right-4 z-30 bg-black/70 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-xl active:scale-90">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Scrollable Content -->
+            <div class="overflow-y-auto modal-scroll flex-grow">
+                
+                <!-- Area Foto Full Banner / Display Penuh -->
+                <div class="w-full bg-[#0a0a0f] relative flex items-center justify-center p-3 sm:p-5 border-b border-gray-100">
+                    <img id="promo-modal-img" src="" alt="Banner Promo Penuh" class="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain rounded-2xl shadow-lg">
+                </div>
+
+                <!-- Bagian Keterangan & Rincian Lengkap -->
+                <div class="p-6 sm:p-8">
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                        <span id="promo-modal-category" class="bg-yamahaRed text-white text-[11px] sm:text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider shadow-sm">
+                            Kategori Promo
+                        </span>
+                        <span class="text-xs font-semibold text-green-600 bg-green-50 px-2.5 py-1 rounded-full border border-green-200 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                            Promo Sedang Berjalan
+                        </span>
+                    </div>
+
+                    <h2 id="promo-modal-title" class="text-xl sm:text-3xl font-black text-redafBlack mt-1 leading-tight">
+                        <!-- Judul Promo -->
+                    </h2>
+
+                    <div class="w-16 h-1 bg-yamahaRed my-4 rounded-full"></div>
+
+                    <div class="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-4">
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Deskripsi Lengkap</h4>
+                            <p id="promo-modal-desc" class="text-gray-700 leading-relaxed"></p>
+                        </div>
+
+                        <div class="bg-red-50/70 border border-red-100 p-4 sm:p-5 rounded-2xl">
+                            <h4 class="text-xs sm:text-sm font-bold text-redafBlack mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-yamahaRed"></i>
+                                <span>Syarat & Ketentuan:</span>
+                            </h4>
+                            <div id="promo-modal-terms" class="text-xs sm:text-sm text-gray-600 space-y-1.5">
+                                <!-- List Syarat -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Aksi / Klaim WhatsApp -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 mt-6 border-t border-gray-100">
+                        <div class="text-xs text-gray-500 text-center sm:text-left flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-yamahaRed"></i>
+                            <span>Berlaku di seluruh <strong>6 Cabang Resmi Redaf Motor Group</strong></span>
+                        </div>
+                        <div class="flex items-center gap-3 w-full sm:w-auto">
+                            <button onclick="closePromoModal()" class="w-1/2 sm:w-auto px-5 py-3 rounded-xl border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold text-xs sm:text-sm transition">
+                                Tutup
+                            </button>
+                            <a id="promo-modal-wa-btn" href="" target="_blank" class="w-1/2 sm:w-auto px-6 py-3 rounded-xl bg-yamahaRed hover:bg-yamahaDarkRed text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-red-600/30">
+                                <i class="fa-brands fa-whatsapp text-base"></i>
+                                <span>Klaim via WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 
     <!-- ================= FLOATING SOCIAL MEDIA BAR (INSTAGRAM, TIKTOK, SHOPEE) ================= -->
     <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 group">
@@ -253,8 +378,9 @@
         &copy; 2026 REDAF MOTOR GROUP. All Rights Reserved.
     </footer>
 
-    <!-- Script Hamburger Menu Mobile -->
+    <!-- Script Hamburger Menu & Logika Pop-Up Modal Promo -->
     <script>
+        // Hamburger Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -267,6 +393,114 @@
             } else {
                 menuIcon.classList.remove('fa-bars');
                 menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Database Detail 4 Promo
+        const promoData = [
+            {
+                category: "Promo Jasa",
+                title: "Potongan Jasa Servis Up To Rp 50.000",
+                img: "Photo/promo1.jpg",
+                desc: "Dapatkan diskon potongan biaya jasa pengerjaan servis berkala di seluruh jaringan cabang Redaf Motor Group. Anda juga otomatis mendapatkan benefit fasilitas gratis cuci motor, pengisian angin nitrogen murni, serta kenyamanan ruang tunggu full AC berfasilitas snack dan kopi hangat gratis.",
+                terms: [
+                    "• Berlaku untuk servis berkala / tune-up lengkap sepeda motor Yamaha.",
+                    "• Potongan berlaku langsung pada saat pembayaran di kasir cabang.",
+                    "• Disarankan melakukan booking service terlebih dahulu via WhatsApp agar mendapat antrian prioritas.",
+                    "• Berlaku setiap hari kerja (Senin - Minggu) di seluruh cabang Redaf Motor."
+                ],
+                waMsg: "Halo Redaf Motor, saya mau klaim Promo Potongan Jasa Servis Up To Rp 50.000"
+            },
+            {
+                category: "Jalan-Jalan ke Mandalika",
+                title: "Sobek Labelnya, Menangkan Hadiahnya (Tour Lombok & Nonton MotoGP Mandalika)",
+                img: "Photo/promomandalika.jpg",
+                desc: "Beli dan ganti oli mesin Yamalube asli di seluruh bengkel resmi Redaf Motor Group! Sobek label botol oli Yamalube Anda, scan kode QR unik di balik labelnya, dan menangkan hadiah spektakuler paket tour gratis ke Lombok serta akses paddock eksklusif tim Yamaha saat gelaran MotoGP Mandalika.",
+                terms: [
+                    "• Khusus pembelian oli Yamalube original bertanda program resmi.",
+                    "• Sobek label botol Yamalube setelah oli dituangkan oleh mekanik.",
+                    "• Scan QR Code di balik label menggunakan aplikasi kamera ponsel Anda.",
+                    "• Pajak hadiah dan akomodasi pemenang diatur sesuai pedoman resmi Yamaha Indonesia."
+                ],
+                waMsg: "Halo Redaf Motor, saya mau tanya info dan ikutan Promo Sobek Label Yamalube Mandalika"
+            },
+            {
+                category: "Paket Hemat",
+                title: "Paket Servis Bundling CVT + Injeksi Hemat",
+                img: "Photo/promo3.jpg",
+                desc: "Kembalikan performa tarikan motor matik Anda menjadi lebih responsif, bertenaga, dan hemat bahan bakar dengan paket perawatan bundling CVT & Injeksi. Meliputi pembersihan menyeluruh ruang CVT, pergantian grease kit resmi, injector cleaner, serta kalibrasi sensor menggunakan komputer Yamaha Diagnostic Tools (YDT).",
+                terms: [
+                    "• Berlaku untuk seluruh tipe motor matik Yamaha (Mio, Fazzio, Grand Filano, Aerox, NMAX, XMAX, dll).",
+                    "• Harga paket sudah mencakup jasa pengerjaan dan chemical cleaner standar Yamaha.",
+                    "• Garansi pengerjaan dealer selama 14 hari.",
+                    "• Berlaku khusus pelanggan yang melakukan booking service via WhatsApp."
+                ],
+                waMsg: "Halo Redaf Motor, saya mau ambil Paket Servis Bundling CVT dan Injeksi Hemat"
+            },
+            {
+                category: "Suku Cadang",
+                title: "Gratis Ongkos Pasang Ban Luar & Aki Original Yamaha",
+                img: "Photo/promo4.jpg",
+                desc: "Beli suku cadang fast-moving ban luar tubeless dan aki kering original Yamaha di Redaf Motor Group tanpa perlu memikirkan biaya pasang tambahan. Tim mekanik bersertifikasi kami akan memasang ban menggunakan peralatan khusus tyre changer agar velg motor Anda tidak lecet, serta melakukan cek tegangan kelistrikan gratis saat penggantian aki.",
+                terms: [
+                    "• Berlaku untuk pembelian ban luar original / tubeless dan aki Yamaha Genuine Parts.",
+                    "• Gratis jasa bongkar pasang di bengkel + gratis isi angin nitrogen ban baru.",
+                    "• Aki bergaransi resmi dari pabrikan Yamaha.",
+                    "• Berlaku selama persediaan stok suku cadang di cabang masih tersedia."
+                ],
+                waMsg: "Halo Redaf Motor, saya mau tanya promo Gratis Pasang Ban dan Aki Yamaha"
+            }
+        ];
+
+        const promoModal = document.getElementById('promo-modal');
+        const promoModalImg = document.getElementById('promo-modal-img');
+        const promoModalCategory = document.getElementById('promo-modal-category');
+        const promoModalTitle = document.getElementById('promo-modal-title');
+        const promoModalDesc = document.getElementById('promo-modal-desc');
+        const promoModalTerms = document.getElementById('promo-modal-terms');
+        const promoModalWaBtn = document.getElementById('promo-modal-wa-btn');
+
+        // Buka Pop-Up Modal Promo
+        function openPromoModal(index) {
+            const promo = promoData[index];
+            if (!promo) return;
+
+            promoModalImg.src = promo.img;
+            promoModalCategory.innerText = promo.category;
+            promoModalTitle.innerText = promo.title;
+            promoModalDesc.innerText = promo.desc;
+            
+            // Render Syarat & Ketentuan
+            promoModalTerms.innerHTML = promo.terms.map(t => `<p>${t}</p>`).join('');
+            
+            // Atur Link WhatsApp
+            promoModalWaBtn.href = `https://wa.me/6285353105448?text=${encodeURIComponent(promo.waMsg)}`;
+
+            promoModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Tutup Pop-Up Modal Promo
+        function closeModalPromo() {
+            closePromoModal();
+        }
+
+        function closePromoModal() {
+            promoModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Tutup jika klik area luar modal
+        promoModal.addEventListener('click', (e) => {
+            if (e.target === promoModal) {
+                closePromoModal();
+            }
+        });
+
+        // Tutup jika tekan tombol Escape di keyboard
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !promoModal.classList.contains('hidden')) {
+                closePromoModal();
             }
         });
     </script>
