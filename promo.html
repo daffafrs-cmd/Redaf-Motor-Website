@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promotion - Redaf Motor Group</title>
+    <title>Promo - Redaf Motor Group</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -150,12 +150,12 @@
         <!-- Grid 4 Promo (2 Kolom x 2 Baris) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
-            <!-- Promo 1 -->
+            <!-- Promo 1: POTONGAN PAKET SERVICE UP TO 50K -->
             <div onclick="openPromoModal(0)" class="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group active:scale-[0.99]">
                 <div class="h-52 sm:h-60 bg-gray-100 overflow-hidden relative">
-                    <img src="Photo/promo1.jpg" alt="Promo Potongan Jasa Servis" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-4 left-4 bg-yamahaRed text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                        Promo Jasa
+                    <img src="Photo/promopaket.jpg" alt="Yamaha Service Promo - Potongan Paket Service Up To 50k" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-4 left-4 bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                        <i class="fa-solid fa-tags mr-1"></i> Paket Service
                     </span>
                     <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5">
                         <i class="fa-solid fa-expand text-xs"></i>
@@ -164,17 +164,17 @@
                 </div>
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
                     <div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-3">
-                            Potongan Jasa Up To Rp 50.000
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition mb-3">
+                            Discount Potongan Paket Service Up To 50k
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
-                            Nikmati potongan biaya servis berkala dan nikmati fasilitas tambahan berupa gratis cuci motor, isi nitrogen, serta snack & kopi hangat di ruang tunggu.
+                            Dapatkan potongan harga spesial hingga Rp 50.000 khusus bagi Anda yang mengambil Paket Service di seluruh jaringan bengkel resmi Yamaha Redaf Motor Group!
                         </p>
                     </div>
                     <div>
-                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
+                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg shadow-blue-600/30 transition text-sm">
                             <i class="fa-solid fa-circle-info text-sm"></i>
-                            <span>Buka Info & Klaim Promo</span>
+                            <span>Klaim Potongan Paket Service</span>
                         </button>
                     </div>
                 </div>
@@ -506,22 +506,23 @@
         // Database Detail 4 Promo
         const promoData = [
             {
-                category: "Promo Jasa",
-                title: "Potongan Jasa Servis Up To Rp 50.000",
-                badgeClass: "bg-yamahaRed",
-                boxClass: "bg-red-50/70 border-red-100",
-                iconClass: "fa-list-check text-yamahaRed",
-                btnClass: "bg-yamahaRed hover:bg-yamahaDarkRed shadow-red-600/30",
+                category: "Paket Service",
+                title: "YAMAHA SERVICE PROMO - POTONGAN PAKET SERVICE UP TO 50K",
+                badgeClass: "bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 text-white",
+                boxClass: "bg-blue-50/70 border-blue-200",
+                iconClass: "fa-tags text-blue-600",
+                btnClass: "bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white shadow-blue-600/30",
                 isSlider: false,
-                img: "Photo/promo1.jpg",
-                desc: "Dapatkan diskon potongan biaya jasa pengerjaan servis berkala di seluruh jaringan cabang Redaf Motor Group. Anda juga otomatis mendapatkan benefit fasilitas gratis cuci motor, pengisian angin nitrogen murni, serta kenyamanan ruang tunggu full AC berfasilitas snack dan kopi hangat gratis.",
+                img: "Photo/promopaket.jpg",
+                desc: "Spesial promo perawatan sepeda motor Yamaha di Redaf Motor Group! Dapatkan potongan diskon biaya hingga Rp 50.000 khusus bagi konsumen yang melakukan pemilihan Paket Service lengkap di bengkel resmi kami.",
                 terms: [
-                    "• Berlaku untuk servis berkala / tune-up lengkap sepeda motor Yamaha.",
-                    "• Potongan berlaku langsung pada saat pembayaran di kasir cabang.",
-                    "• Disarankan melakukan booking service terlebih dahulu via WhatsApp agar mendapat antrian prioritas.",
-                    "• Berlaku setiap hari kerja (Senin - Minggu) di seluruh cabang Redaf Motor."
+                    "• <strong>Potongan diskon hingga Rp 50.000 HANYA berlaku untuk konsumen yang mengambil Paket Service</strong> (Paket Servis Ringan + Injeksi, Paket Servis CVT Lengkap, atau Paket Servis Berkala Komprehensif).",
+                    "• Promo tidak berlaku untuk servis satuan / pengerjaan terpisah di luar paket servis resmi.",
+                    "• Diskon potongan langsung dipotongkan pada total tagihan di kasir cabang.",
+                    "• Disarankan melakukan booking service via WhatsApp untuk memastikan ketersediaan antrian prioritas.",
+                    "• Berlaku di seluruh jaringan 6 cabang resmi Yamaha Redaf Motor Group."
                 ],
-                waMsg: "Halo Redaf Motor, saya mau klaim Promo Potongan Jasa Servis Up To Rp 50.000"
+                waMsg: "Halo Redaf Motor, saya mau klaim Promo Potongan Paket Service Up To 50k"
             },
             {
                 category: "Jalan-Jalan ke Mandalika",
