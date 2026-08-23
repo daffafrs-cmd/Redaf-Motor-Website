@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda - Redaf Motor Group</title>
+
+    <!-- Favicon Resmi untuk Tab Browser & Hasil Pencarian Google -->
+    <link rel="icon" type="image/png" href="Photo/LOGO REDAF.png">
+    <link rel="shortcut icon" href="Photo/LOGO REDAF.png">
+    <link rel="apple-touch-icon" href="Photo/LOGO REDAF.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -130,7 +136,7 @@
                     <a href="tentang.html" class="hover:text-yamahaRed transition">Tentang Kami</a>
                     <a href="layanan.html" class="hover:text-yamahaRed transition">Layanan</a>
                     <a href="jaringan.html" class="hover:text-yamahaRed transition">Jaringan Kami</a>
-                    <a href="Promo.html" class="hover:text-yamahaRed transition">Promo</a>
+                    <a href="promo.html" class="hover:text-yamahaRed transition">Promo</a>
                     <a href="ulasan.html" class="hover:text-yamahaRed transition">Ulasan</a>
                 </div>
 
@@ -202,9 +208,8 @@
 
         <!-- Slide 7 -->
         <div class="slide-item flex items-center justify-center bg-[#0d0e12]">
-            <img src="Photo/eksg200.jpg" alt="Banner Promo 6" class="w-full h-full object-cover object-center">
+            <img src="Photo/eksg200.jpg" alt="Banner Promo 7" class="w-full h-full object-cover object-center">
         </div>
-
 
         <!-- Seamless Blend Overlay Menuju Section Bawah -->
         <div class="absolute inset-0 bg-gradient-to-t from-redafBlack via-redafBlack/40 to-transparent pointer-events-none z-20"></div>
@@ -236,7 +241,7 @@
         <!-- Main Content Grid -->
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             
-            <!-- Headline Section (Di HP urutan ke-2, di Laptop tetap di Kiri) -->
+            <!-- Headline Section -->
             <div class="order-2 md:order-1 text-center md:text-left flex flex-col items-center md:items-start">
                 <div class="inline-flex items-center gap-2 bg-yamahaRed/10 border border-yamahaRed/40 text-yamahaRed text-[11px] sm:text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-3 backdrop-blur-sm shadow-inner">
                     <span class="w-2 h-2 rounded-full bg-yamahaRed animate-ping"></span>
@@ -265,14 +270,14 @@
                 </div>
             </div>
 
-            <!-- Official Identity Showcase Card (Di HP urutan ke-1 muncul DULUAN, di Laptop tetap di Kanan) -->
+            <!-- Official Identity Showcase Card -->
             <div class="order-1 md:order-2 w-full flex justify-center">
                 <div class="w-full max-w-lg relative bg-gradient-to-br from-white/12 via-white/5 to-transparent backdrop-blur-2xl p-6 sm:p-10 rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center justify-center text-center group hover:border-yamahaRed/40 transition-all duration-300">
                     
                     <!-- Decorative Radial Glow Behind Logo -->
                     <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-40 h-40 bg-yamahaRed/25 rounded-full blur-3xl pointer-events-none"></div>
 
-                    <!-- 1. LOGO YAMAHA (Responsif, Bersih, Kontras Tinggi) -->
+                    <!-- 1. LOGO YAMAHA -->
                     <div class="relative w-24 h-16 sm:w-32 sm:h-20 bg-white/15 backdrop-blur-md rounded-2xl p-2.5 flex items-center justify-center shadow-2xl border border-white/30 mb-4 sm:mb-5 group-hover:scale-105 transition-transform duration-300">
                         <img src="Photo/logoyamaha.png" alt="Yamaha Official Logo" class="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.85)]">
                     </div>
@@ -378,7 +383,7 @@
         }
 
         function startAutoSlide() {
-            timer = setInterval(nextSlide, 10000); // 10 Detik
+            timer = setInterval(nextSlide, 10000);
         }
 
         function resetAutoSlide() {

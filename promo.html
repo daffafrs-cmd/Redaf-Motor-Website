@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promo - Redaf Motor Group</title>
+
+    <!-- Favicon Resmi untuk Tab Browser & Hasil Pencarian Google -->
+    <link rel="icon" type="image/png" href="Photo/LOGO REDAF.png">
+    <link rel="shortcut icon" href="Photo/LOGO REDAF.png">
+    <link rel="apple-touch-icon" href="Photo/LOGO REDAF.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -293,7 +299,7 @@
         </div>
     </main>
 
-    <!-- ================= MODAL POP-UP DETAIL PROMO (LATAR DISPLAY PUTIH BERSIH) ================= -->
+    <!-- ================= MODAL POP-UP DETAIL PROMO ================= -->
     <div id="promo-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto modal-scroll">
         <div class="bg-white rounded-3xl shadow-2xl border border-gray-200 max-w-4xl w-full overflow-hidden relative modal-animate-in my-auto max-h-[92vh] flex flex-col">
             
@@ -305,12 +311,12 @@
             <!-- Scrollable Content -->
             <div class="overflow-y-auto modal-scroll flex-grow">
                 
-                <!-- Area Foto Full Banner: Latar Putih Bersih (bg-white) -->
+                <!-- Area Foto Full Banner -->
                 <div class="w-full bg-white relative flex items-center justify-center p-4 sm:p-6 border-b border-gray-100 min-h-[260px] sm:min-h-[380px]">
                     
                     <img id="promo-modal-img" src="" alt="Banner Promo Penuh" class="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain rounded-2xl shadow-md transition-opacity duration-300">
                     
-                    <!-- Controls Khusus Giveaway (Slide Prev / Next di Modal) -->
+                    <!-- Controls Khusus Giveaway -->
                     <div id="modal-slider-controls" class="hidden">
                         <button type="button" onclick="prevModalSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-xl z-20">
                             <i class="fa-solid fa-chevron-left text-sm sm:text-base"></i>
@@ -549,7 +555,7 @@
                 boxClass: "bg-amber-50/60 border-amber-200",
                 iconClass: "fa-list-ol text-yamahaRed",
                 btnClass: "bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black shadow-yellow-500/20",
-                isSlider: true, // Multi-foto 4 slide
+                isSlider: true,
                 img: giveawayImages[0],
                 desc: "Ikuti keseruan program Giveaway resmi Yamaha! Upload foto OOTD skena terbaik lo yang cocok dengan vibe Yamaha Fazzio Special Edition Sunset Blue dan raih kesempatan memenangkan 1 unit motor Yamaha Fazzio gratis!",
                 terms: [
@@ -602,18 +608,15 @@
             const promo = promoData[index];
             if (!promo) return;
 
-            // Update Header & Teks Kategori
             promoModalCategory.className = `${promo.badgeClass} text-[11px] sm:text-xs font-bold uppercase px-3.5 py-1 rounded-full tracking-wider shadow-sm`;
             promoModalCategory.innerText = promo.category;
             promoModalTitle.innerText = promo.title;
             promoModalDesc.innerText = promo.desc;
             
-            // Konfigurasi Kotak Syarat / Tema
             promoModalTermsBox.className = `${promo.boxClass} border p-4 sm:p-6 rounded-2xl`;
             promoModalTermsIcon.className = `fa-solid ${promo.iconClass} text-sm`;
             promoModalTermsTitle.innerText = promo.isSlider ? "Mekanisme & Ketentuan Giveaway:" : "Syarat & Ketentuan Promo:";
 
-            // Konfigurasi jika promo adalah Giveaway (Multi Slider 4 Foto)
             if (promo.isSlider) {
                 currentModalSlide = 0;
                 promoModalImg.src = giveawayImages[0];
@@ -624,10 +627,8 @@
                 modalSliderControls.classList.add('hidden');
             }
             
-            // Render Syarat & Ketentuan (Mendukung tag HTML & link aktif)
             promoModalTerms.innerHTML = promo.terms.map(t => `<p class="border-b border-black/5 pb-1.5 last:border-0">${t}</p>`).join('');
             
-            // Atur Tombol Aksi WhatsApp Sesuai Warna Promo
             promoModalWaBtn.className = `w-1/2 sm:w-auto px-6 py-3 rounded-xl ${promo.btnClass} font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg active:scale-95`;
             promoModalWaBtn.href = `https://wa.me/6285353105448?text=${encodeURIComponent(promo.waMsg)}`;
 
@@ -641,14 +642,12 @@
             document.body.style.overflow = '';
         }
 
-        // Tutup jika klik area luar modal
         promoModal.addEventListener('click', (e) => {
             if (e.target === promoModal) {
                 closePromoModal();
             }
         });
 
-        // Tutup jika tekan tombol Escape di keyboard
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !promoModal.classList.contains('hidden')) {
                 closePromoModal();

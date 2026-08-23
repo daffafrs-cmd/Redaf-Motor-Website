@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ulasan Pelanggan - Redaf Motor Group</title>
+
+    <!-- Favicon Resmi untuk Tab Browser & Hasil Pencarian Google -->
+    <link rel="icon" type="image/png" href="Photo/LOGO REDAF.png">
+    <link rel="shortcut icon" href="Photo/LOGO REDAF.png">
+    <link rel="apple-touch-icon" href="Photo/LOGO REDAF.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -349,7 +355,7 @@
             starsLayer.appendChild(fall);
         }
 
-        // 2. DATA 100 ULASAN ASLI DARI GOOGLE MAPS (SUDAH DISESUAIKAN TANPA RUANG TUNGGU AC)
+        // 2. DATA 100 ULASAN ASLI DARI GOOGLE MAPS
         const branches = ['REDAF MOTOR 01', 'REDAF MOTOR 02', 'REDAF MOTOR 03', 'REDAF MOTOR 04', 'REDAF MOTOR 05', 'REDAF TAMBUN'];
         
         const rawReviewsTemplates = [
@@ -433,7 +439,6 @@
                 </div>
             `).join('');
 
-            // Kontrol tombol Load More
             if (itemsShown >= filtered.length) {
                 loadBtn.classList.add('hidden');
             } else {
@@ -445,7 +450,6 @@
             currentFilter = branchName;
             itemsShown = 9;
             
-            // Update Tampilan Tombol Filter Active
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 if (btn.innerText.includes(branchName) || (branchName === 'ALL' && btn.innerText.includes('Semua'))) {
                     btn.classList.add('active');
@@ -462,7 +466,6 @@
             renderReviews();
         }
 
-        // Render awal
         renderReviews();
     </script>
 </body>

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layanan & Fasilitas - Redaf Motor Group</title>
+
+    <!-- Favicon Resmi untuk Tab Browser & Hasil Pencarian Google -->
+    <link rel="icon" type="image/png" href="Photo/LOGO REDAF.png">
+    <link rel="shortcut icon" href="Photo/LOGO REDAF.png">
+    <link rel="apple-touch-icon" href="Photo/LOGO REDAF.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -125,7 +131,7 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 flex-grow">
         
-        <!-- ================= SECTION 1: LAYANAN BENGKEL KAMI (5 LAYANAN: 3 ATAS, 2 BAWAH TENGAH) ================= -->
+        <!-- ================= SECTION 1: LAYANAN BENGKEL KAMI ================= -->
         <section class="mb-20">
             <div class="text-center mb-12">
                 <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-yamahaRed bg-red-50 border border-red-200 px-3.5 py-1.5 rounded-full">
@@ -137,7 +143,7 @@
                 <div class="w-16 h-1 bg-yamahaRed mx-auto mt-3 rounded-full"></div>
             </div>
 
-            <!-- Flex Container (3 di atas, 2 di bawah tengah pada desktop) -->
+            <!-- Flex Container -->
             <div class="flex flex-wrap justify-center gap-8">
                 
                 <!-- Layanan 1 (Index 0) -->
@@ -238,7 +244,7 @@
             </div>
         </section>
 
-        <!-- ================= SECTION 2: OUR FACILITIES (10 FASILITAS: 4 DI ATAS, 4 DI TENGAH, 2 DI BAWAH TENGAH) ================= -->
+        <!-- ================= SECTION 2: OUR FACILITIES ================= -->
         <section class="mt-20 pt-10 border-t border-gray-200">
             <div class="text-center mb-12">
                 <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-yamahaRed bg-red-50 border border-red-200 px-3.5 py-1.5 rounded-full">
@@ -250,7 +256,7 @@
                 <div class="w-16 h-1 bg-yamahaRed mx-auto mt-3 rounded-full"></div>
             </div>
 
-            <!-- Flex Container (4 di baris 1, 4 di baris 2, 2 di baris 3 tengah) -->
+            <!-- Flex Container -->
             <div class="flex flex-wrap justify-center gap-6">
                 
                 <!-- Fasilitas 1 -->
@@ -388,7 +394,7 @@
 
     </main>
 
-    <!-- ================= MODAL POP-UP DETAIL LAYANAN (DIPERBAIKI UNTUK MOBILE & DESKTOP) ================= -->
+    <!-- ================= MODAL POP-UP DETAIL LAYANAN ================= -->
     <div id="service-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-sm overflow-y-auto modal-scroll">
         <div id="modal-content" class="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 max-w-2xl w-full overflow-hidden relative modal-animate-in my-auto max-h-[85vh] flex flex-col">
             
@@ -569,7 +575,7 @@ Alat ini membaca seluruh kode kerusakan sensor, memeriksa data realtime ECU, men
         // Tutup Modal Pop-up
         function closeModal() {
             modal.classList.add('hidden');
-            document.body.style.overflow = ''
+            document.body.style.overflow = '';
         }
 
         // Tutup modal jika klik di luar box modal
