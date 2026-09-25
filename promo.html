@@ -60,8 +60,8 @@
         }
 
         /* Slide Transition Effect */
-        .giveaway-card-slide, .giveaway-modal-slide {
-            transition: opacity 0.5s ease-in-out;
+        .slider-transition {
+            transition: opacity 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -186,31 +186,48 @@
                 </div>
             </div>
 
-            <!-- Promo 2 -->
+            <!-- Promo 2: MY YAMAHA MEMBERS GP MANDALIKA & PADDOCK ACCESS -->
             <div onclick="openPromoModal(1)" class="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col group active:scale-[0.99]">
-                <div class="h-52 sm:h-60 bg-gray-100 overflow-hidden relative">
-                    <img src="Photo/promomandalika.jpg" alt="Thematic & Event Promo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-4 left-4 bg-redafBlack text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                        Jalan-Jalan ke Mandalika
+                <div class="h-52 sm:h-60 bg-gray-900 overflow-hidden relative">
+                    <!-- Slider Card Mandalika -->
+                    <div class="relative w-full h-full">
+                        <img id="card-mandalika-img" src="Photo/mandalika1.jpg" alt="Keistimewaan Eksklusif My Yamaha Members GP Mandalika" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 slider-transition">
+                    </div>
+
+                    <!-- Indikator Slide -->
+                    <div class="absolute bottom-3 left-3 bg-black/65 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">
+                        <span id="card-mandalika-indicator">1 / 3</span>
+                    </div>
+
+                    <!-- Tombol Navigasi Manual di Card -->
+                    <button type="button" onclick="event.stopPropagation(); prevMandalikaSlide();" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-orange-500 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs transition z-10 shadow">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button type="button" onclick="event.stopPropagation(); nextMandalikaSlide();" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-orange-500 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs transition z-10 shadow">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <span class="absolute top-4 left-4 bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow z-10">
+                        <i class="fa-solid fa-flag-checkered mr-1"></i> GP Mandalika 2026
                     </span>
-                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5">
+                    <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5 z-10">
                         <i class="fa-solid fa-expand text-xs"></i>
                         <span>Lihat Detail</span>
                     </div>
                 </div>
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
                     <div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-yamahaRed transition mb-3">
-                            Sobek Labelnya, Menangkan Hadiahnya
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-orange-600 transition mb-3">
+                            Keistimewaan Eksklusif My Yamaha Members: Nonton GP Mandalika & Paddock Access
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-2">
-                            Sobek Labelnya Menangkan Hadiahnya Gratis Tour Ke Lombok dan Paddock Akses Tim Yamaha Nonton MotoGP.
+                            Gunakan Yamaha Members di setiap transaksi Anda! Raih kesempatan eksklusif nonton langsung GP Mandalika dan dapatkan Paddock Access Tim Yamaha (9-12 Oktober 2026).
                         </p>
                     </div>
                     <div>
-                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-yamahaRed hover:bg-yamahaDarkRed text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition text-sm">
-                            <i class="fa-solid fa-circle-info text-sm"></i>
-                            <span>Buka Info & Klaim Promo</span>
+                        <button type="button" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 hover:from-orange-700 hover:to-yellow-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg shadow-orange-500/25 transition text-sm">
+                            <i class="fa-solid fa-ticket text-sm"></i>
+                            <span>Cek Cara Ikutan & Syarat</span>
                         </button>
                     </div>
                 </div>
@@ -222,7 +239,7 @@
                     
                     <!-- Slider Container (4 Foto) -->
                     <div id="card-slider-wrapper" class="relative w-full h-full">
-                        <img id="card-slider-img" src="Photo/giveaway1.jpg" alt="Giveaway 1 Motor Fazzio Sunset Blue" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img id="card-slider-img" src="Photo/giveaway1.jpg" alt="Giveaway 1 Motor Fazzio Sunset Blue" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 slider-transition">
                     </div>
 
                     <!-- Indikator Slide Kecil -->
@@ -312,11 +329,11 @@
             <div class="overflow-y-auto modal-scroll flex-grow">
                 
                 <!-- Area Foto Full Banner -->
-                <div class="w-full bg-white relative flex items-center justify-center p-4 sm:p-6 border-b border-gray-100 min-h-[260px] sm:min-h-[380px]">
+                <div class="w-full bg-slate-900 relative flex items-center justify-center p-4 sm:p-6 border-b border-gray-100 min-h-[260px] sm:min-h-[380px]">
                     
-                    <img id="promo-modal-img" src="" alt="Banner Promo Penuh" class="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain rounded-2xl shadow-md transition-opacity duration-300">
+                    <img id="promo-modal-img" src="" alt="Banner Promo Penuh" class="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain rounded-2xl shadow-md slider-transition">
                     
-                    <!-- Controls Khusus Giveaway -->
+                    <!-- Controls Slider Modal -->
                     <div id="modal-slider-controls" class="hidden">
                         <button type="button" onclick="prevModalSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-yamahaRed text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-xl z-20">
                             <i class="fa-solid fa-chevron-left text-sm sm:text-base"></i>
@@ -325,7 +342,7 @@
                             <i class="fa-solid fa-chevron-right text-sm sm:text-base"></i>
                         </button>
                         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-3.5 py-1.5 rounded-full z-20 shadow-md">
-                            <span id="modal-slide-indicator">1 / 4</span>
+                            <span id="modal-slide-indicator">1 / 3</span>
                         </div>
                     </div>
 
@@ -347,7 +364,7 @@
                         <!-- Judul Promo -->
                     </h2>
 
-                    <div class="w-16 h-1 bg-yamahaRed my-4 rounded-full"></div>
+                    <div id="promo-modal-divider" class="w-16 h-1 bg-yamahaRed my-4 rounded-full"></div>
 
                     <div class="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-4">
                         <div>
@@ -366,20 +383,30 @@
                         </div>
                     </div>
 
-                    <!-- Tombol Aksi / Klaim WhatsApp -->
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 mt-6 border-t border-gray-100">
-                        <div class="text-xs text-gray-500 text-center sm:text-left flex items-center gap-1.5">
+                    <!-- Tombol Aksi / Klaim WhatsApp & Tombol Link Tambahan -->
+                    <div class="flex flex-col lg:flex-row items-center justify-between gap-4 pt-6 mt-6 border-t border-gray-100">
+                        <div class="text-xs text-gray-500 text-center lg:text-left flex items-center gap-1.5">
                             <i class="fa-solid fa-location-dot text-yamahaRed"></i>
                             <span>Berlaku di seluruh <strong>6 Cabang Resmi Redaf Motor Group</strong></span>
                         </div>
-                        <div class="flex items-center gap-3 w-full sm:w-auto">
-                            <button onclick="closePromoModal()" class="w-1/2 sm:w-auto px-5 py-3 rounded-xl border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold text-xs sm:text-sm transition">
+                        
+                        <div class="flex flex-wrap items-center justify-end gap-2.5 w-full lg:w-auto">
+                            <!-- Tombol External Khusus (Misal: Direct Link IG Post Mandalika) -->
+                            <a id="promo-modal-extra-btn" href="" target="_blank" class="hidden px-5 py-3 rounded-xl font-bold text-xs sm:text-sm transition items-center justify-center gap-2 shadow-md">
+                                <i class="fa-brands fa-instagram text-base"></i>
+                                <span id="promo-modal-extra-text">Buka di Instagram</span>
+                            </a>
+
+                            <!-- Tombol WA -->
+                            <a id="promo-modal-wa-btn" href="" target="_blank" class="px-5 py-3 rounded-xl bg-yamahaRed hover:bg-yamahaDarkRed text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-red-600/30">
+                                <i class="fa-brands fa-whatsapp text-base"></i>
+                                <span>Info via WA</span>
+                            </a>
+
+                            <!-- Tombol Tutup -->
+                            <button onclick="closePromoModal()" class="px-4 py-3 rounded-xl border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold text-xs sm:text-sm transition">
                                 Tutup
                             </button>
-                            <a id="promo-modal-wa-btn" href="" target="_blank" class="w-1/2 sm:w-auto px-6 py-3 rounded-xl bg-yamahaRed hover:bg-yamahaDarkRed text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-red-600/30">
-                                <i class="fa-brands fa-whatsapp text-base"></i>
-                                <span>Info / Ikuti via WA</span>
-                            </a>
                         </div>
                     </div>
 
@@ -424,7 +451,7 @@
         &copy; 2026 REDAF MOTOR GROUP. All Rights Reserved.
     </footer>
 
-    <!-- Script Hamburger Menu, Multi-Slide Giveaway, & Logika Pop-Up Modal Promo -->
+    <!-- Script Hamburger Menu, Multi-Slide Logic, & Pop-Up Modal Promo -->
     <script>
         // Hamburger Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
@@ -442,7 +469,14 @@
             }
         });
 
-        // 4 Foto Khusus Giveaway
+        // 3 Foto Materi GP Mandalika 2026
+        const mandalikaImages = [
+            "Photo/mandalika1.jpg",
+            "Photo/mandalika2.jpg",
+            "Photo/mandalika3.jpg"
+        ];
+
+        // 4 Foto Khusus Giveaway Fazzio
         const giveawayImages = [
             "Photo/giveaway1.jpg",
             "Photo/giveaway2.jpg",
@@ -450,11 +484,46 @@
             "Photo/giveaway4.jpg"
         ];
 
+        // Slide State Mandalika di Card
+        let currentMandalikaSlide = 0;
+        let mandalikaSlideTimer;
+
+        function updateMandalikaSlide() {
+            const img = document.getElementById('card-mandalika-img');
+            const indicator = document.getElementById('card-mandalika-indicator');
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = mandalikaImages[currentMandalikaSlide];
+                indicator.innerText = `${currentMandalikaSlide + 1} / ${mandalikaImages.length}`;
+                img.style.opacity = '1';
+            }, 180);
+        }
+
+        function nextMandalikaSlide() {
+            currentMandalikaSlide = (currentMandalikaSlide + 1) % mandalikaImages.length;
+            updateMandalikaSlide();
+            resetMandalikaAutoSlide();
+        }
+
+        function prevMandalikaSlide() {
+            currentMandalikaSlide = (currentMandalikaSlide - 1 + mandalikaImages.length) % mandalikaImages.length;
+            updateMandalikaSlide();
+            resetMandalikaAutoSlide();
+        }
+
+        function resetMandalikaAutoSlide() {
+            clearInterval(mandalikaSlideTimer);
+            mandalikaSlideTimer = setInterval(() => {
+                currentMandalikaSlide = (currentMandalikaSlide + 1) % mandalikaImages.length;
+                updateMandalikaSlide();
+            }, 4500);
+        }
+        resetMandalikaAutoSlide();
+
+        // Slide State Giveaway di Card
         let currentCardSlide = 0;
-        let currentModalSlide = 0;
         let cardSlideTimer;
 
-        // Slide di Landing Page Card
         function updateCardSlide() {
             const img = document.getElementById('card-slider-img');
             const indicator = document.getElementById('card-slide-indicator');
@@ -463,7 +532,7 @@
                 img.src = giveawayImages[currentCardSlide];
                 indicator.innerText = `${currentCardSlide + 1} / ${giveawayImages.length}`;
                 img.style.opacity = '1';
-            }, 200);
+            }, 180);
         }
 
         function nextCardSlide() {
@@ -487,25 +556,30 @@
         }
         resetCardAutoSlide();
 
-        // Slide di dalam Modal Pop-Up
+        // Modal Slider Logic
+        let activeModalImages = [];
+        let currentModalSlide = 0;
+
         function updateModalSlide() {
             const img = document.getElementById('promo-modal-img');
             const indicator = document.getElementById('modal-slide-indicator');
             img.style.opacity = '0';
             setTimeout(() => {
-                img.src = giveawayImages[currentModalSlide];
-                indicator.innerText = `${currentModalSlide + 1} / ${giveawayImages.length}`;
+                img.src = activeModalImages[currentModalSlide];
+                indicator.innerText = `${currentModalSlide + 1} / ${activeModalImages.length}`;
                 img.style.opacity = '1';
-            }, 200);
+            }, 180);
         }
 
         function nextModalSlide() {
-            currentModalSlide = (currentModalSlide + 1) % giveawayImages.length;
+            if (!activeModalImages.length) return;
+            currentModalSlide = (currentModalSlide + 1) % activeModalImages.length;
             updateModalSlide();
         }
 
         function prevModalSlide() {
-            currentModalSlide = (currentModalSlide - 1 + giveawayImages.length) % giveawayImages.length;
+            if (!activeModalImages.length) return;
+            currentModalSlide = (currentModalSlide - 1 + activeModalImages.length) % activeModalImages.length;
             updateModalSlide();
         }
 
@@ -515,8 +589,10 @@
                 category: "Paket Service",
                 title: "YAMAHA SERVICE PROMO - POTONGAN PAKET SERVICE UP TO 50K",
                 badgeClass: "bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 text-white",
+                dividerClass: "bg-blue-600",
                 boxClass: "bg-blue-50/70 border-blue-200",
                 iconClass: "fa-tags text-blue-600",
+                termsTitle: "Syarat & Ketentuan Promo:",
                 btnClass: "bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white shadow-blue-600/30",
                 isSlider: false,
                 img: "Photo/promopaket.png",
@@ -528,54 +604,79 @@
                     "• Disarankan melakukan booking service via WhatsApp untuk memastikan ketersediaan antrian prioritas.",
                     "• Berlaku di seluruh jaringan 6 cabang resmi Yamaha Redaf Motor Group."
                 ],
-                waMsg: "Halo Redaf Motor, saya mau klaim Promo Potongan Paket Service Up To 50k"
+                waMsg: "Halo Redaf Motor, saya mau klaim Promo Potongan Paket Service Up To 50k",
+                extraBtn: null
             },
             {
-                category: "Jalan-Jalan ke Mandalika",
-                title: "Sobek Labelnya, Menangkan Hadiahnya (Tour Lombok & Nonton MotoGP Mandalika)",
-                badgeClass: "bg-redafBlack",
-                boxClass: "bg-red-50/70 border-red-100",
-                iconClass: "fa-list-check text-yamahaRed",
-                btnClass: "bg-yamahaRed hover:bg-yamahaDarkRed shadow-red-600/30",
-                isSlider: false,
-                img: "Photo/promomandalika.jpg",
-                desc: "Beli dan ganti oli mesin Yamalube asli di seluruh bengkel resmi Redaf Motor Group! Sobek label botol oli Yamalube Anda, scan kode QR unik di balik labelnya, dan menangkan hadiah spektakuler paket tour gratis ke Lombok serta akses paddock eksklusif tim Yamaha saat gelaran MotoGP Mandalika.",
+                category: "GP Mandalika 2026",
+                title: "KEISTIMEWAAN EKSKLUSIF MY YAMAHA MOTOR MEMBERS: NONTON LANGSUNG GP MANDALIKA & PADDOCK ACCESS",
+                badgeClass: "bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 text-white",
+                dividerClass: "bg-orange-500",
+                boxClass: "bg-orange-50/70 border-orange-200",
+                iconClass: "fa-flag-checkered text-orange-600",
+                termsTitle: "Cara Ikutan & Syarat Ketentuan:",
+                btnClass: "bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 hover:from-orange-700 hover:to-yellow-600 text-white shadow-orange-500/25",
+                isSlider: true,
+                images: mandalikaImages,
+                desc: "Gunakan Yamaha Members di setiap transaksi Anda di bengkel resmi Yamaha Redaf Motor Group! Raih kesempatan eksklusif nonton langsung ajang bergengsi GP Mandalika dan dapatkan Paddock Access Tim Yamaha pada tanggal 9-12 Oktober 2026. Transaksi lebih besar dan level member lebih tinggi membuat peluang menang semakin besar!",
                 terms: [
-                    "• Khusus pembelian oli Yamalube original bertanda program resmi.",
-                    "• Sobek label botol Yamalube setelah oli dituangkan oleh mekanik.",
-                    "• Scan QR Code di balik label menggunakan aplikasi kamera ponsel Anda.",
-                    "• Pajak hadiah dan akomodasi pemenang diatur sesuai pedoman resmi Yamaha Indonesia."
+                    "<strong>CARA IKUTAN:</strong>",
+                    "1. <strong>Comment & Share:</strong> Berikan komentar di postingan resmi promo ini dan share ke Instagram Story kamu.<br><a href='https://www.instagram.com/p/Dddh-vokWw3/?img_index=1&stkn=MW9hMTRhamN4aDNhbg%3D%3D' target='_blank' class='inline-flex items-center gap-1.5 mt-1.5 bg-gradient-to-r from-orange-600 to-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm hover:from-orange-700 hover:to-amber-600 transition'><i class='fa-brands fa-instagram'></i> Klik di Sini untuk Buka Postingan Instagram</a>",
+                    "2. <strong>Cek DM:</strong> Kamu akan menerima direct message (DM) berisi tautan link menuju WhatsApp resmi Yamaha.",
+                    "3. <strong>Isi & Jawab di WhatsApp:</strong> Klik tautan link yang diterima, isi form data diri, dan jawab pertanyaan yang diberikan.",
+                    "4. <strong>Selesai:</strong> Submit jawaban Anda dan tunggu konfirmasi resmi dari pihak Yamaha.",
+                    "<hr class='my-2 border-orange-200'>",
+                    "<strong>SYARAT & KETENTUAN:</strong>",
+                    "• Peserta wajib terdaftar resmi sebagai <strong>Yamaha Motor MEMBERS</strong>.",
+                    "• Ikuti seluruh mekanisme: comment, share Instagram Story, cek DM, lalu isi form di WhatsApp Yamaha.",
+                    "• Data peserta harus sesuai dan sinkron dengan data Yamaha Motor MEMBERS.",
+                    "• <strong>Semakin besar transaksi dan semakin tinggi level Members, semakin besar peluang menang!</strong>",
+                    "• Pemenang ditentukan setelah melalui proses verifikasi resmi oleh tim Yamaha.",
+                    "• Peserta dengan data tidak valid atau terindikasi melakukan kecurangan akan didiskualifikasi.",
+                    "• Karyawan Yamaha, dealer, agency/vendor, serta pihak yang terlibat langsung beserta keluarga inti tidak berhak menjadi pemenang.",
+                    "• Keputusan Yamaha bersifat final dan tidak dapat diganggu gugat.",
+                    "• <strong>Periode Program:</strong> 19 - 25 September 2026 | <strong>Pengumuman Pemenang:</strong> 26 September 2026."
                 ],
-                waMsg: "Halo Redaf Motor, saya mau tanya info dan ikutan Promo Sobek Label Yamalube Mandalika"
+                waMsg: "Halo Redaf Motor, saya mau tanya info mengenai Program Eksklusif My Yamaha Members Nonton GP Mandalika & Paddock Access",
+                extraBtn: {
+                    text: "Buka Postingan Instagram",
+                    url: "https://www.instagram.com/p/Dddh-vokWw3/?img_index=1&stkn=MW9hMTRhamN4aDNhbg%3D%3D",
+                    class: "bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 hover:from-orange-700 hover:to-yellow-600 text-white shadow-orange-500/30"
+                }
             },
             {
                 category: "Giveaway",
                 title: "GIVEAWAY 1 MOTOR FAZZIO SUNSET BLUE!",
                 badgeClass: "bg-gradient-to-r from-amber-500 to-yellow-400 text-black",
+                dividerClass: "bg-amber-400",
                 boxClass: "bg-amber-50/60 border-amber-200",
                 iconClass: "fa-list-ol text-yamahaRed",
+                termsTitle: "Mekanisme & Ketentuan Giveaway:",
                 btnClass: "bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black shadow-yellow-500/20",
                 isSlider: true,
-                img: giveawayImages[0],
+                images: giveawayImages,
                 desc: "Ikuti keseruan program Giveaway resmi Yamaha! Upload foto OOTD skena terbaik lo yang cocok dengan vibe Yamaha Fazzio Special Edition Sunset Blue dan raih kesempatan memenangkan 1 unit motor Yamaha Fazzio gratis!",
                 terms: [
                     "1. <strong>Follow akun resmi:</strong> <a href='https://instagram.com/YamahaIndonesia' target='_blank' class='text-yamahaRed hover:underline'>@YamahaIndonesia</a> & <a href='https://instagram.com/Yamaha.classy' target='_blank' class='text-yamahaRed hover:underline'>@Yamaha.classy</a>",
                     "2. <strong>Like, repost/share</strong> postingan giveaway ini ke Instagram Story lo, lalu jangan lupa tag <a href='https://instagram.com/YamahaIndonesia' target='_blank' class='text-yamahaRed hover:underline'>@YamahaIndonesia</a> & <a href='https://instagram.com/Yamaha.classy' target='_blank' class='text-yamahaRed hover:underline'>@Yamaha.classy</a>",
-                    "3. <strong>Buat postingan Instagram Carousel dengan 2 slide:</strong><br>&nbsp;&nbsp;&nbsp;• <strong>Slide 1:</strong> Upload foto OOTD/outfit skena terbaik lo yang sesuai dengan vibe *Yamaha Fazzio Special Edition Sunset Blue.<br>&nbsp;&nbsp;&nbsp;• <strong>Slide 2:</strong> Upload poster Yamaha Fazzio Special Edition Sunset Blue. Download posternya di sini: <a href='https://bit.ly/PosterSunsetBlue' target='_blank' class='text-blue-600 font-semibold hover:underline bg-blue-50 px-2 py-0.5 rounded border border-blue-200 inline-block mt-1'>bit.ly/PosterSunsetBlue</a>",
+                    "3. <strong>Buat postingan Instagram Carousel dengan 2 slide:</strong><br>&nbsp;&nbsp;&nbsp;• <strong>Slide 1:</strong> Upload foto OOTD/outfit skena terbaik lo yang sesuai dengan vibe Yamaha Fazzio Special Edition Sunset Blue.<br>&nbsp;&nbsp;&nbsp;• <strong>Slide 2:</strong> Upload poster Yamaha Fazzio Special Edition Sunset Blue. Download posternya di sini: <a href='https://bit.ly/PosterSunsetBlue' target='_blank' class='text-blue-600 font-semibold hover:underline bg-blue-50 px-2 py-0.5 rounded border border-blue-200 inline-block mt-1'>bit.ly/PosterSunsetBlue</a>",
                     "4. Jangan lupa <strong>mention 3 temen lo</strong> buat ikutan juga.",
                     "5. Gunakan hashtag resmi: <span class='font-bold text-yamahaRed'>#Fazzio #FazzioSunsetBlue</span>",
                     "6. Pastikan akun Instagram lo <strong>tidak di-private</strong> ya.",
                     "7. Terakhir, <strong>isi formulir pendaftaran di sini:</strong> <a href='https://bit.ly/DaftarSunsetBlue' target='_blank' class='text-blue-600 font-semibold hover:underline bg-blue-50 px-2 py-0.5 rounded border border-blue-200 inline-block mt-1'>bit.ly/DaftarSunsetBlue</a>",
                     "8. Keputusan Yamaha Indonesia bersifat mutlak dan tidak dapat diganggu gugat."
                 ],
-                waMsg: "Halo Redaf Motor, saya mau tanya info mengenai Giveaway 1 Motor Fazzio Sunset Blue"
+                waMsg: "Halo Redaf Motor, saya mau tanya info mengenai Giveaway 1 Motor Fazzio Sunset Blue",
+                extraBtn: null
             },
             {
                 category: "E-KSG My Yamaha",
                 title: "Claim Sekarang Juga Free 200 Point E-KSG!!",
                 badgeClass: "bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 text-white",
+                dividerClass: "bg-blue-600",
                 boxClass: "bg-blue-50/70 border-blue-200",
                 iconClass: "fa-mobile-screen text-blue-600",
+                termsTitle: "Syarat & Ketentuan Promo:",
                 btnClass: "bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700 hover:from-blue-700 hover:to-cyan-700 text-white shadow-blue-600/30",
                 isSlider: false,
                 img: "Photo/eksg200.jpg",
@@ -587,7 +688,8 @@
                     "• Poin My Yamaha dapat ditukarkan dengan berbagai voucher promo & reward menarik.",
                     "• Pastikan membawa STNK dan smartphone Anda saat berkunjung ke bengkel resmi Redaf Motor."
                 ],
-                waMsg: "Halo Redaf Motor, saya mau klaim Kupon E-KSG di aplikasi My Yamaha dan dapatkan Free 200 Point"
+                waMsg: "Halo Redaf Motor, saya mau klaim Kupon E-KSG di aplikasi My Yamaha dan dapatkan Free 200 Point",
+                extraBtn: null
             }
         ];
 
@@ -595,12 +697,15 @@
         const promoModalImg = document.getElementById('promo-modal-img');
         const promoModalCategory = document.getElementById('promo-modal-category');
         const promoModalTitle = document.getElementById('promo-modal-title');
+        const promoModalDivider = document.getElementById('promo-modal-divider');
         const promoModalDesc = document.getElementById('promo-modal-desc');
         const promoModalTermsBox = document.getElementById('promo-modal-terms-box');
         const promoModalTermsIcon = document.getElementById('promo-modal-terms-icon');
         const promoModalTermsTitle = document.getElementById('promo-modal-terms-title');
         const promoModalTerms = document.getElementById('promo-modal-terms');
         const promoModalWaBtn = document.getElementById('promo-modal-wa-btn');
+        const promoModalExtraBtn = document.getElementById('promo-modal-extra-btn');
+        const promoModalExtraText = document.getElementById('promo-modal-extra-text');
         const modalSliderControls = document.getElementById('modal-slider-controls');
 
         // Buka Pop-Up Modal Promo
@@ -611,26 +716,42 @@
             promoModalCategory.className = `${promo.badgeClass} text-[11px] sm:text-xs font-bold uppercase px-3.5 py-1 rounded-full tracking-wider shadow-sm`;
             promoModalCategory.innerText = promo.category;
             promoModalTitle.innerText = promo.title;
+            promoModalDivider.className = `w-16 h-1 ${promo.dividerClass || 'bg-yamahaRed'} my-4 rounded-full`;
             promoModalDesc.innerText = promo.desc;
             
             promoModalTermsBox.className = `${promo.boxClass} border p-4 sm:p-6 rounded-2xl`;
             promoModalTermsIcon.className = `fa-solid ${promo.iconClass} text-sm`;
-            promoModalTermsTitle.innerText = promo.isSlider ? "Mekanisme & Ketentuan Giveaway:" : "Syarat & Ketentuan Promo:";
+            promoModalTermsTitle.innerText = promo.termsTitle || "Syarat & Ketentuan Promo:";
 
-            if (promo.isSlider) {
+            if (promo.isSlider && promo.images && promo.images.length > 0) {
+                activeModalImages = promo.images;
                 currentModalSlide = 0;
-                promoModalImg.src = giveawayImages[0];
+                promoModalImg.src = activeModalImages[0];
                 modalSliderControls.classList.remove('hidden');
-                document.getElementById('modal-slide-indicator').innerText = `1 / ${giveawayImages.length}`;
+                document.getElementById('modal-slide-indicator').innerText = `1 / ${activeModalImages.length}`;
             } else {
+                activeModalImages = [];
                 promoModalImg.src = promo.img;
                 modalSliderControls.classList.add('hidden');
             }
             
-            promoModalTerms.innerHTML = promo.terms.map(t => `<p class="border-b border-black/5 pb-1.5 last:border-0">${t}</p>`).join('');
+            promoModalTerms.innerHTML = promo.terms.map(t => {
+                if (t.startsWith('<hr')) return t;
+                return `<p class="border-b border-black/5 pb-1.5 last:border-0">${t}</p>`;
+            }).join('');
             
-            promoModalWaBtn.className = `w-1/2 sm:w-auto px-6 py-3 rounded-xl ${promo.btnClass} font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg active:scale-95`;
+            promoModalWaBtn.className = `px-5 py-3 rounded-xl ${promo.btnClass} font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg active:scale-95`;
             promoModalWaBtn.href = `https://wa.me/6285353105448?text=${encodeURIComponent(promo.waMsg)}`;
+
+            // Tombol Tautan Tambahan (Instagram/Formulir Luar)
+            if (promo.extraBtn) {
+                promoModalExtraBtn.className = `inline-flex px-5 py-3 rounded-xl ${promo.extraBtn.class} font-bold text-xs sm:text-sm transition items-center justify-center gap-2 shadow-md active:scale-95`;
+                promoModalExtraBtn.href = promo.extraBtn.url;
+                promoModalExtraText.innerText = promo.extraBtn.text;
+                promoModalExtraBtn.classList.remove('hidden');
+            } else {
+                promoModalExtraBtn.classList.add('hidden');
+            }
 
             promoModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
